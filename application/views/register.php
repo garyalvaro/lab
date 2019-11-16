@@ -25,7 +25,7 @@
 			<div class="row">
 					<div class="group">
 						<label>NIM :</label>
-						<input type="text" name="nim">
+						<input type="number" name="nim">
 						<span class="highlight"></span>
 						<span class="bar"></span>	
 					</div>
