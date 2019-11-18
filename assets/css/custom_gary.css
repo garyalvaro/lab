@@ -1,0 +1,9 @@
+.popup-alert{
+        position:fixed; 
+        margin: 10% 30%;
+        align-items: center;
+        z-index:9999; 
+        border-radius:0px;
+        width: 40%;
+        align-content: center;
+}

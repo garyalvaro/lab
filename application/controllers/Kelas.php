@@ -14,9 +14,17 @@ class Kelas extends CI_Controller
                                 
                 $data['title'] = 'Kelas';
                 $data['subtitle'] = 'Kelas';
-                $this->load->view('template/header', $data);
-                $this->load->view('kelas/index', $data);
-                $this->load->view('template/footer');
+                $data['footer'] = '&copy 2019 - IMK';
+                //$this->load->view('template/header', $data);
+                //$this->load->view('kelas/index', $data);
+                //$this->load->view('template/footer');
+                
+//                $this->load->view('dashboard/header', $data);
+//                $this->load->view('dashboard/navbar');
+//                $this->load->view('dashboard/leftside');
+//                $this->load->view('kelas/index', $data);
+//                $this->load->view('dashboard/footer', $data);
+                $this->load->view('kelas/index2', $data);
         }
         
         public function create()
@@ -35,7 +43,7 @@ class Kelas extends CI_Controller
                                 redirect("kelas/index");
                         }
                 } 
-                
+                                
                 $data['title'] = 'Tambah Kelas';
                 $data['subtitle'] = 'Tambah Kelas';
                 $this->load->view('template/header', $data);
