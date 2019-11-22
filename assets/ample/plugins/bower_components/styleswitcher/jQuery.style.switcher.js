@@ -1,6 +1,6 @@
 // Theme color settings
 $(document).ready(function () {
-    function store(name, val) {
+    function store(name, val){
         if (typeof (Storage) !== "undefined") {
             localStorage.setItem(name, val);
         } else {
@@ -41,7 +41,7 @@ $(document).ready(function () {
         store('theme', currentStyle);
         $('#theme').attr({
             href: '../../../css/colors/' + currentStyle + '.css'
-        })
+        });
     });
 
     var currentTheme = get('theme');
