@@ -16,10 +16,21 @@
     $('#sa-title').click(function(){
         swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.")
     });
-
-    //Success Message
+            
     $('#sa-success').click(function(){
         swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.", "success")
+    });
+    
+    $('#login-success').show(function(){
+        swal("Login Berhasil!", "Anda sudah berhasil masuk.", "success")
+    });
+    
+    $('#add-success').show(function(){
+        swal("Berhasil!", "Kelas berhasil ditambahkan!.", "success")
+    });
+    
+    $('#add-failed').show(function(){
+        swal("Gagal!", "Kelas gagal ditambahkan, coba ulangi lagi.", "warning")
     });
 
     //Warning Message

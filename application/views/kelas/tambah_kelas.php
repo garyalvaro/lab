@@ -2,6 +2,18 @@
 $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');
+
+//if($this->session->userdata('logged_in'))
+//{
+//       
+//}
+
+if($this->session->flashdata())
+{
+        if($this->session->flashdata('login_success'))
+                echo "<span id='login-success'></span>";
+}
+
 ?>
 
 <!-- TITLE -->
@@ -19,17 +31,36 @@ $this->load->view('dashboard/leftside');
         <div class="white-box">
             <h3 class="box-title m-b-0">TAMBAH KELAS</h3>
             <p class="text-muted m-b-30">Untuk menambah kelas atau praktikum mata kuliah baru.</p>
-            <button class="tst1 btn btn-info">Info Message</button>
 
                         <?php echo form_open('Kelas/create'); ?>
                                 <div class="form-group">
-                                        Nama Kelas
-                                        <input type="text" name="nama_kelas" class="form-control" placeholder="Masukkan Nama Kelas" required>
+                                        Praktikum Mata Kuliah
+                                        <select name="nama_kelas" class="form-control" required>
+                                                <option disabled selected>--Pilih Mata Kuliah--</option>
+                                                <?php foreach($matkul as $key):?>
+                                                <option value="<?= $key->singkatan_matkul;?>"><?= $key->nama_matkul." - Semester ".$key->semester;?></option>
+                                                <?php endforeach;?>
+                                        </select>
                                 </div>
                                 
                                 <div class="form-group">
                                         Kom
-                                        <input type="text" name="kom" class="form-control" placeholder="Masukkan Kom" required>
+                                        <select name="kom" class="form-control" required>
+                                                <option disabled selected>--Pilih Kom--</option>
+                                                <option value="A">Kom. A</option>
+                                                <option value="B">Kom. B</option>
+                                                <option value="C">Kom. C</option>
+                                        </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                        Aslab
+                                        <select name="id_aslab" class="form-control" required>
+                                                <option disabled selected>--Pilih Aslab--</option>
+                                                <?php foreach($aslab as $key):?>
+                                                <option value="<?= $key->id_aslab;?>"><?= $key->nama_aslab;?></option>
+                                                <?php endforeach;?>
+                                        </select>
                                 </div>
 
                                 
@@ -40,7 +71,6 @@ $this->load->view('dashboard/leftside');
                         
         </div>
 </div>
-
 
 <?php
 $this->load->view('dashboard/rightside');

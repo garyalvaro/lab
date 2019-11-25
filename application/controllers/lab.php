@@ -43,6 +43,7 @@ class lab extends CI_Controller
                         $nim = $this->input->post('nim');
                         $pass = $this->input->post('pass');
                         $user_id = $this->lab_model->login_user($nim, $pass);
+                        $nama = $this->lab_model->get_nama($nim, $pass);
                         $level = $this->lab_model->cek_level($nim, $pass);
                         if($user_id == TRUE)
                         {
@@ -50,6 +51,7 @@ class lab extends CI_Controller
                                         'user_id'=>$user_id,
                                         'level' => $level,
                                         'nim'=>$nim,
+                                        'nama'=>$nama,
                                         'logged_in'=>true
                                 );
                                 if($user_data['level']=='1'){
@@ -67,7 +69,8 @@ class lab extends CI_Controller
                                 else {
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	redirect('lab/index');
+                                	//redirect('lab/index');
+                                        redirect('Kelas/create');
                                 }
 
                         }

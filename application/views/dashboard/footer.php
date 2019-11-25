@@ -24,6 +24,8 @@
     <script src="<?php echo base_url(); ?>assets/ample/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
     <script src="<?php echo base_url(); ?>assets/ample/js/waves.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/js/toastr.js"></script>
     <!-- Sweet-Alert  -->
     <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sweetalert/sweetalert.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
@@ -96,20 +98,3 @@
 
 </html>
 
-
-
-    <!--JS untuk Alert TimeOut-->
-<script>
-//window.setTimeout(function () {
-//    $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
-//        $(this).remove();
-//    });
-//}, 5000);
-</script>
-
-<!--JS untuk Tabel-->
-<script>
-//$(document).ready(function() {
-//    $('#table_id').DataTable();
-//} );
-</script>

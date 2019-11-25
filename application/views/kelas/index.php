@@ -2,6 +2,17 @@
 $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');
+
+if($this->session->flashdata())
+{
+        if($this->session->flashdata('login_success'))
+                echo "<span id='login-success'></span>";
+        else if($this->session->flashdata('add_success'))
+                echo "<span id='add-success'></span>";
+        else if($this->session->flashdata('add_failed'))
+                echo "<span id='add-failed'></span>";
+}
+
 ?>
 
 <!-- TITLE -->
@@ -27,6 +38,7 @@ $this->load->view('dashboard/leftside');
                                         <th>ID Kelas</th>
                                         <th>Nama Kelas</th>
                                         <th>Aslab</th>
+                                        <th>Tahun Ajaran</th>
                                         <th>Aksi</th>
                                 </tr>
                                 </thead>
@@ -35,7 +47,8 @@ $this->load->view('dashboard/leftside');
                                 <tr>
                                         <td><?php echo $data->id_kelas; ?></td>
                                         <td><?php echo $data->nama_kelas; ?></td>
-                                        <td>-----</td>
+                                        <td><?php echo $data->id_aslab; ?></td>
+                                        <td><?php echo $data->tahun_ajaran; ?></td>
                                         <td>
 <!--
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -71,7 +84,19 @@ $(document).ready(function() {
 } );
 </script>
 
-
+<script>
+$(document).ready(function() {
+$.toast({
+         heading: 'Kelas Berhasil ditambahkan',
+         text: 'Use the predefined ones, or specify a custom position object.',
+         position: 'top-right',
+         loaderBg: '#fff',
+         icon: 'warning',
+         hideAfter: 5000,
+         stack: 6
+     })
+} );
+</script>
 
 <?php
 $this->load->view('dashboard/footer');

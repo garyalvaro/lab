@@ -1,3 +1,9 @@
+<?php
+if($this->session->userdata('logged_in')){
+        
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -5,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url(); ?>assets/ample/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="17x13" href="<?php echo base_url(); ?>assets/ample/plugins/images/favvicon.png">
 
     <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
@@ -14,6 +20,8 @@
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
     <!-- Menu CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
     <!-- xeditable css -->
     <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
     <!--alerts CSS -->

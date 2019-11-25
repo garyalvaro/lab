@@ -13,7 +13,18 @@ class lab_model extends CI_Model{
                 else
                         return false;
         }
-
+        
+        public function get_nama($nim, $pass)
+	{
+		$this->db->where('nim', $nim);
+		$this->db->where('pass', $pass);
+		$result=$this->db->get('user');
+		if($result->num_rows()==1)
+			return $result->row(1)->nama;
+		else
+			return false;
+	}
+        
 	public function cek_level($nim, $pass)
 	{
 		$this->db->where('nim', $nim);

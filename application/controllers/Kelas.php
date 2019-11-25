@@ -14,13 +14,15 @@ class Kelas extends CI_Controller
                                 
                 $data['title'] = 'Kelas';
                 $data['subtitle'] = 'Kelas';
-                $this->load->view('kelas/index2', $data);
+                $this->load->view('kelas/index', $data);
         }
         
         public function create()
         {
                 $data['title'] = 'Tambah Kelas';
                 $data['subtitle'] = 'Tambah Kelas';
+                $data['aslab'] = $this->Kelas_model->get_aslab($this->tahun_ajaran());
+                $data['matkul'] = $this->Kelas_model->get_matkul();
                 $this->load->view('kelas/tambah_kelas', $data);
                 
                if($this->input->post('submit'))
@@ -28,14 +30,21 @@ class Kelas extends CI_Controller
                         $data = array(
                                 'nama_kelas'=>$this->input->post('nama_kelas'),
                                 'kom'=>$this->input->post('kom'),
-                                'tahun_ajaran'=>$this->tahun_ajaran()
+                                'tahun_ajaran'=>$this->tahun_ajaran(),
+                                'id_aslab'=>$this->input->post('id_aslab')
                         );
                         
                         if($this->Kelas_model->create_tabel_kelas($data))
                         {
-                                $this->session->set_flashdata('kelas_create','<b class="text-success">Kelas berhasil ditambah</b>');
+                                $this->session->set_flashdata('add_success','add success');
                                 redirect("kelas/index");
                         }
+                        else
+                        {
+                                $this->session->set_flashdata('add_failed','add failed');
+                                redirect("kelas/index");
+                        }
+                                
                 } 
         }
         

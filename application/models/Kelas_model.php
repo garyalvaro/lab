@@ -14,12 +14,36 @@ class Kelas_model extends CI_Model
                 return $query = $this->db->get('kelas')->result();
         }
         
+        public function get_aslab($ta)
+        {
+                $query = $this->db->query('SELECT * FROM aslab WHERE tahun_ajaran = "'.$ta.'" AND status=1;');
+                return $query->result();
+        }
+        
+        public function get_matkul()
+        {
+                $query = $this->db->query('SELECT * FROM matkul WHERE MOD(semester,2)=MOD('.date("Y").',2) ORDER BY semester;');
+                return $query->result();
+        }
+        
+        public function cek_kelas($nama_kelas, $ta, $id_aslab)
+        {
+                $this->db->where('nama_kelas', $nama_kelas);
+                $this->db->where('tahun_ajaran', $ta);
+                $this->db->where('id_aslab', $id_aslab);
+                $result=$this->db->get('kelas');
+                if($result->num_rows()==1)
+                        return true;
+                else
+                        return false;
+        }
+        
         public function create_tabel_kelas($data)
         {
                 $table = strtolower("kelas_".$data['nama_kelas']."_".$data['kom']."_".$data['tahun_ajaran']);
                 
                 if($this->db->table_exists($table))
-                        echo "TABEL ".$table." SUDAH ADA";
+                        return FALSE;
                 else
                 {
                         $this->dbforge->add_field(array(
@@ -38,11 +62,15 @@ class Kelas_model extends CI_Model
                         ));
                         
                         $this->dbforge->create_table($table);
-                        echo "CREATE TABEL ".$table." BERHASIL";
+                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, tahun_ajaran, id_aslab) VALUES ("", "'.$data['nama_kelas'].' - '.$data['kom'].'", "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'")');
+                        return TRUE;
                 }
                                 
-                //$this->db->insert('kelas',$data['nama_kelas']);
-                $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas) VALUES ("", "'.$data['nama_kelas'].'")');
+//                if(!$this->cek_kelas($data['nama_kelas'], $data['tahun_ajaran'], $data['id_aslab']))
+//                {
+//                        
+//                }
+                        
         }
 }
 
