@@ -14,6 +14,12 @@ class Kelas_model extends CI_Model
                 return $query = $this->db->get('kelas')->result();
         }
         
+        public function view_kelas($id_kelas)
+        {
+                $query = $this->db->query('SELECT * FROM '.$id_kelas.'');
+                return $query->result();
+        }
+        
         public function get_aslab($ta)
         {
                 $query = $this->db->query('SELECT * FROM aslab WHERE tahun_ajaran = "'.$ta.'" AND status=1;');
@@ -26,17 +32,17 @@ class Kelas_model extends CI_Model
                 return $query->result();
         }
         
-        public function cek_kelas($nama_kelas, $ta, $id_aslab)
-        {
-                $this->db->where('nama_kelas', $nama_kelas);
-                $this->db->where('tahun_ajaran', $ta);
-                $this->db->where('id_aslab', $id_aslab);
-                $result=$this->db->get('kelas');
-                if($result->num_rows()==1)
-                        return true;
-                else
-                        return false;
-        }
+//        public function cek_kelas($nama_kelas, $ta, $id_aslab)
+//        {
+//                $this->db->where('nama_kelas', $nama_kelas);
+//                $this->db->where('tahun_ajaran', $ta);
+//                $this->db->where('id_aslab', $id_aslab);
+//                $result=$this->db->get('kelas');
+//                if($result->num_rows()==1)
+//                        return true;
+//                else
+//                        return false;
+//        }
         
         public function create_tabel_kelas($data)
         {

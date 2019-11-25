@@ -50,6 +50,7 @@ if($this->session->flashdata())
                                         <td><?php echo $data->id_aslab; ?></td>
                                         <td><?php echo $data->tahun_ajaran; ?></td>
                                         <td>
+                                                <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
 <!--
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
                                                 <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
