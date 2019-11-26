@@ -43,13 +43,30 @@
 			          <li><a href="index.html">Home</a></li>
 			          <li><a href="courses.html">Kelas</a></li>
 			          <li><a href="events.html">Jadwal</a></li>
-			          <li class="menu-has-children"><a href="#">Login</a>
+
+
+			          <?php if($this->session->userdata('logged_in')): ?>
+			          <li class="menu-has-children"><a href="#">Logout</a>
 			            <ul>
-			              <li><input type="text" name="username" placeholder="Username"></li>
-			              <li><input type="password" name="password" placeholder="Password"></li>
-			              <li><input type="submit" value="Submit"></li>
+			            		<?php echo "Hello, ".$this->session->userdata('nim');?>
+								<?php echo form_open('lab/logout'); ?>
+								<button class="btn btn-danger btn-sm">Logout</button>
+								<?php echo form_close();?>
+						</ul>
+			          </li>
+					  
+					  <?php else: ?>
+			          <li class="menu-has-children"><a href="#">Login</a>
+			            <ul>    
+			              <?php echo form_open('lab/login'); ?>
+			              <li><input type="text" name="nim" placeholder="NIM" class="form-control-sm"></li>
+			              <li><input type="password" name="pass" placeholder="Password" class="form-control-sm"></li>
+			              <li><input type="submit" name="submit" value="Login" class="btn btn-info btn-sm"></li>
+			              <?php echo form_close(); ?>
 			            </ul>
 			          </li>
+			          <?php endif; ?>
+
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
 		    	</div>
