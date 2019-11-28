@@ -36,6 +36,7 @@ $(document).ready(function () {
         });
 
     });
+    
     $(".tst3").on("click", function () {
         $.toast({
             heading: 'Welcome to my Elite admin',
@@ -46,7 +47,18 @@ $(document).ready(function () {
             hideAfter: 3500,
             stack: 6
         });
-
+    });
+    
+    $(".login-success").show(function(){
+        $.toast({
+            heading: 'Login Berhasil',
+            text: 'Anda sudah berhasil masuk.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
     });
 
     $(".tst4").on("click", function () {

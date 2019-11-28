@@ -7,30 +7,84 @@
                     <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3> </div>
                 <ul class="nav" id="side-menu">
                     <li class="user-pro">
-                        <a href="#" class="waves-effect"><img src="https://portal.usu.ac.id/photos/<?php echo $this->session->userdata('nim'); ?>.jpg" alt="user-img" class="img-circle"> <span class="hide-menu"> <?php echo $this->session->userdata('nama'); ?><span class="fa arrow"></span></span>
+                        <a href="#" class="waves-effect"><img src="https://portal.usu.ac.id/photos/<?php echo $this->session->userdata('nim'); ?>.jpg" alt="user-img" class="img-circle"> <span class="hide-menu"> <?php echo $this->session->userdata('nama'); ?></span>
                         </a>
-                        <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                            <li><a href="javascript:void(0)"><i class="ti-user"></i> <span class="hide-menu">My Profile</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-wallet"></i> <span class="hide-menu">My Balance</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-email"></i> <span class="hide-menu">Inbox</span></a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> <span class="hide-menu">Account Setting</span></a></li>
-                            <li><a href="<?php echo base_url(); ?>lab/logout"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
+                    </li>
+                    <li class="devider"></li>
+                    
+                    <!--BPH--------------------------->
+                    <?php if($this->session->userdata('level')==2): ?>
+                    <li><a href="#" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu">Penjadwalan<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="fa fa-calendar-o fa-fw"></i><span class="hide-menu">Lihat Jadwal</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Tambah Jadwal</span></a></li>
+                            <li><a href="#"><i class="fa fa-edit fa-fw"></i><span class="hide-menu">Ganti Jadwal</span></a></li>
+                            <li><a href="#"><i class="fa fa-building-o fa-fw"></i><span class="hide-menu">Daftar Ruangan</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="devider"></li>    
+                            
+                    <li><a href="#" class="waves-effect"><i class="fa fa-building fa-fw"></i> <span class="hide-menu">Kelas<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="mdi mdi-view-list fa-fw"></i><span class="hide-menu">Daftar Kelas</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-playlist-plus fa-fw"></i><span class="hide-menu">Tambah Kelas</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="devider"></li>
+                    
+                    <li><a href="#" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i> <span class="hide-menu">Aslab<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="mdi mdi-account-card-details fa-fw"></i><span class="hide-menu">Daftar Aslab</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-account-multiple-plus fa-fw"></i><span class="hide-menu">Pendaftaran Aslab</span></a></li>
                         </ul>
                     </li>
                     
-                    <!----------------------------->
                     
-                    <li> <a href="widgets.html" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Widgets</span></a> </li>
+                 <!--ASLAB--------------------------->
+                    <?php elseif($this->session->userdata('level')==1): ?>
+                    <li><a href="#" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu">Penjadwalan<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="fa fa-calendar-o fa-fw"></i><span class="hide-menu">Lihat Jadwal</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Tambah Jadwal</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-message-draw fa-fw"></i><span class="hide-menu">Buat Pengumuman</span></a></li>
+                            <li><a href="#"><i class="fa fa-building-o fa-fw"></i><span class="hide-menu">Daftar Ruangan</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="devider"></li>    
+                            
+                    <li><a href="#" class="waves-effect"><i class="fa fa-building fa-fw"></i> <span class="hide-menu">Kelas<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="mdi mdi-view-list fa-fw"></i><span class="hide-menu">Daftar Kelas Praktikum</span></a></li>
+                        </ul>
+                    </li>
                     <li class="devider"></li>
-                    <li> <a href="map-google.html" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu">Google Map</span></a> </li>
-                    <li> <a href="map-vector.html" class="waves-effect"><i class="mdi mdi-map-marker fa-fw"></i><span class="hide-menu">Vector Map</span></a> </li>
-                    <li> <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar-check fa-fw"></i> <span class="hide-menu">Calendar</span></a></li>
+                    
+                    
+                <!--MHS--------------------------->
+                    <?php elseif($this->session->userdata('level')==0): ?>
+                    <li><a href="#" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu">Penjadwalan<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="fa fa-calendar-o fa-fw"></i><span class="hide-menu">Lihat Jadwal</span></a></li>
+                            <li><a href="#"><i class="mdi mdi-message-text-outline fa-fw"></i><span class="hide-menu">Lihat Pengumuman</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="devider"></li>    
+                            
+                    <li><a href="#" class="waves-effect"><i class="fa fa-building fa-fw"></i> <span class="hide-menu">Kelas<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="mdi mdi-view-list fa-fw"></i><span class="hide-menu">Daftar Kelas</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="devider"></li>    
+                    <li><a href="#"><i class="mdi mdi-account-plus fa-fw"></i><span class="hide-menu">Pendaftaran Aslab</span></a></li>
                     <li class="devider"></li>
-                    <li><a href="login.html" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-                    <li class="devider"></li>
-                    <li><a href="documentation.html" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li>
-                    <li><a href="gallery.html" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Gallery</span></a></li>
-                    <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li>
+                
+                <!--MHS--------------------------->
+                    <?php endif; ?>
+                
+                    
+                <!--logout--------->
+                    <li><a href="<?php echo base_url(); ?>lab/logout" class="waves-effect"><i class="mdi mdi-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
                 </ul>
             </div>
         </div>

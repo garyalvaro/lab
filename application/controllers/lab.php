@@ -56,69 +56,28 @@ class lab extends CI_Controller
                                 );
                                 if($user_data['level']=='1'){
                                 	$this->session->set_userdata($user_data);
-                                	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
+                                	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login </b>');
                                 	redirect('');
-                                	// echo "aku mahasiswa";
                                 }
                                 elseif($user_data['level']=='2'){
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	redirect('');
-                                	// echo "aku mahasiswa";
+                                	redirect('Kelas/create');
                                 }
                                 else {
                                 	$this->session->set_userdata($user_data);
-                                	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	//redirect('lab/index');
-                                        redirect('Kelas/create');
+                                	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login </b>');
+                                        redirect('');
                                 }
 
                         }
                         else
                         {
-                                $this->session->set_flashdata('login_failed', '<b class="text-danger">Anda gagal login</b>');
+                                $this->session->set_flashdata('login_failed', '<b class="text-danger">NIM atau Password Anda salah.</b>');
                                 redirect('');
                         }
                 }
         }
-
-	// public function login1()
-	// {
-	// 	$this->form_validation->set_rules('nim', 'NIM', 'trim|required|min_length[9]');
-	// 	$this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[6]');
-	// 	if($this->form_validation->run()==FALSE)
-	// 	{
-	// 		// $data=array('errors'=>validations_errors());
-	// 		// $this->session->set_flashdata($data);
-	// 		// redirect('lab/index');
-	// 		echo "<script>alert('terjadi kesalahan');</script>";
-	// 		$this->load->view('index');
-	// 	}
-	// 	else
-	// 	{
-	// 		$nim = $this->input->post('nim');
-	// 		$pass = $this->input->post('pass');
-	// 		// $nama = $this->input->post('nama');
-	// 		$level = $this->lab_model->cek_level($nim, $pass);
-	// 		if($nim)
-	// 		{
-	// 			$user_data=array(
-	// 				'nim'=>$nim,
-	// 				'level'=>$level,
-	// 				// 'nama'=>$nama,
-	// 				'logged_in'=>true
-	// 			);
-	// 			$this->session->set_userdata($user_data);
-	// 			$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-	// 			redirect('lab/index');
-	// 		}
-	// 		else
-	// 		{
-	// 			$this->session->set_flashdata('login_failed', '<b class="text-danger">Anda Gagal Login</b>');
-	// 			redirect('lab/index');
-	// 		}
-	// 	}
-	// }
 
 	public function register()
 	{
@@ -146,12 +105,12 @@ class lab extends CI_Controller
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
 				$this->lab_model->create_user($data);
-				redirect('index', $data);
+				redirect('');
 			}
 			else
 			{
 				$this->session->set_flashdata('sudah_ada', '<b class="text-danger">Username sudah ada</b>');
-				redirect('register');
+				redirect('lab/register');
 			}
 		}
 	}

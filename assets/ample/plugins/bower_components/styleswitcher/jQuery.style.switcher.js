@@ -1,6 +1,6 @@
 // Theme color settings
 $(document).ready(function () {
-    function store(name, val){
+    function store(name, val) {
         if (typeof (Storage) !== "undefined") {
             localStorage.setItem(name, val);
         } else {
@@ -12,20 +12,20 @@ $(document).ready(function () {
         var currentStyle = $(this).attr('data-theme');
         store('theme', currentStyle);
         $('#theme').attr({
-            href: '../../../css/colors/' + currentStyle + '.css'
-        });
+            href: 'css/colors/' + currentStyle + '.css'
+        })
     });
 
     var currentTheme = get('theme');
     if (currentTheme) {
         $('#theme').attr({
-            href: '../../../css/colors/' + currentTheme + '.css'
+            href: 'css/colors/' + currentTheme + '.css'
         });
     }
     // color selector
     $('#themecolors').on('click', 'a', function () {
         $('#themecolors li a').removeClass('working');
-        $(this).addClass('working');
+        $(this).addClass('working')
     });
 
 });
@@ -40,14 +40,14 @@ $(document).ready(function () {
         var currentStyle = $(this).attr('data-theme');
         store('theme', currentStyle);
         $('#theme').attr({
-            href: '../../../css/colors/' + currentStyle + '.css'
-        });
+            href: 'css/colors/' + currentStyle + '.css'
+        })
     });
 
     var currentTheme = get('theme');
     if (currentTheme) {
         $('#theme').attr({
-            href: '../../../css/colors/' + currentTheme + '.css'
+            href: 'css/colors/' + currentTheme + '.css'
         });
     }
     // color selector

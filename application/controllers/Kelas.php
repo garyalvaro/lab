@@ -52,7 +52,7 @@ class Kelas extends CI_Controller
         {
                 $data['title'] = 'Detail Kelas';
                 $data['subtitle'] = 'Detail Kelas';
-                $this->Kelas_model->view_kelas($id_kelas);
+                $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
                 $this->load->view('Kelas/detail', $data);
         }
         

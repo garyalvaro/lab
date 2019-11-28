@@ -2,18 +2,6 @@
 $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');
-
-//if($this->session->userdata('logged_in'))
-//{
-//       
-//}
-
-if($this->session->flashdata())
-{
-        if($this->session->flashdata('login_success'))
-                echo "<span id='login-success'></span>";
-}
-
 ?>
 
 <!-- TITLE -->
@@ -66,6 +54,7 @@ if($this->session->flashdata())
                                 
                                 <div class="form-group">
                                         <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
+                                        <a href="<?php echo base_url();?>Kelas" class="btn btn-outline btn-default">Kembali </a>
                                 </div>
                         <?php echo form_close(); ?>
                         

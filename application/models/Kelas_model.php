@@ -15,9 +15,23 @@ class Kelas_model extends CI_Model
         }
         
         public function view_kelas($id_kelas)
-        {
-                $query = $this->db->query('SELECT * FROM '.$id_kelas.'');
-                return $query->result();
+        {       
+                $result=$this->db->query('SELECT * FROM kelas WHERE id_kelas="'.$id_kelas.'"');
+                $nama_kelas = $result->row(1)->nama_kelas;
+                $ta = $result->row(2)->tahun_ajaran;
+                
+                $query = $this->db->get('kelas_'.$nama_kelas.'_'.$ta.'')->result();
+                return $query;
+        }
+        
+        public function view_jlhAnggota($id_kelas)
+        {       
+                $result=$this->db->query('SELECT * FROM kelas WHERE id_kelas="'.$id_kelas.'"');
+                $nama_kelas = $result->row(1)->nama_kelas;
+                $ta = $result->row(2)->tahun_ajaran;
+                
+                $query = $this->db->get('kelas_'.$nama_kelas.'_'.$ta.'')->num_rows();
+                return $query;
         }
         
         public function get_aslab($ta)

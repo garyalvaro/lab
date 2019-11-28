@@ -1,4 +1,30 @@
-	<!DOCTYPE html>
+<?php 
+        //Kalau berhasil login akan menampilkan keterangan
+        if($this->session->flashdata('login_success')):
+                $pesan = $this->session->flashdata('login_success');
+        endif;
+
+        //Kalau gagal login akan menampilkan keterangan
+        if($this->session->flashdata('login_failed')):
+                $pesan = $this->session->flashdata('login_failed');
+        endif;
+
+        //Kalau ada kesalahan saat login akan menampilkan keterangan
+        if($this->session->flashdata('errors')):
+                $pesan = '<b class="text-danger">'.$this->session->flashdata('errors').'</b>';
+        endif;
+?>
+
+<?php //SESSION LEVEL
+if($this->session->userdata('level') == 0) 
+        $level = "Mahasiswa";
+elseif($this->session->userdata('level') == 1) 
+        $level = "Asisten Lab";
+elseif($this->session->userdata('level') == 2) 
+        $level = "BPH";
+?>
+
+<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -14,7 +40,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>ITLG</title>
+		<title>Laboratorium TI</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -31,8 +57,8 @@
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/main.css">
 		</head>
 		<body>	
-		  <header id="header" id="home">
-	  		
+                                
+		  <header id="header" id="home">                        
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
@@ -48,10 +74,12 @@
 			          <?php if($this->session->userdata('logged_in')): ?>
 			          <li class="menu-has-children"><a href="#">Logout</a>
 			            <ul>
-			            		<?php echo "Hello, ".$this->session->userdata('nim');?>
-								<?php echo form_open('lab/logout'); ?>
-								<button class="btn btn-danger btn-sm">Logout</button>
-								<?php echo form_close();?>
+			            		<h4>Hello, <b><?php echo $this->session->userdata('nama');?></b></h4>
+                                                Login as <i class="text-dark"><?php echo $level; ?></i>
+                                                
+                                                <?php echo form_open('lab/logout'); ?>
+                                                <button class="btn btn-danger btn-block btn-sm py-1 mt-2 rounded-0">Logout</button>
+                                                <?php echo form_close();?>
 						</ul>
 			          </li>
 					  
@@ -59,9 +87,9 @@
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
 			              <?php echo form_open('lab/login'); ?>
-			              <li><input type="text" name="nim" placeholder="NIM" class="form-control-sm"></li>
-			              <li><input type="password" name="pass" placeholder="Password" class="form-control-sm"></li>
-			              <li><input type="submit" name="submit" value="Login" class="btn btn-info btn-sm"></li>
+			              <li><input type="text" name="nim" placeholder="NIM" class="form-control rounded-0 px-2 py-1 my-2"></li>
+			              <li><input type="password" name="pass" placeholder="Password" class="form-control rounded-0 px-2 py-1 my-2"></li>
+			              <li><input type="submit" name="submit" value="Login" class="primary-btn btn-block my-1"></li>
 			              <?php echo form_close(); ?>
 			            </ul>
 			          </li>
@@ -77,6 +105,22 @@
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>	
 				<div class="container">
+                                
+<!-- POPUP ALERT -->               
+<div class="row float-right mt-5 pt-5">
+<?php if($this->session->flashdata()):?>
+        <div class="popup-alert">
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <?php echo $pesan; ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        </div>
+<?php endif; ?>
+</div>
+
+                                
 					<div class="row fullscreen d-flex align-items-center justify-content-between">
 						<div class="banner-content col-lg-9 col-md-12">
 							<h1 class="text-uppercase">
@@ -359,6 +403,15 @@ Copyright @kelompok 10 &copy;<script>document.write(new Date().getFullYear());</
 			</footer>	
 			<!-- End footer Area -->	
 
+
+<!--JS untuk Alert TimeOut-->
+<script>
+window.setTimeout(function () {
+    $(".alert-info").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+    });
+}, 4000);
+</script>
 
 			<script src="<?php echo base_url();?>assets/luis/js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -1,6 +1,7 @@
 <?php
-if($this->session->userdata('logged_in')){
-        
+//If not logged in, redirect to homepage
+if(!$this->session->userdata('logged_in')){
+        redirect('');
 }
 ?>
 

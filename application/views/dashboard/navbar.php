@@ -1,3 +1,19 @@
+<?php
+if($this->session->userdata('level') == 0) 
+        $level = "Mahasiswa";
+elseif($this->session->userdata('level') == 1) 
+        $level = "Asisten Lab";
+elseif($this->session->userdata('level') == 2) 
+        $level = "BPH";
+
+if($this->session->flashdata())
+{
+        if($this->session->flashdata('login_success'))
+                echo "<span class='login-success'></span>";
+}
+
+?>
+
 <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -5,7 +21,7 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="<?php echo base_url(); ?>">
                         <!-- Logo icon image, you can use font-icon also --><b>
                         <!--This is dark logo icon--><img src="<?php echo base_url(); ?>assets/ample/plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="<?php echo base_url(); ?>assets/ample/plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
                      </b>
@@ -27,17 +43,13 @@
                                     <div class="u-img"><img src="https://portal.usu.ac.id/photos/<?php echo $this->session->userdata('nim'); ?>.jpg" alt="user" /></div>
                                     <div class="u-text">
                                         <h4><?php echo $this->session->userdata('nama'); ?></h4>
-                                        <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                        <p class="text-muted">NIM : <?php echo $this->session->userdata('nim'); ?></p>
+                                        <p><span class="text-muted">Login as : </span><?php echo $level; ?></p>
+                                        <br>
+                                        <a href="<?php echo base_url(); ?>lab/logout" class="btn btn-rounded btn-danger btn-sm"><i class="fa fa-power-off"></i> &nbsp; Logout</a>
+                                     </div>
                                 </div>
                             </li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                            <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-                            <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
