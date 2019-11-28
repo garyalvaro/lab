@@ -44,8 +44,9 @@
 			          <li><a href="courses.html">Kelas</a></li>
 			          <li><a href="events.html">Jadwal</a></li>
 
-
+			        
 			          <?php if($this->session->userdata('logged_in')): ?>
+			           
 			          <li class="menu-has-children"><a href="#">Logout</a>
 			            <ul>
 			            		<?php echo "Hello, ".$this->session->userdata('nim');?>
@@ -56,6 +57,7 @@
 			          </li>
 					  
 					  <?php else: ?>
+					  	<div class="form-wrap">
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
 			              <?php echo form_open('lab/login'); ?>
@@ -63,6 +65,7 @@
 			              <li><input type="password" name="pass" placeholder="Password" class="form-control-sm"></li>
 			              <li><input type="submit" name="submit" value="Login" class="btn btn-info btn-sm"></li>
 			              <?php echo form_close(); ?>
+			          </div>
 			            </ul>
 			          </li>
 			          <?php endif; ?>

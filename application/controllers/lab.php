@@ -146,12 +146,12 @@ class lab extends CI_Controller
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
 				$this->lab_model->create_user($data);
-				redirect('index', $data);
+				redirect('', $data);
 			}
 			else
 			{
 				$this->session->set_flashdata('sudah_ada', '<b class="text-danger">Username sudah ada</b>');
-				redirect('register');
+				redirect('lab/register');
 			}
 		}
 	}
