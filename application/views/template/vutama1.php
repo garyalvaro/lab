@@ -70,8 +70,9 @@ elseif($this->session->userdata('level') == 2)
 			          <li><a href="courses.html">Kelas</a></li>
 			          <li><a href="events.html">Jadwal</a></li>
 
-
+			        
 			          <?php if($this->session->userdata('logged_in')): ?>
+			           
 			          <li class="menu-has-children"><a href="#">Logout</a>
 			            <ul>
 			            		<h4>Hello, <b><?php echo $this->session->userdata('nama');?></b></h4>
@@ -84,6 +85,7 @@ elseif($this->session->userdata('level') == 2)
 			          </li>
 					  
 					  <?php else: ?>
+					  	<div class="form-wrap">
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
 			              <?php echo form_open('lab/login'); ?>
@@ -91,6 +93,7 @@ elseif($this->session->userdata('level') == 2)
 			              <li><input type="password" name="pass" placeholder="Password" class="form-control rounded-0 px-2 py-1 my-2"></li>
 			              <li><input type="submit" name="submit" value="Login" class="primary-btn btn-block my-1"></li>
 			              <?php echo form_close(); ?>
+			          </div>
 			            </ul>
 			          </li>
 			          <?php endif; ?>

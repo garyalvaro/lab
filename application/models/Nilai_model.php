@@ -37,6 +37,17 @@ class Nilai_model extends CI_Model
                 $query = $this->db->where($id, $val)->get($table);
                 return $query->result();
         }
+        function get_by_id_column_general($table,$column, $id, $val)
+        {
+                $thiss = $this->db->query("SELECT $column FROM $table WHERE $id = '$val'")->result();
+                return $thiss;
+        }
+        function get_by_column_general($table,$column)
+        {
+                $thiss = $this->db->query("SELECT $column FROM $table")->result();
+                return $thiss;
+        }
+
 
         function create_general($table, $data)
         {

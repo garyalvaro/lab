@@ -63,11 +63,19 @@
 					  <?php else: ?>
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
-			              <?php echo form_open('lab/login'); ?>
-			              <li><input type="text" name="nim" placeholder="NIM" class="form-control-sm"></li>
-			              <li><input type="password" name="pass" placeholder="Password" class="form-control-sm"></li>
-			              <li><input type="submit" name="submit" value="Login" class="btn btn-info btn-sm"></li>
-			              <?php echo form_close(); ?>
+			             <div class="form-wrap">
+								<?php echo form_open('lab/login'); ?>	
+								<li>
+								<input type="text" class="form-control" name="nim" placeholder="NIM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIM'" >
+								</li>
+								<li>
+								<input type="password" class="form-control" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" >
+								</li>
+								<li>						
+								<button class="primary-btn text-uppercase">Submit</button>
+								</li>
+							<?php echo form_close(); ?>
+						 </div>
 			            </ul>
 			          </li>
 			          <?php endif; ?>
@@ -77,7 +85,7 @@
 		    	</div>
 		    </div>
 		  </header><!-- #header -->
-
+ 
 			<!-- start banner Area -->
 			<section class="search-course-area relative">
 				<div class="overlay overlay-bg"></div>	
@@ -105,6 +113,7 @@
 							<div class="col-lg-12 col-md-12 search-course-right mt-5 py-5">
 								<div class="form_error">
          						</div>
+         				<div class="form-wrap">
 								<h4 class="text-white pb-20 text-center mb-30">Register</h4>	
 								<?php echo form_open('lab/register'); ?>	
 								<input type="number" class="form-control" name="nim" placeholder="NIM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIM'" >
@@ -116,6 +125,7 @@
 														
 								<button class="primary-btn text-uppercase">Submit</button>
 							<?php echo form_close(); ?>
+						</div>
 						</div>
 						</div>										
 					</div>

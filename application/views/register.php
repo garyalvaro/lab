@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +24,7 @@
 			<div class="row">
 					<div class="group">
 						<label>NIM :</label>
-						<input type="number" name="nim">
+						<input type="text" name="nim">
 						<span class="highlight"></span>
 						<span class="bar"></span>	
 					</div>

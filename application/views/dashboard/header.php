@@ -17,8 +17,8 @@ if(!$this->session->userdata('logged_in')){
     <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" /> -->
     <!-- Menu CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <!-- toast CSS -->
@@ -35,11 +35,24 @@ if(!$this->session->userdata('logged_in')){
     <link href="<?php echo base_url(); ?>assets/ample/css/colors/megna-dark.css" id="theme" rel="stylesheet">
     
     <!-- DataTables -->
-    <link href="<?php //echo base_url(); ?>assets/plugins/dataTables/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="<?php //echo base_url(); ?>assets/plugins/dataTables/dataTables.css" rel="stylesheet">
-    <script src="<?php //echo base_url(); ?>assets/plugins/dataTables/jquery-3.3.1.min.js"></script>
-    <script src="<?php //echo base_url(); ?>assets/plugins/dataTables/dataTables.bootstrap.min.js"></script>
-    <script src="<?php //echo base_url(); ?>assets/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.css" rel="stylesheet">
+    <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/jquery-3.3.1.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/jquery.dataTables.min.js"></script>
+    <!-- 
+    <link rel="stylesheet" href="<?php echo base_url('assets/pluginss/dataTables/css/jquery.dataTables.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/pluginss/dataTables/css/responsive.dataTables.min.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/pluginss/dataTables/css/buttons.dataTables.min.css');?>">
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/jquery.dataTables.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/dataTables.responsive.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/jszip.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/dataTables.buttons.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/buttons.flash.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/pdfmake.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/vfs_fonts.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/buttons.html5.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/dataTables/js/buttons.print.min.js');?>"></script> -->
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
