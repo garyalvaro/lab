@@ -85,7 +85,7 @@ elseif($this->session->userdata('level') == 2)
 			          </li>
 					  
 					  <?php else: ?>
-					  	<div class="form-wrap">
+					  	
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
 			              <?php echo form_open('lab/login'); ?>
@@ -93,7 +93,7 @@ elseif($this->session->userdata('level') == 2)
 			              <li><input type="password" name="pass" placeholder="Password" class="form-control rounded-0 px-2 py-1 my-2"></li>
 			              <li><input type="submit" name="submit" value="Login" class="primary-btn btn-block my-1"></li>
 			              <?php echo form_close(); ?>
-			          </div>
+			          
 			            </ul>
 			          </li>
 			          <?php endif; ?>
