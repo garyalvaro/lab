@@ -82,6 +82,21 @@
 			<section class="search-course-area relative">
 				<div class="overlay overlay-bg"></div>	
 				<div class="container">
+
+<!-- POPUP ALERT -->               
+<div class="row float-left mt-5 pt-5">
+<?php if(validation_errors()):?>
+        <div class="popup-alert">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?php echo validation_errors(); ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        </div>
+<?php endif; ?>
+</div>
+
 					<div class="row fullscreen d-flex align-items-center justify-content-between">
 						<div class="col-lg-5 col-md-6 search-course-left"> 
 							<img src="<?php echo base_url('assets/luis/img/logo.png');?>" style="width: 500px;">
@@ -89,7 +104,6 @@
 						<div class="banner-content col-lg-5 col-md-12">
 							<div class="col-lg-12 col-md-12 search-course-right mt-5 py-5">
 								<div class="form_error">
-         						 <?php echo validation_errors(); ?>
          						</div>
 								<h4 class="text-white pb-20 text-center mb-30">Register</h4>	
 								<?php echo form_open('lab/register'); ?>	
@@ -109,7 +123,14 @@
 			</section>
 			<!-- End banner Area -->
 	
-			
+<!--JS untuk Alert TimeOut-->
+<script>
+window.setTimeout(function () {
+    $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+    });
+}, 4000);
+</script>
 
 			<script src="<?php echo base_url();?>assets/luis/js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
