@@ -21,6 +21,13 @@ if($this->session->flashdata())
         </div>
 </div>
 
+<div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title m-b-0">KELAS</h3>
+            <p class="text-muted m-b-30">Daftar semua kelas praktikum</p>
+            
+        </div>
+</div>
 
 <?php
 $this->load->view('dashboard/rightside');

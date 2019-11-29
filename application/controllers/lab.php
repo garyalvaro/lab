@@ -15,7 +15,7 @@ class lab extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('template/vutama1');
 	}
 
 	public function bph()
@@ -36,7 +36,7 @@ class lab extends CI_Controller
                 {
                         $data=array('errors'=>validation_errors());
                         $this->session->set_flashdata($data);
-                        redirect('lab/index');
+                        redirect('');
                 }
                 else
                 {
@@ -57,13 +57,13 @@ class lab extends CI_Controller
                                 if($user_data['level']=='1'){
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	redirect('lab/aslab');
+                                	redirect('');
                                 	// echo "aku mahasiswa";
                                 }
                                 elseif($user_data['level']=='2'){
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	redirect('lab/bph');
+                                	redirect('');
                                 	// echo "aku mahasiswa";
                                 }
                                 else {
@@ -77,7 +77,7 @@ class lab extends CI_Controller
                         else
                         {
                                 $this->session->set_flashdata('login_failed', '<b class="text-danger">Anda gagal login</b>');
-                                redirect('lab/index');
+                                redirect('');
                         }
                 }
         }
@@ -131,7 +131,7 @@ class lab extends CI_Controller
 
 		if ($this->form_validation->run()==FALSE)
 		{
-			$this->load->view('register');
+			$this->load->view('register1');
 		}
 		else
 		{
@@ -146,7 +146,7 @@ class lab extends CI_Controller
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
 				$this->lab_model->create_user($data);
-				redirect('lab/index', $data);
+				redirect('', $data);
 			}
 			else
 			{
@@ -159,7 +159,7 @@ class lab extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('lab/index');
+		redirect('');
 	}
 
 }

@@ -48,6 +48,14 @@ class Kelas extends CI_Controller
                 } 
         }
         
+        public function view($id_kelas)
+        {
+                $data['title'] = 'Detail Kelas';
+                $data['subtitle'] = 'Detail Kelas';
+                $this->Kelas_model->view_kelas($id_kelas);
+                $this->load->view('Kelas/detail', $data);
+        }
+        
         public function tahun_ajaran()
         {
                 if(date("m") > 7)
