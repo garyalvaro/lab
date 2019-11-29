@@ -105,11 +105,8 @@ class lab extends CI_Controller
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
 				$this->lab_model->create_user($data);
-<<<<<<< HEAD
-				redirect('');
-=======
+				//redirect('');
 				redirect('', $data);
->>>>>>> ef705a4a0678a3c2a6e9fb56dd942d17e5c2146d
 			}
 			else
 			{
