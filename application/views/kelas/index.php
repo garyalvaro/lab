@@ -6,11 +6,11 @@ $this->load->view('dashboard/leftside');
 if($this->session->flashdata())
 {
         if($this->session->flashdata('login_success'))
-                echo "<span id='login-success'></span>";
+                echo "<span class='login-success'></span>";
         else if($this->session->flashdata('add_success'))
-                echo "<span id='add-success'></span>";
+                echo "<span class='add-success'></span>";
         else if($this->session->flashdata('add_failed'))
-                echo "<span id='add-failed'></span>";
+                echo "<span class='add-failed'></span>";
 }
 
 ?>
@@ -32,10 +32,10 @@ if($this->session->flashdata())
             <p class="text-muted m-b-30">Daftar semua kelas praktikum</p>
             <div class="table-responsive">
 
-                        <table id="table_id" class="table table-striped table-bordered" >
+                        <table id="table_id" class="table-striped table-bordered" >
                                 <thead>
                                 <tr class="thead-dark">
-                                        <th>ID Kelas</th>
+                                        <th>No.</th>
                                         <th>Nama Kelas</th>
                                         <th>Aslab</th>
                                         <th>Tahun Ajaran</th>
@@ -43,13 +43,13 @@ if($this->session->flashdata())
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($kelas as $data){?>
+                                <?php $no=1; foreach($kelas as $data){?>
                                 <tr>
-                                        <td><?php echo $data->id_kelas; ?></td>
-                                        <td><?php echo $data->nama_kelas; ?></td>
-                                        <td><?php echo $data->id_aslab; ?></td>
-                                        <td><?php echo $data->tahun_ajaran; ?></td>
-                                        <td>
+                                        <td class="p-l-20"><?php echo $no++; ?></td>
+                                        <td class="p-l-20"><?php echo $data->nama_kelas; ?></td>
+                                        <td class="p-l-20"><?php echo $data->id_aslab; ?></td>
+                                        <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
+                                        <td class="p-l-20">
                                                 <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
 <!--
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -59,14 +59,6 @@ if($this->session->flashdata())
                                 </tr>
                                 <?php } ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
                         </table>
 
             </div>
@@ -85,19 +77,6 @@ $(document).ready(function() {
 } );
 </script>
 
-<script>
-$(document).ready(function() {
-$.toast({
-         heading: 'Kelas Berhasil ditambahkan',
-         text: 'Use the predefined ones, or specify a custom position object.',
-         position: 'top-right',
-         loaderBg: '#fff',
-         icon: 'warning',
-         hideAfter: 5000,
-         stack: 6
-     })
-} );
-</script>
 
 <?php
 $this->load->view('dashboard/footer');

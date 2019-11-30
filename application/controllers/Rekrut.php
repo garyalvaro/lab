@@ -7,16 +7,14 @@ class Rekrut extends CI_Controller
 	{
 		$data['title'] = 'PEREKRUTAN';
 		$data['subtitle'] = 'Perekrutan';
-		$this->load->view('template/header', $data);
-		$this->load->view('rekrut/index');
-		$this->load->view('template/footer');
+		$this->load->view('rekrut/index1', $data);
 	}
 	public function view_rekrut()
 	{
 		$data['rekrut'] = $this->Nilai_model->get_general('rekrut_aslab');
 		$data['title'] = 'Rekrut';
-        $data['subtitle'] = 'Rekrut';
-        $this->load->view('rekrut/view_rekrut', $data);
+                $data['subtitle'] = 'Rekrut';
+                $this->load->view('rekrut/view_rekrut', $data);
 
 	}
 	public function detail($nim)

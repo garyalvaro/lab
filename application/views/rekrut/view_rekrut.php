@@ -23,7 +23,6 @@ if($this->session->flashdata())
 		</div>
 		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 				<button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
-				<a href="<?php echo base_url();?>Kelas/create" class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-plus"></span> Tambah Kelas</a>
 		</div>
 </div>
 
@@ -89,6 +88,8 @@ if($this->session->flashdata())
 			</div>
 		</div>
 </div>
+
+
 <!-- Modal -->
 <div id="modalData" class="modal fade" role="dialog">
 	<div class="modal-dialog">
@@ -137,6 +138,7 @@ $(document).ready(function() {
 	$('#table_id').DataTable();
 } );
 </script>
+
 <script type="text/javascript">
 	function detail(nim)
 	{
@@ -148,7 +150,7 @@ $(document).ready(function() {
 				$('#modalData').modal('show');
 				$.each(data,function(key,val){
 					$('#nim').val(val.nim);
-					$('#nama_lengkap').val(val.nama_lengkap);
+					$('#nama').val(val.nama_lengkap);
 					// $('#jenkel').val(val.jenkel);
 					// $('#alamat').val(val.alamat);
 					// $('#fakultas').val(val.fakultas);
@@ -162,5 +164,3 @@ $(document).ready(function() {
  <?php
 $this->load->view('dashboard/footer');
 ?>
-</body>
-</html>

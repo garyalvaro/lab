@@ -32,6 +32,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>assets/ample/js/custom.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/js/jasny-bootstrap.js"></script>
     <!-- start - This is for export functionality only -->
 <!--
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>

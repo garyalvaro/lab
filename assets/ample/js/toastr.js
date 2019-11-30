@@ -60,6 +60,30 @@ $(document).ready(function () {
             stack: 6
         });
     });
+    
+    $(".add-success").show(function(){
+        $.toast({
+            heading: 'Kelas Berhasil Ditambahkan.',
+            text: 'Anda berhasil menambahkan 1 kelas.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
+    
+    $(".add-failed").show(function(){
+        $.toast({
+            heading: 'Kelas Gagal Ditambahkan.',
+            text: 'Kelas nampaknya sudah ada.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'error',
+            hideAfter: 5000,
+            stack: 6
+        });
+    });
 
     $(".tst4").on("click", function () {
         $.toast({
