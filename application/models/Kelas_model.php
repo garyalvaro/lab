@@ -82,7 +82,7 @@ class Kelas_model extends CI_Model
                         ));
                         
                         $this->dbforge->create_table($table);
-                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, tahun_ajaran, id_aslab) VALUES ("", "'.$data['nama_kelas'].' - '.$data['kom'].'", "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'")');
+                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, tahun_ajaran, id_aslab) VALUES ("", "'.$data['nama_kelas'].'_'.$data['kom'].'", "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'")');
                         return TRUE;
                 }
                                 

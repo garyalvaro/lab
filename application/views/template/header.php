@@ -10,7 +10,7 @@
                 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js');?>"></script>
                 <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
                 
-                DataTables
+<!--                DataTables-->
                 <link rel="stylesheet" href="<?php echo base_url('assets/plugins/DataTables/datatables.css');?>">
                 <script type="text/javascript" src="<?php echo base_url('assets/plugins/DataTables/datatables.js');?>"></script>
                 
