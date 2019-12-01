@@ -1,3 +1,20 @@
+	<?php 
+        //Kalau berhasil login akan menampilkan keterangan
+        if($this->session->flashdata('login_success')):
+                $pesan = $this->session->flashdata('login_success');
+        endif;
+
+        //Kalau gagal login akan menampilkan keterangan
+        if($this->session->flashdata('login_failed')):
+                $pesan = $this->session->flashdata('login_failed');
+        endif;
+
+        //Kalau ada kesalahan saat login akan menampilkan keterangan
+        if($this->session->flashdata('errors')):
+                $pesan = '<b class="text-danger">'.$this->session->flashdata('errors').'</b>';
+        endif;
+?>
+
 <?php //SESSION LEVEL
 if($this->session->userdata('level') == 0) 
         $level = "Mahasiswa";
@@ -33,13 +50,11 @@ elseif($this->session->userdata('level') == 2)
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/font-awesome.min.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/bootstrap.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/magnific-popup.css">
-			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/nice-select.css">
-
+			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/nice-select.css">							
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/animate.min.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/owl.carousel.css">			
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/jquery-ui.css">			
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/main.css">
-			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/Education-Doc/css/style.css">
 		</head>
 		<body>	
                                 
@@ -190,29 +205,157 @@ elseif($this->session->userdata('level') == 2)
 					</div>						
 					<div class="row">
 						<div class="active-popular-carusel">
-
-							<<?php foreach ($aslab as $key): ?>
-								<div class="single-popular-carusel">
+							<div class="single-popular-carusel">
 								<div class="thumb-wrap relative">
 									<div class="thumb relative">
 										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid foto-aslab" src="https://portal.usu.ac.id/photos/<?php echo $key->nim;?>.jpg" alt="">
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p1.jpg" alt="">
 									</div>							
 								</div>
 								<div class="details">
 									<a href="#">
 										<h4>
-											<?php echo $key->nama_aslab;?>
+											Aslab 1
 										</h4>
 									</a>
 									<p>
-										<?php echo $key->nim;?>										
+										Betty										
 									</p>
 								</div>
 							</div>	
-							<?php endforeach ?>
-
-
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p2.jpg" alt="">
+									</div>
+											
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 2
+										</h4>
+									</a>
+									<p>
+										Bob										
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p3.jpg" alt="">
+									</div>
+																
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 3
+										</h4>
+									</a>
+									<p>
+										Kristel									
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p4.jpg" alt="">
+									</div>
+																	
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 4
+										</h4>
+									</a>
+									<p>
+										Crystal									
+									</p>
+								</div>
+							</div>
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p1.jpg" alt="">
+									</div>
+																	
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 5
+										</h4>
+									</a>
+									<p>
+										Anto									
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p2.jpg" alt="">
+									</div>
+																
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 6
+										</h4>
+									</a>
+									<p>
+										Anton									
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p3.jpg" alt="">
+									</div>
+															
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 7
+										</h4>
+									</a>
+									<p>
+										Antori									
+									</p>
+								</div>
+							</div>	
+							<div class="single-popular-carusel">
+								<div class="thumb-wrap relative">
+									<div class="thumb relative">
+										<div class="overlay overlay-bg"></div>	
+										<img class="img-fluid" src="<?php echo base_url();?>assets/luis/img/p4.jpg" alt="">
+									</div>
+															
+								</div>
+								<div class="details">
+									<a href="#">
+										<h4>
+											Aslab 8
+										</h4>
+									</a>
+									<p>
+										Antony										
+									</p>
+								</div>
+							</div>							
 						</div>
 					</div>
 				</div>	
@@ -289,3 +432,19 @@ window.setTimeout(function () {
 			<script src="<?php echo base_url();?>assets/luis/js/main.js"></script>	
 		</body>
 	</html>
+	<?php 
+        //Kalau berhasil login akan menampilkan keterangan
+        if($this->session->flashdata('login_success')):
+                $pesan = $this->session->flashdata('login_success');
+        endif;
+
+        //Kalau gagal login akan menampilkan keterangan
+        if($this->session->flashdata('login_failed')):
+                $pesan = $this->session->flashdata('login_failed');
+        endif;
+
+        //Kalau ada kesalahan saat login akan menampilkan keterangan
+        if($this->session->flashdata('errors')):
+                $pesan = '<b class="text-danger">'.$this->session->flashdata('errors').'</b>';
+        endif;
+?>

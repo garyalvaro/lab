@@ -15,7 +15,9 @@ class lab extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('template/vutama1');
+
+		$data['aslab'] = $this->lab_model->cek_aslab('aslab');
+		$this->load->view('template/vutama1',$data);
 	}
 
 	public function bph()

@@ -48,4 +48,11 @@ class lab_model extends CI_Model{
 	{
 		$this->db->insert('user', $data);
 	}
+
+	public function cek_aslab($table)
+	{
+		$this->db->where('status', 1);
+		$query = $this->db->get($table);
+		return $query->result();
+	}
 }
