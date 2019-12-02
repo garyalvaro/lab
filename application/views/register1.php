@@ -49,9 +49,9 @@
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
-			          <li><a href="index.html">Home</a></li>
-			          <li><a href="courses.html">Kelas</a></li>
-			          <li><a href="events.html">Jadwal</a></li>
+			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
+			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
+			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
 
 
 			          <?php if($this->session->userdata('logged_in')): 
@@ -96,7 +96,7 @@
 				<div class="overlay overlay-bg">
                                 
 <!-- POPUP ALERT -->               
-<div class="float-left mt-5 pt-5">
+<div class="float-left mt-5 p-5">
 <?php if(validation_errors() || $this->session->flashdata()):?>
         <div class="popup-alert">
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
