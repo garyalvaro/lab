@@ -18,6 +18,9 @@ if($this->session->flashdata())
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
                 <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
+                <?php if($this->session->userdata('level')==2):?>
+                <a href="<?php echo base_url();?>Rekrut/view_rekrut" class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Daftar Calon Aslab</a>
+                <?php endif; ?>
         </div>
 </div>
 
@@ -198,11 +201,11 @@ if($this->session->flashdata())
                                     </div> 
                                     <span class="input-group-addon btn btn-default btn-file"> 
                                             <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
-                                            <input type="file" class="cv" id="cv" name="cv" required>
+                                            <input type="file" class="cv" id="cv" name="cv" required accept="application/pdf">
                                     </span> 
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
                         </div>
-                        <span class="help-block"><small>Upload CV.</small></span>
+                        <span class="help-block"><small>Upload CV dalam format PDF.</small></span>
                                             
 <!--
                                 
@@ -229,11 +232,11 @@ if($this->session->flashdata())
                                     </div> 
                                     <span class="input-group-addon btn btn-default btn-file"> 
                                             <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
-                                            <input type="file" id="surat" name="surat" required accept=".pdf,.docx">
+                                            <input type="file" id="surat" name="surat" required accept="application/pdf">
                                     </span> 
                                     <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
                         </div>
-                        <span class="help-block"><small id="nilaiLab">Surat Pendaftaran didownload dari <a href="#"><b>Link</b></a>. Diisi manual, discan lalu diupload.</small></span>
+                        <span class="help-block"><small id="nilaiLab">Surat Pendaftaran didownload dari <a href="<?php echo base_url();?>assets/files/Surat Lamaran 2019.pdf" target="_blank"><b>Link</b></a>. Diisi manual, discan lalu diupload dalam format PDF.</small></span>
                         
 <!--
 			<div class="col-6">
@@ -252,7 +255,12 @@ if($this->session->flashdata())
                         <label for="Textarea" class="control-label">Alasan menjadi Aslab</label>
                         <textarea class="form-control" name="alasan" id="Textarea" placeholder="Minimum 500 Karakter" required rows="5" minlength="500" style="resize: vertical;"></textarea>
 		</div>
-		<button class="btn btn-primary" type="submit" id="daftar" name="submit">Daftar</button>
+                <?php
+                        if($this->session->userdata('level')==0)
+                                echo '<button class="btn btn-primary" type="submit" id="daftar" name="submit">Daftar</button>';
+                        else   
+                                echo '<button class="btn btn-primary" type="submit" id="daftar" name="submit" disabled>Daftar</button>';
+                ?>
                 <a href="<?php echo base_url();?>rekrut/view_rekrut" class="btn btn-default">Batal</a>
 		
 	</form>

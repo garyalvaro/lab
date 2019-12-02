@@ -28,6 +28,15 @@ class Rekrut extends CI_Controller
 		{
 			echo "";
 		}
+//                $dataMahasiswa = $this->Nilai_model->get_by_id_general('rekrut_aslab','nim',$nim);
+//		if ($dataMahasiswa == TRUE) {
+//			$dataMahasiswa=json_encode($dataMahasiswa,JSON_PRETTY_PRINT);
+//			echo $dataMahasiswa;
+//		}
+//		else
+//		{
+//			echo "";
+//		}
 	}
 
 	public function daftarAslab()
@@ -84,11 +93,31 @@ class Rekrut extends CI_Controller
 		echo $data['ip2'];
 		if($this->Nilai_model->create_general("rekrut_aslab",$data))
 		{
-			echo "berhasil";
-			//redirect('rekrut/index');
+			$this->session->set_flashdata('rekrut_success','');
+			redirect('rekrut/view_rekrut');
 		}
-		else { echo "error"; }
-		
-		
+		else { echo "error"; }	
 	}
+        
+        public function status_aktif()
+        {
+                $data = [
+                                'nim' => $this->input->get('nim'),
+                                'nama_aslab' => $this->input->get('nama_aslab'),
+                                'tahun_ajaran' => $this->Nilai_model->tahun_ajaran(),
+                                'status' => 1
+                        ];
+                        $cekAda = $this->db->query('SELECT COUNT(*) FROM aslab WHERE nim = $data["nim"]');
+
+                        if($cekAda)
+                        {
+                                $this->Nilai_model->delete_general('aslab', 'nim', $data['nim']);
+                        }
+                        else
+                        {
+                                $this->Nilai_model->create_general('aslab', $data);
+                        }
+                        
+                
+        }
 }

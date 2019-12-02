@@ -1,4 +1,9 @@
-	<!DOCTYPE html>
+<?php 
+        if($this->session->flashdata('sudah_ada')):
+                $pesan = $this->session->flashdata('sudah_ada');
+        endif;
+?>
+<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -36,12 +41,11 @@
 		<body>
 			
         </div>
-				  <header id="header" id="home">
-	  		
+                <header id="header" id="home">
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="index.html"><img src="<?php echo base_url();?>assets/luis/img/logo.png" alt="" title="" /></a>
+			        <a href="<?php echo base_url();?>"><img src="<?php echo base_url();?>assets/luis/img/logo.png" alt="" title="" /></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
@@ -50,35 +54,36 @@
 			          <li><a href="events.html">Jadwal</a></li>
 
 
-			          <?php if($this->session->userdata('logged_in')): ?>
+			          <?php if($this->session->userdata('logged_in')): 
+                                        redirect('');
+                                  ?>
+			           
 			          <li class="menu-has-children"><a href="#">Logout</a>
 			            <ul>
-			            		<?php echo "Hello, ".$this->session->userdata('nim');?>
-								<?php echo form_open('lab/logout'); ?>
-								<button class="btn btn-danger btn-sm">Logout</button>
-								<?php echo form_close();?>
+			            		<h4>Hello, <b><?php echo $this->session->userdata('nama');?></b></h4>
+                                                Login as <i class="text-dark"><?php echo $level; ?></i>
+                                                
+                                                <?php echo form_open('lab/logout'); ?>
+                                                <button class="btn btn-danger btn-block btn-sm py-1 mt-2 rounded-0">Logout</button>
+                                                <?php echo form_close();?>
 						</ul>
 			          </li>
 					  
-					  <?php else: ?>
+                                <?php else: ?>
+					  	
 			          <li class="menu-has-children"><a href="#">Login</a>
 			            <ul>    
-			             <div class="form-wrap">
-								<?php echo form_open('lab/login'); ?>	
-								<li>
-								<input type="text" class="form-control" name="nim" placeholder="NIM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIM'" >
-								</li>
-								<li>
-								<input type="password" class="form-control" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" >
-								</li>
-								<li>						
-								<button class="primary-btn text-uppercase">Submit</button>
-								</li>
-							<?php echo form_close(); ?>
-						 </div>
+			              <?php echo form_open('lab/login'); ?>
+			              <li><input type="text" name="nim" placeholder="NIM" class="form-control rounded-0 px-2 py-1 my-2" autocomplete="off"></li>
+			              <li><input type="password" name="pass" placeholder="Password" class="form-control rounded-0 px-2 py-1 my-2"></li>
+			              <li><input type="submit" name="submit" value="Login" class="primary-btn btn-block my-1"></li>
+                                      <li><br><small>Belum punya akun? <a href="<?php echo base_url();?>Lab/register">Register disini.</a></small></li>
+			              <?php echo form_close(); ?>
+			          
 			            </ul>
 			          </li>
 			          <?php endif; ?>
+
 
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
@@ -88,15 +93,15 @@
  
 			<!-- start banner Area -->
 			<section class="search-course-area relative">
-				<div class="overlay overlay-bg"></div>	
-				<div class="container">
-
+				<div class="overlay overlay-bg">
+                                
 <!-- POPUP ALERT -->               
-<div class="row float-left mt-5 pt-5">
-<?php if(validation_errors()):?>
+<div class="float-left mt-5 pt-5">
+<?php if(validation_errors() || $this->session->flashdata()):?>
         <div class="popup-alert">
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <?php echo validation_errors(); ?>
+          <?php echo $this->session->flashdata('sudah_ada'); ?>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -104,10 +109,12 @@
         </div>
 <?php endif; ?>
 </div>
-
+                                
+                                </div>	
+				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-between">
 						<div class="col-lg-5 col-md-6 search-course-left"> 
-							<img src="<?php echo base_url('assets/luis/img/logo.png');?>" style="width: 500px;">
+							<img src="<?php echo base_url('assets/luis/img/logo_LabTI.png');?>" style="width: 500px;">
 						</div>
 						<div class="banner-content col-lg-5 col-md-12">
 							<div class="col-lg-12 col-md-12 search-course-right mt-5 py-5">
@@ -119,12 +126,12 @@
 								<input type="number" class="form-control" name="nim" placeholder="NIM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIM'" >
 								<input type="text" class="form-control" name="nama" placeholder="Nama" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" >
 								<input type="text" class="form-control" name="kom" placeholder="KOM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'KOM'" >
-								<input type="text" class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" >
+								<input type="email" class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" >
 								<input type="password" class="form-control" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" >
-								<input type="password" class="form-control" name="konf_pass" placeholder="Konfirmasi Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Konfirmasi Password'" >
-														
-								<button class="primary-btn text-uppercase">Submit</button>
+								<input type="password" class="form-control" name="konf_pass" placeholder="Konfirmasi Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Konfirmasi Password'" >					
+								<button class="primary-btn text-uppercase">Daftar</button>
 							<?php echo form_close(); ?>
+                                                        <br><small class="text-white">Sudah punya akun? <a href="<?php echo base_url();?>">Login.</a></small>
 						</div>
 						</div>
 						</div>										
