@@ -112,7 +112,7 @@ class lab extends CI_Controller
 			}
 			else
 			{
-				$this->session->set_flashdata('sudah_ada', '<b class="text-danger">Username sudah ada</b>');
+				$this->session->set_flashdata('sudah_ada', '<b class="text-danger">NIM sudah ada.</b>');
 				redirect('lab/register');
 			}
 		}

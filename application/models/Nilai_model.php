@@ -75,5 +75,14 @@ class Nilai_model extends CI_Model
         {
                 return $this->db->query("SELECT * FROM $table ORDER BY $order_by $order LIMIT $limit")->result();
         }
+        
+        function tahun_ajaran()
+        {
+                if(date("m") > 7)
+                        $ta = date("Y")."/".(date("Y")+1);
+                else
+                        $ta = (date("Y")-1)."/".date("Y");
+                return $ta;
+        }
 
 }

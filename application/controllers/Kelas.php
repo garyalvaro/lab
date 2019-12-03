@@ -10,6 +10,10 @@ class Kelas extends CI_Controller
         
         public function index()
         {
+                // $this->Kelas_model->cek_kelas($this->session->userdata('nim'));
+                $cek=$this->session->userdata('nim');
+                $this->Kelas_model->cek_kelas($cek);
+                $data['cek'] = $this->Kelas_model->cek_kelas($cek)->result();
                 $data['kelas'] = $this->Kelas_model->view();
                                 
                 $data['title'] = 'Kelas';
@@ -63,6 +67,13 @@ class Kelas extends CI_Controller
                 else
                         $ta = (date("Y")-1)."/".date("Y");
                 return $ta;
+        }
+
+        public function pengumuman()
+        {
+            // $tes=$this->session->userdata('nim');
+            $data['tes'] = $this->Kelas_model->pengumuman();
+            $this->load->view('kelas/pengumuman',$data);
         }
 }
 

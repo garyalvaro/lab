@@ -43,7 +43,10 @@ if($this->session->flashdata())
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $no=1; foreach($kelas as $data){?>
+                                    <?php foreach ($cek as $key ) {
+                                        $sem= $key->id_aslab;
+                                    } ?>
+                                <?php $no=1; foreach($kelas as $data){if($data->id_aslab==$sem):?>
                                 <tr>
                                         <td class="p-l-20"><?php echo $no++; ?></td>
                                         <td class="p-l-20"><?php echo $data->nama_kelas; ?></td>
@@ -51,13 +54,14 @@ if($this->session->flashdata())
                                         <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
                                         <td class="p-l-20">
                                                 <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                                <a href="<?php echo base_url();?>Kelas/pengumuman" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn"></span></a>
 <!--
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
                                                 <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
 -->
                                         </td>
                                 </tr>
-                                <?php } ?>
+                                <?php endif;} ?>
                                 </tbody>
                         </table>
 

@@ -92,6 +92,18 @@ class Kelas_model extends CI_Model
 //                }
                         
         }
+
+        public function cek_kelas($cek)
+        {
+                return $this->db->query("SELECT id_aslab FROM aslab WHERE nim='{$cek}'");
+        }
+
+        public function pengumuman()
+        {
+                $query = $this->db->query("SELECT nama_kelas FROM kelas");
+                return $query->result();
+        }
+
 }
 
 ?>
