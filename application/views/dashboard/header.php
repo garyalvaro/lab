@@ -1,6 +1,7 @@
 <?php
 //If not logged in, redirect to homepage
 if(!$this->session->userdata('logged_in')){
+        $this->session->set_flashdata('login_dulu','Mohon Login Dahulu');
         redirect('');
 }
 ?>

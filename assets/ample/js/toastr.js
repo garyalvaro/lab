@@ -84,6 +84,30 @@ $(document).ready(function () {
             stack: 6
         });
     });
+    
+    $(".add_jadwal_success").show(function(){
+        $.toast({
+            heading: 'Jadwal Berhasil Ditambahkan.',
+            text: 'Anda berhasil memasukkan kelas di jadwal.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
+    
+    $(".add_jadwal_failed").show(function(){
+        $.toast({
+            heading: 'Jadwal Gagal Ditambahkan.',
+            text: 'Coba ulangi lagi.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'error',
+            hideAfter: 5000,
+            stack: 6
+        });
+    });
 
     $(".tst4").on("click", function () {
         $.toast({

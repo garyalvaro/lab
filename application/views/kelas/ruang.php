@@ -5,9 +5,11 @@ $this->load->view('dashboard/leftside');
 
 if($this->session->flashdata())
 {
-        if($this->session->flashdata('add_success'))
+        if($this->session->flashdata('login_success'))
+                echo "<span class='login-success'></span>";
+        else if($this->session->flashdata('add_success'))
                 echo "<span class='add-success'></span>";
-        if($this->session->flashdata('add_failed'))
+        else if($this->session->flashdata('add_failed'))
                 echo "<span class='add-failed'></span>";
 }
 
@@ -20,9 +22,7 @@ if($this->session->flashdata())
         </div>
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
-                <?php if($this->session->userdata('level')==2):?>
                 <a href="<?php echo base_url();?>Kelas/create" class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-plus"></span> Tambah Kelas</a>
-                <?php endif; ?>
         </div>
 </div>
 
@@ -43,7 +43,7 @@ if($this->session->flashdata())
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $no=1; foreach($kelas as $data):?>
+                                <?php $no=1; foreach($kelas as $data){?>
                                 <tr>
                                         <td class="p-l-20"><?php echo $no++; ?></td>
                                         <td class="p-l-20"><?php echo $data->nama_kelas; ?></td>
@@ -51,14 +51,13 @@ if($this->session->flashdata())
                                         <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
                                         <td class="p-l-20">
                                                 <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                                <a href="<?php echo base_url();?>Kelas/pengumuman" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn"></span></a>
 <!--
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
                                                 <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
 -->
                                         </td>
                                 </tr>
-                                <?php endforeach; ?>
+                                <?php } ?>
                                 </tbody>
                         </table>
 

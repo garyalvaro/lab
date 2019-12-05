@@ -64,7 +64,7 @@ class lab extends CI_Controller
                                 elseif($user_data['level']=='2'){
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login</b>');
-                                	redirect('Kelas/create');
+                                	redirect('Dashboard');
                                 }
                                 else {
                                 	$this->session->set_userdata($user_data);

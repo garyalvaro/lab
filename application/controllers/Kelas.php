@@ -10,11 +10,13 @@ class Kelas extends CI_Controller
         
         public function index()
         {
-                // $this->Kelas_model->cek_kelas($this->session->userdata('nim'));
-                $cek=$this->session->userdata('nim');
-                $this->Kelas_model->cek_kelas($cek);
-                $data['cek'] = $this->Kelas_model->cek_kelas($cek)->result();
-                $data['kelas'] = $this->Kelas_model->view();
+                $nim=$this->session->userdata('nim');
+                $id_aslab = $this->Kelas_model->get_id_aslab($nim);
+                
+                if($this->session->userdata('level')==2)
+                        $data['kelas'] = $this->Kelas_model->view();
+                elseif($this->session->userdata('level')==1)
+                        $data['kelas'] = $this->Kelas_model->vieww($id_aslab);
                                 
                 $data['title'] = 'Kelas';
                 $data['subtitle'] = 'Kelas';

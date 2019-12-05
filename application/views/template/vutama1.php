@@ -9,9 +9,9 @@
                 $pesan = $this->session->flashdata('login_failed');
         endif;
 
-        //Kalau ada kesalahan saat login akan menampilkan keterangan
-        if($this->session->flashdata('errors')):
-                $pesan = '<b class="text-danger">'.$this->session->flashdata('errors').'</b>';
+        //Kalau belum login akan menampilkan keterangan
+        if($this->session->flashdata('login_dulu')):
+                $pesan = '<b class="text-danger">'.$this->session->flashdata('login_dulu').'</b>';
         endif;
 ?>
 
@@ -135,7 +135,7 @@ elseif($this->session->userdata('level') == 2)
 							<br><br>
 							<a href="#aslab_section" class="primary-btn text-uppercase">Lebih Lanjut</a>
                                                         <?php if($this->session->userdata('logged_in')): ?>
-                                                                <a href="<?php echo base_url();?>/Dashboard" class="primary-btn text-uppercase ">Dashboard</a>
+                                                                <a href="<?php echo base_url();?>Dashboard" class="primary-btn text-uppercase ">Dashboard</a>
                                                         <?php endif;?>
 						</div>										
 					</div>
@@ -228,7 +228,7 @@ elseif($this->session->userdata('level') == 2)
 							<p>
 								Pengalaman mengajar di Lab dapat mengembangkan keberanian dan melatih kalian saat berbicara di depan umum dan di depan banyak orang. Ayo tunggu apa lagi? <br> Bergabunglah bersama kami di LaboratoriumTI!
 							</p>
-							<a class="primary-btn" href="#">Daftar</a>								
+							<a class="primary-btn" href="<?php echo base_url();?>Rekrut">DAFTAR</a>								
 						</div>					
 					</div>
 				</div>	
