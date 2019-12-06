@@ -45,9 +45,27 @@ class Jadwal_model extends CI_Model
                 return $query->result();
         }
         
+        public function get_waktu_byid($id_waktu)
+        {
+                $query = $this->db->query('SELECT * FROM waktu WHERE id_waktu='.$id_waktu.'');
+                return $query->result();
+        }
+        
         public function get_ruang()
         {
                 $query = $this->db->query('SELECT * FROM ruang WHERE keterangan="Ruangan Praktikan TI"');
+                return $query->result();
+        }
+        
+        public function get_ruang_byid($id_ruang)
+        {
+                $query = $this->db->query('SELECT * FROM ruang WHERE id_ruang="'.$id_ruang.'"');
+                return $query->result();
+        }
+        
+        public function get_kelas_byid($id_kelas)
+        {
+                $query = $this->db->query('SELECT * FROM kelas WHERE id_kelas="'.$id_kelas.'"');
                 return $query->result();
         }
         

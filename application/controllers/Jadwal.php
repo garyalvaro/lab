@@ -35,31 +35,49 @@ class Jadwal extends CI_Controller
                 
                 $this->load->view('jadwal/tambah_jadwal', $data);
                 
-               if($this->input->post('submit'))
+                if($this->input->post('submit'))
                 {
                         $id_kelas = $this->input->post('id_kelas');
-                        $data = array(
+                        $dataa = array(
                                 'id_waktu'=>$this->input->post('id_waktu'),
                                 'id_ruang'=>$this->input->post('id_ruang')
                         );
                         
-                        $data['kelas'] = $this->Kelas_model->view_kelas($id_kelas);
-                        foreach($data['kelas'] as $key)
+                        $this->Jadwal_model->create_jadwal($dataa, $id_kelas);
+                        
+                        //Send to email notification
+                        $data['nim'] = $this->Kelas_model->get_nim_from_perkelas($id_kelas);
+                
+                        $id_waktuu = $this->db->query('SELECT id_waktu from kelas WHERE id_kelas='.$id_kelas.'')->row(0)->id_waktu;
+                        $id_ruangg = $this->db->query('SELECT id_ruang from kelas WHERE id_kelas='.$id_kelas.'')->row(0)->id_ruang;
+
+                        $data['kelas'] = $this->Jadwal_model->get_kelas_byid($id_kelas);
+                        $data['waktu'] = $this->Jadwal_model->get_waktu_byid($id_waktuu);
+                        $data['ruang'] = $this->Jadwal_model->get_ruang_byid($id_ruangg);
+
+                        foreach ($data['nim'] as $key)
                         {
-                                $list = [$this->Kelas_model->get_email($key->nim)];
+                                $nim = $key->NIM;
+                                $email = $this->Kelas_model->get_email($nim);
+
+        //                        echo $email."<br>";
+        //                        foreach ($data['kelas'] as $kls){ echo $kls->nama_kelas."<br>"; }
+        //                        foreach ($data['waktu'] as $wkt){ echo $wkt->nama_waktu."<br>"; }
+        //                        foreach ($data['ruang'] as $rg){ echo $rg->nama_ruang."<br>"; }
+        //                        echo "<br>";
+
+                                $subject = "Perubahan Jadwal Praktikum";
+                                $mailContent = $this->load->view('jadwal/email_gantijadwal', $data, TRUE);
+                                $headers = "MIME-Version: 1.0" . "\r\n";
+                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                                $mailTo = $email;
+                                $mailFromId = "LaboratoriumTI";
+                                $mailFromName = "LaboratoriumTI";
+                                sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName);
+
                         }
                         
-                        $subject = "Perubahan Jadwal";
-                        $mailContent = $this->load->view('email_template', $data, TRUE);
-                        $headers = "MIME-Version: 1.0" . "\r\n";
-                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                        $mailTo = $list;
-                        $mailFromId = "LaboratoriumTI";
-                        $mailFromName = "LaboratoriumTI";
-                        sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName);
-                        
-                        
-                        if($this->Jadwal_model->create_jadwal($data, $id_kelas))
+                        if($this->Jadwal_model->create_jadwal($dataa, $id_kelas))
                         {
                                 $this->session->set_flashdata('add_jadwal_success','add_jadwal_success');
                                 redirect("jadwal/index");
@@ -71,6 +89,43 @@ class Jadwal extends CI_Controller
                         }
                                 
                 } 
+        }
+        
+        public function coba()
+        {
+                $id_kelas = 1;
+                $data['nim'] = $this->Kelas_model->get_nim_from_perkelas($id_kelas);
+                
+                $id_waktu = $this->db->query('SELECT id_waktu from kelas WHERE id_kelas='.$id_kelas.'')->row(0)->id_waktu;
+                $id_ruang = $this->db->query('SELECT id_ruang from kelas WHERE id_kelas='.$id_kelas.'')->row(0)->id_ruang;
+                
+                $data['kelas'] = $this->Jadwal_model->get_kelas_byid($id_kelas);
+                $data['waktu'] = $this->Jadwal_model->get_waktu_byid($id_waktu);
+                $data['ruang'] = $this->Jadwal_model->get_ruang_byid($id_ruang);
+                
+                foreach ($data['nim'] as $key)
+                {
+                        $nim = $key->NIM;
+                        $email = $this->Kelas_model->get_email($nim);
+                        
+//                        echo $email."<br>";
+//                        foreach ($data['kelas'] as $kls){ echo $kls->nama_kelas."<br>"; }
+//                        foreach ($data['waktu'] as $wkt){ echo $wkt->nama_waktu."<br>"; }
+//                        foreach ($data['ruang'] as $rg){ echo $rg->nama_ruang."<br>"; }
+//                        echo "<br>";
+                        
+//                        $subject = "Perubahan Jadwal";
+//                        $mailContent = $this->load->view('jadwal/email_gantijadwal', $data, TRUE);
+//                        $headers = "MIME-Version: 1.0" . "\r\n";
+//                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+//                        $mailTo = $email;
+//                        $mailFromId = "LaboratoriumTI";
+//                        $mailFromName = "LaboratoriumTI";
+//                        sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName);
+                        
+                }
+                
+                $this->load->view('jadwal/email_gantijadwal', $data);
         }
         
         public function cekWaktuRuang()

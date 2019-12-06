@@ -17,6 +17,8 @@ class Kelas extends CI_Controller
                         $data['kelas'] = $this->Kelas_model->view();
                 elseif($this->session->userdata('level')==1)
                         $data['kelas'] = $this->Kelas_model->vieww($id_aslab);
+                else
+                        $data['kelas'] = $this->Kelas_model->viewww($nim);
                                 
                 $data['title'] = 'Kelas';
                 $data['subtitle'] = 'Kelas';

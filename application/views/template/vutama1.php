@@ -57,6 +57,7 @@ elseif($this->session->userdata('level') == 2)
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/jquery-ui.css">			
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/main.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/Education-Doc/css/style.css">
+                        <link rel="manifest" href="<?php echo base_url();?>manifest.json">
 		</head>
 		<body id="top">	
                                 
@@ -281,4 +282,11 @@ window.setTimeout(function () {
 			<script src="<?php echo base_url();?>assets/luis/js/mail-script.js"></script>	
 			<script src="<?php echo base_url();?>assets/luis/js/main.js"></script>	
 		</body>
+                
+<script>
+if ('serviceWorker' in navigator) {    console.log("Will the service worker register?");    navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){        console.log("Yes, it did.");     }).catch(function(err) {        console.log("No it didn't. This happened:", err)    });
+ }
+</script>
+                
 	</html>

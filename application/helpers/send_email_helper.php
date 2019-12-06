@@ -24,8 +24,8 @@ if ( ! function_exists('sendMail'))
       $CI->email->subject($subject);
       $CI->email->message($mailContent);
       $CI->email->send();
-      if(!$CI->email->send()){
-        echo $CI->email->print_debugger(); die;
-      }
+//      if(!$CI->email->send()){
+//        echo $CI->email->print_debugger(); die;
+//      }
   }
 }
