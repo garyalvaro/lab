@@ -51,8 +51,67 @@ class lab_model extends CI_Model{
 
 	public function cek_aslab($table)
 	{
-		$this->db->where('status', 1);
+		$this->db->where('status', '1');
 		$query = $this->db->get($table);
 		return $query->result();
 	}
+        
+        public function view_user()
+        {
+                $query = $this->db->query('SELECT * FROM user WHERE nim!="admin"');
+                return $query->result();
+        }
+        
+        public function view_user_byid($nim)
+        {
+                $query = $this->db->query('SELECT * FROM user WHERE nim="'.$nim.'"');
+                return $query->result();
+        }
+        
+        public function edit_user($nim, $data)
+        {
+                $this->db->where('nim', $nim);
+                $this->db->update('user', $data);
+                
+                //Cek apakah ada data aslab di tabel aslab gak
+                $result = $this->db->query('SELECT * FROM aslab WHERE nim="'.$nim.'"');
+                if($result->num_rows()>=1)
+                        $ada = TRUE;
+                else
+                        $ada = FALSE;
+                
+                if($data['level']==1)
+                {                               
+                        $dataAslab = array(
+                                "nim" => $nim,
+                                "nama_aslab" => $data['nama'],
+                                "tahun_ajaran" => $this->tahun_ajaran(),
+                                "status" => 1
+                        );
+                        $this->db->insert('aslab', $dataAslab);
+                }
+                elseif($data['level']!=1)
+                {
+                        if($ada)
+                        {
+                                $this->db->where('nim', $nim);
+                                $this->db->delete('aslab');
+                        }
+                }
+        }
+        
+        public function delete_user($nim)
+        {
+                $this->db->where('nim', $nim);        
+                $this->db->delete('user');
+        }
+        
+        function tahun_ajaran()
+        {
+                if(date("m") > 7)
+                        $ta = date("Y")."/".(date("Y")+1);
+                else
+                        $ta = (date("Y")-1)."/".date("Y");
+                return $ta;
+        }
 }

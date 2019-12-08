@@ -50,6 +50,7 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
+			          <li><a href="<?php echo base_url();?>Jadwal">Jadwal</a></li>
 			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
 			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
 
@@ -125,7 +126,6 @@
 								<?php echo form_open('lab/register'); ?>	
 								<input type="number" class="form-control" name="nim" placeholder="NIM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'NIM'" >
 								<input type="text" class="form-control" name="nama" placeholder="Nama" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" >
-								<input type="text" class="form-control" name="kom" placeholder="KOM" onfocus="this.placeholder = ''" onblur="this.placeholder = 'KOM'" >
 								<input type="email" class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" >
 								<input type="password" class="form-control" name="pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" >
 								<input type="password" class="form-control" name="konf_pass" placeholder="Konfirmasi Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Konfirmasi Password'" >					

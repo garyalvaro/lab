@@ -27,26 +27,21 @@ if($this->session->flashdata())
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">PENJADWALAN</h3>
                         <br>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Jadwal">
+                            <div class="col-lg-4 col-xs-12 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-calendar-o"></i> </button> <br><br>
                                     <b class="text-dark">Lihat Jadwal</b>
                             </div>
                     </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Jadwal/create">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-calendar-plus text-lg"></i> </button> <br><br>
                                     <b class="text-dark">Tambah Jadwal</b>
                             </div>
                     </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-edit"></i> </button> <br><br>
-                                    <b class="text-dark">Ganti Jadwal</b>
-                            </div>
-                    </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+
+                    <a href="<?php echo base_url();?>Jadwal/ruang">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-building-o"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Ruangan</b>
                             </div>
@@ -59,11 +54,13 @@ if($this->session->flashdata())
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">KELAS</h3>
                 <br>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>Kelas">
                             <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-view-list"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Kelas Praktikum</b>
                             </div>
+                   </a>
+                   <a href="<?php echo base_url();?>Kelas/create">
                             <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-playlist-plus"></i> </button> <br><br>
                                     <b class="text-dark">Tambah Kelas</b>
@@ -74,14 +71,22 @@ if($this->session->flashdata())
         
         <div class="col-sm-12">
                 <div class="white-box row">
-                    <h3 class="box-title m-b-0">ASLAB</h3>
+                    <h3 class="box-title m-b-0">USER & ASLAB</h3>
                 <br>
-                    <a href="#">
-                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Bph">
+                            <div class="col-lg-4 col-xs-12 text-center p-t-20 p-b-20">
+                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-users"></i> </button> <br><br>
+                                    <b class="text-dark">Daftar User</b>
+                            </div>
+                    </a>
+                    <a href="<?php echo base_url();?>Rekrut/view_rekrut">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-card-details"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Aslab</b>
                             </div>
-                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
+                    </a>
+                    <a href="<?php echo base_url();?>Rekrut">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-multiple-plus"></i> </button> <br><br>
                                     <b class="text-dark">Perekrutan Aslab</b>
                             </div>
@@ -95,33 +100,27 @@ if($this->session->flashdata())
         <div class="col-sm-12">
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">PENJADWALAN</h3>
-        <!--            <p class="text-muted m-b-30">Daftar semua kelas praktikum</p>-->
-                <br>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                        <br>
+                    <a href="<?php echo base_url();?>Jadwal">
+                            <div class="col-lg-4 col-xs-12 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-calendar-o"></i> </button> <br><br>
                                     <b class="text-dark">Lihat Jadwal</b>
                             </div>
                     </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Jadwal/create">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-calendar-plus text-lg"></i> </button> <br><br>
                                     <b class="text-dark">Tambah Jadwal</b>
                             </div>
                     </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-message-draw"></i> </button> <br><br>
-                                    <b class="text-dark">Buat Pengumuman</b>
-                            </div>
-                    </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+
+                    <a href="<?php echo base_url();?>Jadwal/ruang">
+                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-building-o"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Ruangan</b>
                             </div>
                     </a>
-
+                    
             </div>
         </div>
         
@@ -129,7 +128,7 @@ if($this->session->flashdata())
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">KELAS</h3>
                 <br>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>Kelas">
                             <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-view-list"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Kelas Praktikum</b>
@@ -137,35 +136,22 @@ if($this->session->flashdata())
                     </a>
             </div>
         </div>
-
-
-
+        
+        
 <!--MHS--------------------------->
 <?php elseif($this->session->userdata('level')==0): ?>
         <div class="col-sm-12">
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">PENJADWALAN</h3>
                <br>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Jadwal">
+                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-calendar-o"></i> </button> <br><br>
                                     <b class="text-dark">Lihat Jadwal</b>
                             </div>
                     </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-calendar-plus text-lg"></i> </button> <br><br>
-                                    <b class="text-dark">Tambah Jadwal</b>
-                            </div>
-                    </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-message-draw"></i> </button> <br><br>
-                                    <b class="text-dark">Buat Pengumuman</b>
-                            </div>
-                    </a>
-                    <a href="#">
-                            <div class="col-lg-3 col-xs-6 text-center p-t-20 p-b-20">
+                    <a href="<?php echo base_url();?>Jadwal/ruang">
+                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-building-o"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Ruangan</b>
                             </div>
@@ -178,7 +164,7 @@ if($this->session->flashdata())
                 <div class="white-box row">
                     <h3 class="box-title m-b-0">KELAS</h3>
                 <br>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>Kelas">
                             <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-view-list"></i> </button> <br><br>
                                     <b class="text-dark">Daftar Kelas Praktikum</b>
@@ -186,6 +172,19 @@ if($this->session->flashdata())
                     </a>
             </div>
         </div>  
+        
+        <div class="col-sm-12">
+                <div class="white-box row">
+                    <h3 class="box-title m-b-0">PENDAFTARAN ASLAB</h3>
+                <br>
+                    <a href="<?php echo base_url();?>Rekrut">
+                            <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
+                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-plus"></i> </button> <br><br>
+                                    <b class="text-dark">Daftar Aslab</b>
+                            </div>
+                    </a>
+            </div>
+        </div>
 
 <?php endif; ?>
 <!---------------------------------->

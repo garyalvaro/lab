@@ -22,7 +22,16 @@ class Kelas_model extends CI_Model
         
         public function viewww($nim)
         {
-                $query = $this->db->query('SELECT nama_kelas, tahun_ajaran FROM kelas');
+                $result = $this->db->query('SELECT nama_kelas, tahun_ajaran FROM kelas');
+                $nama_kelas = $result->row(0)->nama_kelas;
+                $ta = $result->row(1)->tahun_ajaran;
+                $jumlahkelas = $result->num_rows();
+                
+                for($i=1 ; $i<=$jumlahkelas ; $i++)
+                {
+                        
+                }
+                
                 
                 return $query;
         }

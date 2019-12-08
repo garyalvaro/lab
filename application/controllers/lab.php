@@ -15,7 +15,6 @@ class lab extends CI_Controller
 
 	public function index()
 	{
-
 		$data['aslab'] = $this->lab_model->cek_aslab('aslab');
 		$this->load->view('template/vutama1',$data);
 	}
@@ -85,7 +84,6 @@ class lab extends CI_Controller
 	{
 		$this->form_validation->set_rules('nim', 'NIM', 'trim|required|min_length[9]');
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('kom', 'KOM', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('pass', 'Password', 'trim|required|min_length[6]');
 		$this->form_validation->set_rules('konf_pass', 'Konfirmasi Password', 'trim|required|min_length[6]|matches[pass]');
@@ -99,7 +97,6 @@ class lab extends CI_Controller
 			$data = array(
 				'nim' => $this->input->post('nim'),
 				'nama' => $this->input->post('nama'),
-				'kom' => $this->input->post('kom'),
 				'email' => $this->input-> post('email'),
 				'pass' => $this->input->post('pass'),
 				'level' => '0'
@@ -107,7 +104,7 @@ class lab extends CI_Controller
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
 				$this->lab_model->create_user($data);
-				//redirect('');
+				$this->session->set_flashdata('berhasil_regis','<b class="text-success">Registrasi Berhasil, Silakan Login.</b>');
 				redirect('', $data);
 			}
 			else

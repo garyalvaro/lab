@@ -108,6 +108,30 @@ $(document).ready(function () {
             stack: 6
         });
     });
+    
+    $(".delete_success").show(function(){
+        $.toast({
+            heading: 'Data Berhasil Dihapus.',
+            text: 'Anda berhasil menghapus user.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
+    
+    $(".edit_success").show(function(){
+        $.toast({
+            heading: 'Update Berhasil.',
+            text: 'Satu data user berhasil di-update.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
 
     $(".tst4").on("click", function () {
         $.toast({

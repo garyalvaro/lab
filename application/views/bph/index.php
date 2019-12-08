@@ -5,8 +5,10 @@ $this->load->view('dashboard/leftside');
 
 if($this->session->flashdata())
 {
-        if($this->session->flashdata('login_success'))
-                echo "<span id='login-success'></span>";
+        if($this->session->flashdata('delete_success'))
+                echo "<span class='delete_success'></span>";
+        elseif($this->session->flashdata('edit_success'))
+                echo "<span class='edit_success'></span>";
 }
 
 ?>
@@ -23,8 +25,45 @@ if($this->session->flashdata())
 
 <div class="col-sm-12">
         <div class="white-box">
-            <h3 class="box-title m-b-0">KELAS</h3>
-            <p class="text-muted m-b-30">Daftar semua kelas praktikum</p>
+            <h3 class="box-title m-b-0">PENGGUNA</h3>
+            <p class="text-muted m-b-30">Data pengguna dalam LaboratoriumTI</p>
+            
+            <table id="table_id" class="table table-bordered table-striped">
+                    <thead>
+                            <tr>
+                                    <th>NIM</th>
+                                    <th>Nama</th>
+                                    <th>Level</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Aksi</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <?php foreach($user as $key):?>
+                            <tr>
+                                    <td><?= $key->nim; ?></td>
+                                    <td><?= $key->nama; ?></td>
+                                    <td>
+                                            <?php 
+                                                if($key->level == 0)
+                                                        echo '<span class="label label-success">Mahasiswa</span>';
+                                                elseif($key->level == 1)
+                                                        echo '<span class="label label-primary">Aslab</span>';
+                                                elseif($key->level == 2)
+                                                        echo '<span class="label label-danger">BPH</span>';
+                                            ?>
+                                    </td>
+                                    <td><?= $key->email; ?></td>
+                                   <td><?= $key->pass; ?></td>
+                                    <td>
+                                            <a href="<?php echo base_url();?>Bph/edit/<?= $key->nim; ?>" class="text-primary"><span class="fa fa-pencil m-r-10"></span></a>
+                                            <a href="<?php echo base_url();?>/Bph/delete/<?= $key->nim; ?>" class="text-danger" onClick="return confirm('Anda yakin ingin menghapus?');"><span class="fa fa-trash"></span></a>
+                                    </td>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+            </table>
             
         </div>
 </div>
@@ -33,6 +72,12 @@ if($this->session->flashdata())
 $this->load->view('dashboard/rightside');
 ?>
 
+<!--JS untuk Tabel-->
+<script>
+$(document).ready(function() {
+    $('#table_id').DataTable();
+} );
+</script>
 
 <?php
 $this->load->view('dashboard/footer');

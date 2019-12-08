@@ -3,6 +3,9 @@ $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');
 
+if($this->session->userdata('level')==0)
+        redirect('Dashboard');
+
 if($this->session->flashdata())
 {
         if($this->session->flashdata('add_success'))
@@ -37,7 +40,7 @@ if($this->session->flashdata())
                                 <tr class="thead-dark">
                                         <th>No.</th>
                                         <th>Nama Kelas</th>
-                                        <th>Aslab</th>
+                                        <th>ID Aslab</th>
                                         <th>Tahun Ajaran</th>
                                         <th>Aksi</th>
                                 </tr>
@@ -51,8 +54,9 @@ if($this->session->flashdata())
                                         <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
                                         <td class="p-l-20">
                                                 <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                                <a href="<?php echo base_url();?>Kelas/pengumuman" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn"></span></a>
 <!--
+                                                
+                                                <a href="<?php echo base_url();?>Kelas/pengumuman" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn"></span></a>
                                                 <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
                                                 <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
 -->

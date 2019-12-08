@@ -50,7 +50,7 @@ if($this->session->flashdata())
 								<th colspan="2">Matkul Pilihan 1</th>
 								<th colspan="2">Matkul Pilihan 2</th>
 								<th colspan="2">Berkas</th>
-                                                                <th>Status</th>
+<!--                                                                <th>Status</th>-->
 						</tr>
 						</thead>
 						<tbody>
@@ -99,9 +99,11 @@ if($this->session->flashdata())
 								</td> 
 
                                                                 
+<!--
                                                                 <td class="p-l-20">
                                                                         <input type="checkbox" name="toggle" id="" value="" data-toggle="toggle" data-off="NonAktif" data-on="Aktif" data-onstyle="success" data-offstyle="danger">
                                                                 </td>
+-->
 							</tr>
 							<?php }  ?>
 						</tbody>

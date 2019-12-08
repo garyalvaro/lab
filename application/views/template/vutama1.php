@@ -13,6 +13,11 @@
         if($this->session->flashdata('login_dulu')):
                 $pesan = '<b class="text-danger">'.$this->session->flashdata('login_dulu').'</b>';
         endif;
+        
+        //Kalau berhasil login akan menampilkan keterangan
+        if($this->session->flashdata('berhasil_regis')):
+                $pesan = $this->session->flashdata('berhasil_regis');
+        endif;
 ?>
 
 <?php //SESSION LEVEL
@@ -70,6 +75,7 @@ elseif($this->session->userdata('level') == 2)
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
+			          <li><a href="<?php echo base_url(); ?>Jadwal">Jadwal</a></li>
 			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
 			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
 
@@ -156,9 +162,9 @@ elseif($this->session->userdata('level') == 2)
 								</div>
 								<div class="desc-wrap">
 									<p>
-										Dapatkan jadwal praktikum terbaru 2019 dari link berikut, tapi Login dulu yah.
+										Dapatkan jadwal praktikum terbaru dari link berikut, tapi Login dulu yah.
 									</p>
-									<a href="#top">Lihat</a>									
+									<a href="<?php echo base_url(); ?>Jadwal">Lihat</a>									
 								</div>
 							</div>
 						</div>
@@ -199,7 +205,7 @@ elseif($this->session->userdata('level') == 2)
 								<div class="thumb-wrap relative">
 									<div class="thumb relative">
 										<div class="overlay overlay-bg"></div>	
-										<img class="img-fluid foto-aslab" src="https://portal.usu.ac.id/photos/<?php echo $key->nim;?>.jpg" alt="">
+										<img class="iimg-fluid foto-aslab" src="https://portal.usu.ac.id/photos/<?php echo $key->nim;?>.jpg" alt="">
 									</div>							
 								</div>
 								<div class="details">
@@ -207,7 +213,7 @@ elseif($this->session->userdata('level') == 2)
 									<p><?php echo $key->nim;?></p>
 								</div>
 							</div>	
-							<?php endforeach ?>
+							<?php endforeach; ?>
 
 
 						</div>
