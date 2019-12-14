@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');

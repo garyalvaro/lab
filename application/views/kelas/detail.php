@@ -9,11 +9,6 @@ if($this->session->flashdata())
                 echo "<span id='login-success'></span>";
 }
 
-$no = 1;
-$id_kelas = $this->uri->segment(3);
-$jumlah = $this->Kelas_model->view_jlhAnggota($id_kelas);
-
-
 ?>
 
 <!-- TITLE -->
@@ -45,10 +40,10 @@ $jumlah = $this->Kelas_model->view_jlhAnggota($id_kelas);
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($detail as $data){?>
+                                <?php $no=1; foreach($detail as $data){?>
                                 <tr>
                                         <td><?php echo $no++; ?></td>
-                                        <td><?php echo $data->NIM; ?></td>
+                                        <td><?php echo $data->nim; ?></td>
                                         <td><?php echo $data->nama; ?></td>
                                         <td><?php echo $data->nilai; ?></td>
                                         <td>
@@ -80,19 +75,6 @@ $jumlah = $this->Kelas_model->view_jlhAnggota($id_kelas);
 $this->load->view('dashboard/rightside');
 ?>
 
-<script>
-function kom()
-{       
-        var no = 0;
-        var jumlah = <?php echo $jumlah;?>
-        no++;
-        
-        if(no <= (jumlah/2))
-                document.getElementById("kom").innerHTML = "A1";
-        else
-                document.getElementById("kom").innerHTML = "A2";
-}
-</script>
 
 <?php
 $this->load->view('dashboard/footer');

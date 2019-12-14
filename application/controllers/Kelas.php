@@ -11,18 +11,23 @@ class Kelas extends CI_Controller
         public function index()
         {
                 $nim=$this->session->userdata('nim');
-                $id_aslab = $this->Kelas_model->get_id_aslab($nim);
-                
+                                
                 if($this->session->userdata('level')==2)
                         $data['kelas'] = $this->Kelas_model->view();
                 elseif($this->session->userdata('level')==1)
+                {
+                        $id_aslab = $this->Kelas_model->get_id_aslab($nim);
                         $data['kelas'] = $this->Kelas_model->vieww($id_aslab);
+                }
                 else
                         $data['kelas'] = $this->Kelas_model->viewww($nim);
                                 
                 $data['title'] = 'Kelas';
                 $data['subtitle'] = 'Kelas';
-                $this->load->view('kelas/index', $data);
+                if($this->session->userdata('level')==0)
+                        $this->load->view('kelas/index-mhs', $data);
+                else
+                        $this->load->view('kelas/index', $data);
         }
         
         public function create()
@@ -42,7 +47,7 @@ class Kelas extends CI_Controller
                                 'id_aslab'=>$this->input->post('id_aslab')
                         );
                         
-                        if($this->Kelas_model->create_tabel_kelas($data))
+                        if($this->Kelas_model->create_kelas($data) && $this->Kelas_model->create_nilai($data))
                         {
                                 $this->session->set_flashdata('add_success','add success');
                                 redirect("kelas/index");
@@ -52,8 +57,34 @@ class Kelas extends CI_Controller
                                 $this->session->set_flashdata('add_failed','add failed');
                                 redirect("kelas/index");
                         }
-                                
                 } 
+        }
+        
+        public function enroll()
+        {
+                $data['title'] = 'Gabung ke Kelas';
+                $data['subtitle'] = 'Gabung ke Kelas';
+                $this->load->view('kelas/enroll', $data);
+                
+                if($this->input->post('submit'))
+                {
+                        $data = array(
+                                'kode_enroll'=>$this->input->post('kode_enroll'),
+                                'nim'=>$this->session->userdata('nim')
+                        );
+                        
+                        if($this->Kelas_model->enroll_mhs($data))
+                        {
+                                $this->session->set_flashdata('add_success','add success');
+                                redirect("kelas/index");
+                        }
+                        else
+                        {
+                                $this->session->set_flashdata('add_failed','add failed');
+                                redirect("kelas/enroll");
+                        }
+                }
+                
         }
         
         public function view($id_kelas)
@@ -61,7 +92,20 @@ class Kelas extends CI_Controller
                 $data['title'] = 'Detail Kelas';
                 $data['subtitle'] = 'Detail Kelas';
                 $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
+                //$data['nilai'] = $this->Kelas_model->view_nilai($id_kelas);
                 $this->load->view('Kelas/detail', $data);
+        }
+        
+        public function delete()
+        {
+                $id_kelas = $this->input->get('id_kelas');
+                $this->Kelas_model->delete_kelas($id_kelas);
+                return TRUE;
+        }
+        
+        public function view_aslab_byid($id_aslab)
+        {
+                $data['nama_aslab'] = $this->Kelas_model->get_namaaslab($id_aslab);
         }
         
         public function tahun_ajaran()
@@ -73,12 +117,6 @@ class Kelas extends CI_Controller
                 return $ta;
         }
 
-        public function pengumuman()
-        {
-            // $tes=$this->session->userdata('nim');
-            $data['tes'] = $this->Kelas_model->pengumuman();
-            $this->load->view('kelas/pengumuman',$data);
-        }
 }
 
 ?>

@@ -35,6 +35,12 @@ if(!$this->session->userdata('logged_in')){
     <!-- color CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/colors/megna-dark.css" id="theme" rel="stylesheet">
     
+    <!-- SweetAlert2 -->
+<!--
+    <link rel="stylesheet" href="<?php echo base_url('assets/pluginss/sweetAlert2/sweetalert2.min.css');?>">
+    <script type="text/javascript" src="<?php echo base_url('assets/pluginss/sweetAlert2/sweetalert2.all.min.js');?>"></script>
+-->
+    
     <!-- DataTables -->
     <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.css" rel="stylesheet">

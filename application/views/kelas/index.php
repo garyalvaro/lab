@@ -40,7 +40,8 @@ if($this->session->flashdata())
                                 <tr class="thead-dark">
                                         <th>No.</th>
                                         <th>Nama Kelas</th>
-                                        <th>ID Aslab</th>
+                                        <th>Nama Aslab</th>
+                                        <th>Kode Enroll</th>
                                         <th>Tahun Ajaran</th>
                                         <th>Aksi</th>
                                 </tr>
@@ -50,16 +51,13 @@ if($this->session->flashdata())
                                 <tr>
                                         <td class="p-l-20"><?php echo $no++; ?></td>
                                         <td class="p-l-20"><?php echo $data->nama_kelas; ?></td>
-                                        <td class="p-l-20"><?php echo $data->id_aslab; ?></td>
+                                        <td class="p-l-20"><?php echo $data->nama_aslab; ?></td>
+                                        <td class="p-l-20"><?php echo $data->kode_enroll; ?></td>
                                         <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
                                         <td class="p-l-20">
-                                                <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
-<!--
-                                                
-                                                <a href="<?php echo base_url();?>Kelas/pengumuman" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn"></span></a>
-                                                <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
--->
+                                                <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
+<!--                                                <a href="<?php echo base_url();?>Kelas/delete/<?= $data->id_kelas; ?>" onClick="return confirm('Apakah yakin ingin menghapus kelas <?php echo $data->nama_kelas; ?>?')"  class="btn btn-danger"><span class="fa fa-trash"></span></a>-->
+                                                <button type="button" onClick="deleteData(<?= $data->id_kelas; ?>,'<?= $data->nama_kelas; ?>')"  class="btn btn-danger"><span class="fa fa-trash"></span></button>
                                         </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -81,6 +79,39 @@ $(document).ready(function() {
     $('#table_id').DataTable();
 } );
 </script>
+
+<!--SweetAlert-->
+<script>
+function deleteData(id_kelas,nama_kelas){
+        swal({   
+            title: 'Apakah yakin ingin menghapus Kelas '+nama_kelas+'? ',
+            text: 'Data yang sudah dihapus tidak dapat dikembalikan lagi.',
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Hapus",   
+            closeOnConfirm: false 
+        }, function(){
+                $.ajax({
+                        url:"<?php echo base_url();?>Kelas/delete",
+                        type: 'GET',
+                        data: 'id_kelas='+id_kelas,
+                        success:function(){
+                                swal("Berhasil Dihapus!", "Kelas "+nama_kelas+" berhasil dihapus.", "success"); 
+                                setInterval(function(){location.reload()}, 2500);
+                        },
+                        error:function(){
+                                alert('Ada yang error');
+                        }
+                });
+                //end ajax
+        });
+}
+//endfunction
+</script>
+
+
+
 
 
 <?php
