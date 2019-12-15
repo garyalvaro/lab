@@ -24,6 +24,11 @@ class lab extends CI_Controller
 		$this->load->view('bph');
 	}
 
+		public function faq()
+	{
+		$this->load->view('faq/index.html');
+	}
+
 	public function aslab()
 	{
 		$this->load->view('aslab');
