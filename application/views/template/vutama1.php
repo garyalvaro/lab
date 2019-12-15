@@ -78,6 +78,7 @@ elseif($this->session->userdata('level') == 2)
 			          <li><a href="<?php echo base_url(); ?>Jadwal">Jadwal</a></li>
 			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
 			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
+			          <li><a href="<?php echo base_url();?>lab/faq">Faq</a></li>
 
 			        
 			          <?php if($this->session->userdata('logged_in')): ?>
