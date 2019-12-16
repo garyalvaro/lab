@@ -36,7 +36,7 @@ if($this->session->flashdata())
                         <b>Ruang : </b> <?php echo $key->nama_ruang; ?> <br>
                         <b>Waktu : </b> <?php echo $key->nama_waktu; ?>
                 </div>
-                <div class="panel-footer"><a class="btn btn-primary">Detail</a></div>
+                <div class="panel-footer"><br>  <br>    <!-- <a class="btn btn-primary">Detail</a> --></div>
         </div>
 </div>
 <?php endforeach; ?>

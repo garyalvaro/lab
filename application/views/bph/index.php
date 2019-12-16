@@ -55,7 +55,7 @@ if($this->session->flashdata())
                                             ?>
                                     </td>
                                     <td><?= $key->email; ?></td>
-                                   <td><?= $key->pass; ?></td>
+                                   <td>*********</td>
                                     <td>
                                             <a href="<?php echo base_url();?>Bph/edit/<?= $key->nim; ?>" class="text-primary"><span class="fa fa-pencil m-r-10"></span></a>
                                             <a href="<?php echo base_url();?>/Bph/delete/<?= $key->nim; ?>" class="text-danger" onClick="return confirm('Anda yakin ingin menghapus?');"><span class="fa fa-trash"></span></a>
