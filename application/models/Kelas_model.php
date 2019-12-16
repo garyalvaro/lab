@@ -188,11 +188,14 @@ class Kelas_model extends CI_Model
         {
                 $kode_enroll = $data['kode_enroll'];
                 $nim = $data['nim'];
-                $result1 = $this->db->query('SELECT * FROM kelas WHERE kode_enroll="'.$kode_enroll.'"');
+                $result1 = $this->db->query('SELECT id_kelas FROM kelas WHERE kode_enroll="'.$kode_enroll.'"');
                 if($result1->num_rows() == 1)
                 {
-                        foreach($result1->row(0)->id_kelas as $key){ $id_kelas = $key->id_kelas; }
-                        $this->db->query('INSERT INTO nilai (id_nilai, id_kelas, nim) VALUES ("", "'.$id_kelas.'" , "'.$nim.'")');
+                        foreach($result1->result() as $key){ $id_kelas = $key->id_kelas; }
+                        if($this->db->query("SELECT * FROM nilai WHERE nim=$nim AND id_kelas=$id_kelas")->num_rows() == 1)
+                                return FALSE;
+                        else
+                                $this->db->query('INSERT INTO nilai (id_nilai, id_kelas, nim) VALUES ("", "'.$id_kelas.'" , "'.$nim.'")');
                         return TRUE;
                 }
                 else

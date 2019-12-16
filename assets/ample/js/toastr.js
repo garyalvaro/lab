@@ -64,7 +64,7 @@ $(document).ready(function () {
     $(".add-success").show(function(){
         $.toast({
             heading: 'Kelas Berhasil Ditambahkan.',
-            text: 'Anda berhasil menambahkan 1 kelas.',
+            text: 'Anda berhasil menambahkan kelas.',
             position: 'top-right',
             loaderBg: '#ff6849',
             icon: 'success',
@@ -77,6 +77,18 @@ $(document).ready(function () {
         $.toast({
             heading: 'Kelas Gagal Ditambahkan.',
             text: 'Kelas nampaknya sudah ada.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'error',
+            hideAfter: 5000,
+            stack: 6
+        });
+    });
+    
+    $(".add-failed2").show(function(){
+        $.toast({
+            heading: 'Kelas Gagal Ditambahkan.',
+            text: 'Kelas nampaknya sudah ada atau kode kelas Anda salah.',
             position: 'top-right',
             loaderBg: '#ff6849',
             icon: 'error',

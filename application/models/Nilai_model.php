@@ -84,5 +84,12 @@ class Nilai_model extends CI_Model
                         $ta = (date("Y")-1)."/".date("Y");
                 return $ta;
         }
+        
+        function update_nilai($nim, $nilai, $id_kelas)
+        {
+                $query = $this->db->query("UPDATE nilai SET nilai=$nilai WHERE nilai.nim=$nim AND nilai.id_kelas=$id_kelas");
+                return $query;
+        }
+        
 
 }

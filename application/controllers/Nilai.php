@@ -3,22 +3,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Nilai extends CI_Controller 
 {
+        public function __construct()
+        {
+                parent::__construct();
+        }
+        
 	public function index()
 	{
                 $data['title'] = 'NILAI';
                 $data['subtitle'] = 'Nilai';
-                $this->load->view('template/header', $data);
-                $this->load->view('nilai/index');
-                $this->load->view('template/footer');
 	}
         
-        public function detail_nilai($kelas)
+        public function add($id_kelas)
         {
                 $data['title'] = 'NILAI';
                 $data['subtitle'] = 'Nilai';
-                $data['nilai'] = $this->Nilai_model->get_general($kelas);
-                $this->load->view('template/header', $data);
-                $this->load->view('nilai/detail_nilai');
-                $this->load->view('template/footer');
+                $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
+                
+                if($this->input->get())
+                {
+                        $nim = $this->input->get('nim');
+                        $nilai = $this->input->get('nilai');
+                        $this->Nilai_model->update_nilai($nim, $nilai, $id_kelas);
+                        redirect('Kelas/view/'.$id_kelas);
+                }
+                $this->load->view('nilai/tambah_nilai', $data);
         }
 }

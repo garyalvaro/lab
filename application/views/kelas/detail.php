@@ -9,6 +9,8 @@ if($this->session->flashdata())
                 echo "<span id='login-success'></span>";
 }
 
+$id_kelas = $this->uri->segment(3);
+
 ?>
 
 <!-- TITLE -->
@@ -18,7 +20,7 @@ if($this->session->flashdata())
         </div>
         <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
                 <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
-<!--                <a href="<?php echo base_url();?>Kelas/create" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-plus"></span> Tambah Kolom Nilai</a>-->
+                <a href="<?php echo base_url().'Nilai/add/'.$id_kelas;?>" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-pencil"></span> Edit Nilai</a>
         </div>
 </div>
 
@@ -36,7 +38,7 @@ if($this->session->flashdata())
                                         <th>NIM</th>
                                         <th>Nama</th>
                                         <th>Nilai</th>
-                                        <th>Aksi</th>
+                                        <th>Huruf</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,17 +48,11 @@ if($this->session->flashdata())
                                         <td><?php echo $data->nim; ?></td>
                                         <td><?php echo $data->nama; ?></td>
                                         <td><?php echo $data->nilai; ?></td>
-                                        <td>
-<!--                                        
-                                                <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
-
-                                                <a href="<?php echo base_url();?>index.php/makanan/edit/<?= $data->id_kelas; ?>" class="btn btn-primary pull-right" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                <a href="<?php echo base_url();?>index.php/makanan/delete/<?= $data->id_kelas; ?>" class="btn btn-danger pull-right" class="btn btn-success" onClick="return confirm('Apakah Anda yakin ingin menghapus data?')"><span class="glyphicon glyphicon-trash"></span></a>
--->
-                                        </td>
+                                        <td><?php echo nilaiHuruf($data->nilai) ?></td>
                                 </tr>
                                 <?php } ?>
                                 </tbody>
+                                
                                 <tfoot>
                                     <tr>
                                         <th></th>
@@ -75,6 +71,24 @@ if($this->session->flashdata())
 $this->load->view('dashboard/rightside');
 ?>
 
+<?php
+function nilaiHuruf($nilai)
+{
+        if($nilai >= 80)
+                $huruf = "A";
+        elseif($nilai >= 75 && $nilai < 80)
+                $huruf = "B+";
+        elseif($nilai >= 65 && $nilai < 75)
+                $huruf = "B";
+        elseif($nilai >= 55 && $nilai < 65)
+                $huruf = "C+";
+        elseif($nilai >= 45 && $nilai < 55)
+                $huruf = "C";
+        else
+                $huruf = "E";
+        return $huruf;
+}
+?>
 
 <?php
 $this->load->view('dashboard/footer');

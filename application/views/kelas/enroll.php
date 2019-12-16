@@ -11,7 +11,7 @@ if($this->session->flashdata())
         if($this->session->flashdata('add_success'))
                 echo "<span class='add-success'></span>";
         if($this->session->flashdata('add_failed'))
-                echo "<span class='add-failed'></span>";
+                echo "<span class='add-failed2'></span>";
 }
 
 ?>
