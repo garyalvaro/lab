@@ -5,8 +5,8 @@ $this->load->view('dashboard/leftside');
 
 if($this->session->flashdata())
 {
-        if($this->session->flashdata('add_success'))
-                echo "<span class='add-success'></span>";
+        if($this->session->flashdata('rekrut_success'))
+                echo "<span class='rekrut_success'></span>";
 }
 
 ?>

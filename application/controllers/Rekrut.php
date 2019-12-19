@@ -93,8 +93,8 @@ class Rekrut extends CI_Controller
 		echo $data['ip2'];
 		if($this->Nilai_model->create_general("rekrut_aslab",$data))
 		{
-			$this->session->set_flashdata('rekrut_success','');
-			redirect('rekrut/view_rekrut');
+			$this->session->set_flashdata('rekrut_success','rekrut_success');
+			redirect('Dashboard');
 		}
 		else { echo "error"; }	
 	}
