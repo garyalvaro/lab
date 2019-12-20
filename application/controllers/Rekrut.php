@@ -35,7 +35,8 @@ class Rekrut extends CI_Controller
 		$data['status']=1;
 		$data1['level']=1;
 
-		$this->Rekrut_model->confirm($id,$data,$data1);
+		$this->Rekrut_model->confirm($id,$data);
+		$this->Rekrut_model->confirm1($id,$data1);
 		redirect('Rekrut/view_rekrut','refresh');
 	}
 
@@ -43,7 +44,8 @@ class Rekrut extends CI_Controller
 	{
 		$data['status']=2;
 		$data1['level']=0;
-		$this->Rekrut_model->confirm($id,$data,$data1);
+		$this->Rekrut_model->confirm($id,$data);
+		$this->Rekrut_model->confirm1($id,$data1);
 		redirect('Rekrut/view_rekrut','refresh');
 	}
 
