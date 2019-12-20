@@ -58,7 +58,9 @@ if($this->session->flashdata())
                                    <td>*********</td>
                                     <td>
                                             <a href="<?php echo base_url();?>Bph/edit/<?= $key->nim; ?>" class="text-primary"><span class="fa fa-pencil m-r-10"></span></a>
+                                            <?php if($key->level != 2) { ?>
                                             <a href="<?php echo base_url();?>/Bph/delete/<?= $key->nim; ?>" class="text-danger" onClick="return confirm('Anda yakin ingin menghapus?');"><span class="fa fa-trash"></span></a>
+                                            <?php } ?>
                                     </td>
                             </tr>
                             <?php endforeach; ?>

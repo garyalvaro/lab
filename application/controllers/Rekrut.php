@@ -28,15 +28,23 @@ class Rekrut extends CI_Controller
 		{
 			echo "";
 		}
-//                $dataMahasiswa = $this->Nilai_model->get_by_id_general('rekrut_aslab','nim',$nim);
-//		if ($dataMahasiswa == TRUE) {
-//			$dataMahasiswa=json_encode($dataMahasiswa,JSON_PRETTY_PRINT);
-//			echo $dataMahasiswa;
-//		}
-//		else
-//		{
-//			echo "";
-//		}
+	}
+
+		function konfirmasi($id)
+	{
+		$data['status']=1;
+		$data1['level']=1;
+
+		$this->Rekrut_model->confirm($id,$data,$data1);
+		redirect('Rekrut/view_rekrut','refresh');
+	}
+
+	function batalkonfirmasi($id)
+	{
+		$data['status']=2;
+		$data1['level']=0;
+		$this->Rekrut_model->confirm($id,$data,$data1);
+		redirect('Rekrut/view_rekrut','refresh');
 	}
 
 	public function daftarAslab()

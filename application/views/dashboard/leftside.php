@@ -17,7 +17,7 @@
                     <li><a href="#" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu">Penjadwalan<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url();?>Jadwal"><i class="fa fa-calendar-o fa-fw"></i><span class="hide-menu">Lihat Jadwal</span></a></li>
-                            <li><a href="<?php echo base_url();?>Jadwal/create"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Tambah Jadwal</span></a></li>
+                            <li><a href="<?php echo base_url();?>Jadwal/create"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Buat Jadwal</span></a></li>
                             <li><a href="<?php echo base_url();?>Jadwal/ruang"><i class="fa fa-building-o fa-fw"></i><span class="hide-menu">Daftar Ruangan</span></a></li>
                         </ul>
                     </li>
@@ -33,7 +33,6 @@
                     
                     <li><a href="#" class="waves-effect"><i class="mdi mdi-account-multiple fa-fw"></i> <span class="hide-menu">Aslab<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="#"><i class="mdi mdi-account-card-details fa-fw"></i><span class="hide-menu">Daftar Aslab</span></a></li>
                             <li><a href="<?php echo base_url();?>Rekrut/view_rekrut"><i class="mdi mdi-account-multiple-plus fa-fw"></i><span class="hide-menu">Perekrutan Aslab</span></a></li>
                         </ul>
                     </li>
@@ -52,7 +51,7 @@
                     <li><a href="#" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu">Penjadwalan<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url();?>Jadwal"><i class="fa fa-calendar-o fa-fw"></i><span class="hide-menu">Lihat Jadwal</span></a></li>
-                            <li><a href="<?php echo base_url();?>Jadwal/create"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Tambah Jadwal</span></a></li>
+                            <li><a href="<?php echo base_url();?>Jadwal/create"><i class="mdi mdi-calendar-plus fa-fw"></i><span class="hide-menu">Buat Jadwal</span></a></li>
                             <li><a href="<?php echo base_url();?>Jadwal/ruang"><i class="fa fa-building-o fa-fw"></i><span class="hide-menu">Daftar Ruangan</span></a></li>
                         </ul>
                     </li>

@@ -29,7 +29,42 @@ if($this->session->flashdata())
 <div class="col-sm-12">
         <div class="white-box">
             <h3 class="box-title m-b-0">JADWAL</h3>
-            <p class="text-muted m-b-30">Jadwal Praktikum Semester Ganjil 2019/2020</p>
+            <div class="text-muted ">
+                Jadwal Praktikum Semester Ganjil 2019/2020<br><br>
+            </div>
+            <table>
+                <tr>
+                    <td width="50px;">IK1</td>
+                    <td>: Lab. Pemrograman 1</td>
+                    <td width="100px"></td>
+                    <td width="50px;">TI1</td>
+                    <td>: Lab. Jaringan 1</td>
+                </tr>
+                <tr>
+                    <td width="50px;">IK2</td>
+                    <td>: Lab. Pemrograman 2</td>
+                    <td width="100px"></td>
+                    <td width="50px;">TI2</td>
+                    <td>: Lab. Jaringan 2</td>
+                </tr>
+                <tr>
+                    <td width="50px;">IK3</td>
+                    <td>: Lab. Pemrograman 3</td>
+                    <td width="100px"></td>
+                    <td width="50px;">TI3</td>
+                    <td>: Lab. Database</td>
+                </tr>
+                <tr>
+                    <td width="50px;">IK3</td>
+                    <td>: Lab. Pemrograman 4</td>
+                    <td width="100px"></td>
+                    <td width="50px;">TI3</td>
+                    <td>: Lab. Multimedia</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
             <div class="table-responsive">
 
                         <table class="table table-striped table-bordered" >
