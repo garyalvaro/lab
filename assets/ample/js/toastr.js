@@ -144,6 +144,18 @@ $(document).ready(function () {
             stack: 6
         });
     });
+    
+    $(".rekrut_success").show(function(){
+        $.toast({
+            heading: 'Pendaftaran Berhasil!',
+            text: 'Terima kasih calon aslab, semoga diterima.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
 
     $(".tst4").on("click", function () {
         $.toast({
