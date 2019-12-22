@@ -154,7 +154,7 @@ elseif($this->session->userdata('level') == 2)
 			<!-- Start feature Area -->
 			<section class="feature-area">
 				<div class="container">
-					<div class="row">
+					<div class="row" style="cursor:context-menu !important;">
 						<div class="col-lg-2"></div>
 						<div class="col-lg-4">
 							<div class="single-feature">
