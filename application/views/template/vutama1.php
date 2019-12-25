@@ -170,10 +170,12 @@ elseif($this->session->userdata('level') == 2)
 								</div>
 								<div class="desc-wrap">
 									<p>
-										<ol style="color: black;">
-											<li>1. Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
-											<li>2. Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
-											<li>3. Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Lab Komputer USU.</li>
+										<ol style="color: black;" type="1">
+											<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
+											<li>&#x25cf;</li>
+											<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
+											<li>&#x25cf;</li>
+											<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
 										</ol>		
 									</p>								
 								</div>
