@@ -64,7 +64,7 @@ if($this->session->flashdata())
 					<tr>
 						<td class="p-l-20">
 							<?php echo $data->nim;?>
-							<input type="text" name="nim" id="nim" value="<?php echo $data->nim;?>" hidden>
+							<input type="text" name="nim"value="<?php echo $data->nim;?>" hidden>
 						</td>
 						<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
 							foreach ($nama as $key) { ?>
@@ -73,16 +73,16 @@ if($this->session->flashdata())
 										<b ><?php echo $key->nama; ?></b>
 									<?php } else if ($data->status==1) { ?>
 										<b class="text-info"><?php echo $key->nama; ?></b>
-									<?php }  else if ($data->status==2) { ?>
+									<?php }	else if ($data->status==2) { ?>
 										<b class="text-success"><?php echo $key->nama; ?></b>
-									<?php }  else if ($data->status==4) { ?>
+									<?php }	else if ($data->status==4) { ?>
 										<b class="text-success"><?php echo $key->nama; ?></b>
-									<?php }  else if ($data->status==5 || $data->status==3) { ?>
+									<?php }	else if ($data->status==5 || $data->status==3) { ?>
 										<b class="text-danger"><?php echo $key->nama; ?></b>
 									<?php } else { ?>
 										<b class=""><?php echo $key->nama; ?></b>
 									<?php } ?>
-									<input type="text" name="nama_aslab" id="nama_aslab" value="<?php echo $key->nama;?>" hidden>
+									<input type="text" name="nama_aslab"  value="<?php echo $key->nama;?>" hidden>
 								</td>
 							<?php }
 						?>
@@ -164,20 +164,20 @@ if($this->session->flashdata())
 													<?php echo $data->alasan; ?>
 												</div>
 												<div class="form-group row">
-												<?php if ($this->session->userdata('level')==2) { ?>
-													<label class="col-sm-3 col-form-label text-info" for="Select1">Status</label>
-													<div class="col-sm-9">
-														<select class="form-control" id="Select1" name="status">
-															<option value="0" <?php echo (0==$data->status?'selected':''); ?>>Berkas belum diproses</option>
-															<option value="1" <?php echo (1==$data->status?'selected':''); ?>>Dalam proses pengolahan berkas</option>
-															<option value="2" <?php echo (2==$data->status?'selected':''); ?>>Berkas diterima</option>
-															<option value="3" <?php echo (3==$data->status?'selected':''); ?>>Berkas ditolak</option>
-															<option value="4" <?php echo (4==$data->status?'selected':''); ?>>Terima sebagai aslab</option>
-															<option value="5" <?php echo (5==$data->status?'selected':''); ?>>Tolak sebagai aslab</option>
-														</select>
-													</div>
-												<?php } else { ?>	
-													<label style="width: 25%;" ">Status</label>: 
+													<?php if ($this->session->userdata('level')==2) { ?>
+														<label class="col-sm-3 col-form-label text-info" >Status</label>
+														<div class="col-sm-9">
+															<select class="form-control"  name="status">
+																<option value="0" <?php echo (0==$data->status?'selected':''); ?>>Berkas belum diproses</option>
+																<option value="1" <?php echo (1==$data->status?'selected':''); ?>>Dalam proses pengolahan berkas</option>
+																<option value="2" <?php echo (2==$data->status?'selected':''); ?>>Berkas diterima</option>
+																<option value="3" <?php echo (3==$data->status?'selected':''); ?>>Berkas ditolak</option>
+																<option value="4" <?php echo (4==$data->status?'selected':''); ?>>Terima sebagai aslab</option>
+																<option value="5" <?php echo (5==$data->status?'selected':''); ?>>Tolak sebagai aslab</option>
+															</select>
+														</div>
+													<?php } else { ?>	
+													<label style="width: 25%;">Status</label>: 
 													<?php 
 														if ($data->status==0) {
 															echo "<b class='text-info'>Belum diterima sebagai Asisten Lab</b>";
@@ -188,7 +188,7 @@ if($this->session->flashdata())
 															echo "<b class='text-danger'>Ditolak sebagai Asisten Lab</b>";
 													?>
 												<?php } ?>
-   												</div>
+												</div>
 											</div>
 										<div class="modal-footer">
 											<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
@@ -236,7 +236,6 @@ $(document).ready(function() {
 		$.ajax({
 			url:"<?php echo base_url('rekrut/detail/')?>"+nim,
 			success:function(data){
-				console.log(data);
 				var data = JSON.parse(data);
 				$('#modalData'+nim).modal('show');
 				$.each(data,function(key,val){
@@ -260,7 +259,7 @@ $(document).ready(function() {
 		$.ajax({
 			type:'get',
 			data:'nim='+nim+'&nama_aslab='+nama_aslab,
-			url:'<?php echo base_url(); ?>Rekrut/status_aktif';
+			url:'<?php echo base_url(); ?>Rekrut/status_aktif'
 			});
 		});
 </script>
