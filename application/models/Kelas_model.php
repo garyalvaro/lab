@@ -23,6 +23,7 @@ class Kelas_model extends CI_Model
                 $this->db->select ( '*' ); 
                 $this->db->from ( 'kelas' );
                 $this->db->join ( 'aslab', 'aslab.id_aslab = kelas.id_aslab' , 'left' );
+                $this->db->where ( 'aslab.id_aslab', $id_aslab);
                 $query = $this->db->get();
                 return $query->result();
         }
@@ -47,12 +48,18 @@ class Kelas_model extends CI_Model
         
         public function view_kelas($id_kelas)
         {       
-//                $result=$this->db->query('SELECT * FROM kelas WHERE id_kelas="'.$id_kelas.'"');
-//                $nama_kelas = $result->row(1)->nama_kelas;
-//                $ta = $result->row(2)->tahun_ajaran;
-//                
-//                $query = $this->db->get('kelas_'.$nama_kelas.'_'.$ta.'')->result();
-//                return $query;
+                $this->db->select ( '*' ); 
+                $this->db->from ( 'nilai' );
+                $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );
+                $this->db->join ( 'user', 'user.nim = nilai.nim' , 'left' );
+                $this->db->where ( 'nilai.id_kelas', $id_kelas);
+                $this->db->where ( 'nilai.nim!=', NULL);
+                $query = $this->db->get();
+                return $query->result();
+        }
+        
+        public function view_mhs($id_kelas)
+        {       
                 $this->db->select ( '*' ); 
                 $this->db->from ( 'nilai' );
                 $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );

@@ -14,7 +14,7 @@ if($this->session->flashdata())
 ?>
 
 <!-- AutoRefresh -->
-<!--<meta http-equiv="refresh" content="5">-->
+<meta http-equiv="refresh" content="30">
 
 <!-- TITLE -->
 <div class="row bg-title">

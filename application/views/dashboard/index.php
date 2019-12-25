@@ -74,19 +74,13 @@ if($this->session->flashdata())
                     <h3 class="box-title m-b-0">USER & ASLAB</h3>
                 <br>
                     <a href="<?php echo base_url();?>Bph">
-                            <div class="col-lg-4 col-xs-12 text-center p-t-20 p-b-20">
+                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa fa-users"></i> </button> <br><br>
                                     <b class="text-dark">Daftar User</b>
                             </div>
                     </a>
                     <a href="<?php echo base_url();?>Rekrut/view_rekrut">
-                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-card-details"></i> </button> <br><br>
-                                    <b class="text-dark">Daftar Aslab</b>
-                            </div>
-                    </a>
-                    <a href="<?php echo base_url();?>Rekrut">
-                            <div class="col-lg-4 col-xs-6 text-center p-t-20 p-b-20">
+                            <div class="col-lg-6 col-xs-6 text-center p-t-20 p-b-20">
                                     <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-multiple-plus"></i> </button> <br><br>
                                     <b class="text-dark">Perekrutan Aslab</b>
                             </div>
