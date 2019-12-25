@@ -14,7 +14,7 @@ if($this->session->flashdata())
 ?>
 
 <!-- AutoRefresh -->
-<!--<meta http-equiv="refresh" content="5">-->
+<meta http-equiv="refresh" content="30">
 
 <!-- TITLE -->
 <div class="row bg-title">
@@ -58,10 +58,10 @@ if($this->session->flashdata())
                     <td>: Lab. Database</td>
                 </tr>
                 <tr>
-                    <td width="50px;">IK4</td>
+                    <td width="50px;">IK3</td>
                     <td>: Lab. Pemrograman 4</td>
                     <td width="100px"></td>
-                    <td width="50px;">TI4</td>
+                    <td width="50px;">TI3</td>
                     <td>: Lab. Multimedia</td>
                 </tr>
                 <tr>

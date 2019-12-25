@@ -96,6 +96,19 @@ class Kelas extends CI_Controller
                 $this->load->view('Kelas/detail', $data);
         }
         
+        public function tambah_mhs($id_kelas)
+        {
+                $data['title'] = 'Tambah Mahasiswa';
+                $data['subtitle'] = 'Tambah Mahasiswa';
+                $data['user'] = $this->lab_model->view_user();
+                
+                if($this->input->post())
+                {
+
+                }
+                $this->load->view('kelas/tambah_mahasiswa', $data);
+        }
+        
         public function delete()
         {
                 $id_kelas = $this->input->get('id_kelas');

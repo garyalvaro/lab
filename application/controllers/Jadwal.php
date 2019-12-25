@@ -21,7 +21,7 @@ class Jadwal extends CI_Controller
         }
         
         public function create()
-        {
+        { 
                 $data['title'] = 'Tambah Jadwal';
                 $data['subtitle'] = 'Tambah Jadwal';
                 
@@ -88,7 +88,7 @@ class Jadwal extends CI_Controller
                                 redirect("jadwal/index");
                         }
                                 
-                } 
+                }  
         }
         
         public function coba()

@@ -52,15 +52,6 @@ $id_kelas = $this->uri->segment(3);
                                 </tr>
                                 <?php } ?>
                                 </tbody>
-                                
-                                <tfoot>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
                         </table>
 
             </div>
@@ -89,6 +80,15 @@ function nilaiHuruf($nilai)
         return $huruf;
 }
 ?>
+
+<script>
+    $('#table_id').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+</script>
 
 <?php
 $this->load->view('dashboard/footer');
