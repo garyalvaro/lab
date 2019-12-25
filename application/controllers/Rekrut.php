@@ -13,8 +13,8 @@ class Rekrut extends CI_Controller
 	{
 		$data['rekrut'] = $this->Nilai_model->get_general('rekrut_aslab');
 		$data['title'] = 'Rekrut';
-                $data['subtitle'] = 'Rekrut';
-                $this->load->view('rekrut/view_rekrut', $data);
+        $data['subtitle'] = 'Rekrut';
+        $this->load->view('rekrut/view_rekrut', $data);
 
 	}
 	public function detail($nim)
@@ -29,8 +29,18 @@ class Rekrut extends CI_Controller
 			echo "";
 		}
 	}
+	function gantiStatus($id)
+	{
+		$data['status']=$this->input->post('status');
 
-		function konfirmasi($id)
+		if ($data['status']==4) {
+			$data1['level']=1;
+			$this->Rekrut_model->confirm1($id,$data1);
+		}
+		$this->Rekrut_model->confirm($id,$data);
+		redirect('Rekrut/view_rekrut','refresh');
+	}
+	function konfirmasi($id)
 	{
 		$data['status']=1;
 		$data1['level']=1;
