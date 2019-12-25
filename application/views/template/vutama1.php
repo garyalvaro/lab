@@ -3,12 +3,10 @@
         if($this->session->flashdata('login_success')):
                 $pesan = $this->session->flashdata('login_success');
         endif;
-
         //Kalau gagal login akan menampilkan keterangan
         if($this->session->flashdata('login_failed')):
                 $pesan = $this->session->flashdata('login_failed');
         endif;
-
         //Kalau belum login akan menampilkan keterangan
         if($this->session->flashdata('login_dulu')):
                 $pesan = '<b class="text-danger">'.$this->session->flashdata('login_dulu').'</b>';
@@ -75,9 +73,6 @@ elseif($this->session->userdata('level') == 2)
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
-			          <li><a href="<?php echo base_url(); ?>Jadwal">Jadwal</a></li>
-			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
-			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
 			          <li><a href="<?php echo base_url();?>lab/faq">Faq</a></li>
 
 			        
@@ -141,7 +136,7 @@ elseif($this->session->userdata('level') == 2)
 								SELAMAT DATANG	
 							</h1>
 							<br><br>
-							<a href="#aslab_section" class="primary-btn text-uppercase">Lebih Lanjut</a>
+							<a href="#tentang_section" class="primary-btn text-uppercase">Lebih Lanjut</a>
                                                         <?php if($this->session->userdata('logged_in')): ?>
                                                                 <a href="<?php echo base_url();?>Dashboard" class="primary-btn text-uppercase ">Dashboard</a>
                                                         <?php endif;?>
@@ -159,26 +154,30 @@ elseif($this->session->userdata('level') == 2)
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Jadwal Lab</h4>
+									<h4>Visi</h4>
 								</div>
 								<div class="desc-wrap">
-									<p>
-										Dapatkan jadwal praktikum terbaru dari link berikut, tapi Login dulu yah.
-									</p>
-									<a href="<?php echo base_url(); ?>Jadwal">Lihat</a>									
+									<p  style="color: black;">
+										Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.
+									</p>							
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Perekrutan Aslab</h4>
+									<h4>Misi</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
-										Jika Anda merasa cukup kompeten dan siap untuk menjadi Asisten Lab di Teknologi Informasi USU, silahkan lampirkan berkas - berkas yang diperlukan.
-									</p>
-									<a href="#rekrut_section">Lihat</a>									
+										<ol style="color: black;" type="1">
+											<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
+											<li>&#x25cf;</li>
+											<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
+											<li>&#x25cf;</li>
+											<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
+										</ol>		
+									</p>								
 								</div>
 							</div>
 						</div>		
@@ -187,7 +186,33 @@ elseif($this->session->userdata('level') == 2)
 				</div>	
 			</section>
 			<!-- End feature Area -->
-					
+
+			<!-- Start cta-two Area -->
+			<section class="cta-two-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<center>
+								<h1>Tentang TI USU</h1>
+						</div>
+						<div class="col-sm-12">
+							&nbsp;
+						</div>
+						<div class="col-sm-12">
+							<p style="text-align: justify;color: black;">Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
+								<br><br>
+								Pada akhir tahun 2007 , tepatnya pada tanggal 27 November 2007, Ditjen Dikti mengeluarkan surat keputusan tentang Penataan dan Kodifikasi Program Tinggi Nomor 163/KEP/DIKTI/2007 untuk mengatur penamaan progam studi (S-1) bidang komputer dan kemudian mengalami penyempurnaan dengan keluarnya Surat Edaran Ditjen Dikti Nomor 1030/D/T/2010. Dengan keluarnya Surat Edaran Ditjen Dikti tersebut, perguruan tinggi diberi kesempatan untuk menata ulang penamaan program studi yang dikelolanya. Universitas Sumatera Utara dengan demikian menetapkan kembali nama untuk kedua program studi nya menjadi Program Studi (S-1) Ilmu Komputer dan Program Studi (S-1) Teknologi Informasi.
+								<br><br>
+								Perkembangan IPTEK di USU terus berlanjut, terbentuklah jenjang pendidikan lanjut dari program S-1 pada tahun 2009 yaitu Program Studi Magister (S-2) Teknik Informatika, dengan dikeluarkannya SK Ditjen Dikti Nomor 935/H5.1.R/SK/PRS/2009.
+							</p>			
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End cta-two Area -->
+
+		
+			
 			<!-- Start popular-course Area -->
 			<section class="popular-course-area section-gap" id="aslab_section">
 				<div class="container">

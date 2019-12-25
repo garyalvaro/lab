@@ -50,10 +50,6 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
-			          <li><a href="<?php echo base_url();?>Jadwal">Jadwal</a></li>
-			          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
-			          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
-
 
 			          <?php if($this->session->userdata('logged_in')): 
                                         redirect('');
