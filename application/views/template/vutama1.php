@@ -187,31 +187,32 @@ elseif($this->session->userdata('level') == 2)
 			</section>
 			<!-- End feature Area -->
 
-			<!-- Start popular-course Area -->
-			<section class="popular-course-area section-gap" id="tentang_section">
+			<!-- Start cta-two Area -->
+			<section class="cta-two-area">
 				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Tentang TI-USU</h1>
-							</div>
-						</div>
-					</div>						
 					<div class="row">
-						<div>
-							<p style="color: black;text-align: justify;">
-								Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
+						<div class="col-lg-12">
+							<center>
+								<h1>Tentang TI USU</h1>
+						</div>
+						<div class="col-sm-12">
+							&nbsp;
+						</div>
+						<div class="col-sm-12">
+							<p style="text-align: justify;color: black;">Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
 								<br><br>
 								Pada akhir tahun 2007 , tepatnya pada tanggal 27 November 2007, Ditjen Dikti mengeluarkan surat keputusan tentang Penataan dan Kodifikasi Program Tinggi Nomor 163/KEP/DIKTI/2007 untuk mengatur penamaan progam studi (S-1) bidang komputer dan kemudian mengalami penyempurnaan dengan keluarnya Surat Edaran Ditjen Dikti Nomor 1030/D/T/2010. Dengan keluarnya Surat Edaran Ditjen Dikti tersebut, perguruan tinggi diberi kesempatan untuk menata ulang penamaan program studi yang dikelolanya. Universitas Sumatera Utara dengan demikian menetapkan kembali nama untuk kedua program studi nya menjadi Program Studi (S-1) Ilmu Komputer dan Program Studi (S-1) Teknologi Informasi.
 								<br><br>
 								Perkembangan IPTEK di USU terus berlanjut, terbentuklah jenjang pendidikan lanjut dari program S-1 pada tahun 2009 yaitu Program Studi Magister (S-2) Teknik Informatika, dengan dikeluarkannya SK Ditjen Dikti Nomor 935/H5.1.R/SK/PRS/2009.
-							</p>
+							</p>			
 						</div>
 					</div>
 				</div>	
 			</section>
-			<!-- End popular-course Area -->
-					
+			<!-- End cta-two Area -->
+
+		
+			
 			<!-- Start popular-course Area -->
 			<section class="popular-course-area section-gap" id="aslab_section">
 				<div class="container">
