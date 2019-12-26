@@ -149,67 +149,16 @@ elseif($this->session->userdata('level') == 2)
                                                         <?php endif;?>
 						</div>										
 					</div>
-				</div>					
-			</section>
-<<<<<<< HEAD
-<<<<<<< HEAD
+				</div>				
+ 			</section>
 			<!-- End banner Area -->
-
-			<!-- Start feature Area -->
-			<section class="feature-area">
-				<div class="container">
-					<div class="row" style="cursor:context-menu !important;">
-						<div class="col-lg-2"></div>
-						<div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Visi</h4>
-								</div>
-								<div class="desc-wrap">
-									<p  style="color: black;">
-										Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.
-									</p>							
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Misi</h4>
-								</div>
-								<div class="desc-wrap">
-									<p>
-										<ol style="color: black;" type="1">
-											<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
-											<li>&#x25cf;</li>
-											<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
-											<li>&#x25cf;</li>
-											<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
-										</ol>		
-									</p>								
-								</div>
-							</div>
-						</div>		
-						<div class="col-lg-2"></div>										
-					</div>
-				</div>	
-			</section>
-			<!-- End feature Area -->
                         
-                        <div class="col-12"><br><br><br></div>
-                        
-=======
-=======
->>>>>>> da948e09ac4f85174e1f9de302886b502d27e360
-			<!-- End banner Area -->	
-
->>>>>>> da948e09ac4f85174e1f9de302886b502d27e360
 			<!-- Start cta-two Area -->
-			<section class="cta-two-area" style="background-color: linen;">
+			<section class="cta-two-area" style="background-color: linen;"id="tentang_section">
 				<div class="container">
-					<div class="row" style="color: whitesmoke;">
+					<div class="row">
 						<div class="col-lg-12 text-center">
-                                                        <h1 style="color: white;">Tentang TI USU</h1>
+                                                        <h1>Tentang TI USU</h1>
 						</div>
 						<div class="col-sm-12">
 							&nbsp;
@@ -240,21 +189,18 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>
 
-				<div class="offset-lg-1 col-lg-5">
+				<div class="offset-lg-1 col-lg-5" style="color: black;">
 					<div class="dpmt_right">
 						<h3>Visi :</h3>
-						<p style="color: black;">
+						<p>
 							Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.<br>
 						</p>
+                                                <br>
 						<h3>Misi :</h3>
 						<p>
-							<ol style="color: black;">
-								<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
-								<li>&#x25cf;</li>
-								<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
-								<li>&#x25cf;</li>
-								<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
-							</ol>		
+                                                        Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler. <br>
+                                                        Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer. <br>
+                                                        Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU. <br>
 						</p>
 					</div>
 				</div>
