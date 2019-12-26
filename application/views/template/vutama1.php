@@ -61,6 +61,8 @@ elseif($this->session->userdata('level') == 2)
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/main.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/Education-Doc/css/style.css">
                         <link rel="manifest" href="<?php echo base_url();?>manifest.json">
+
+           
 		</head>
 		<body id="top">	
                                 
@@ -144,51 +146,10 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>					
 			</section>
-			<!-- End banner Area -->
-
-			<!-- Start feature Area -->
-			<section class="feature-area">
-				<div class="container">
-					<div class="row" style="cursor:context-menu !important;">
-						<div class="col-lg-2"></div>
-						<div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Visi</h4>
-								</div>
-								<div class="desc-wrap">
-									<p  style="color: black;">
-										Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.
-									</p>							
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-feature">
-								<div class="title">
-									<h4>Misi</h4>
-								</div>
-								<div class="desc-wrap">
-									<p>
-										<ol style="color: black;" type="1">
-											<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
-											<li>&#x25cf;</li>
-											<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
-											<li>&#x25cf;</li>
-											<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
-										</ol>		
-									</p>								
-								</div>
-							</div>
-						</div>		
-						<div class="col-lg-2"></div>										
-					</div>
-				</div>	
-			</section>
-			<!-- End feature Area -->
+			<!-- End banner Area -->	
 
 			<!-- Start cta-two Area -->
-			<section class="cta-two-area">
+			<section class="cta-two-area" style="background-color: linen;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
@@ -211,7 +172,43 @@ elseif($this->session->userdata('level') == 2)
 			</section>
 			<!-- End cta-two Area -->
 
-		
+			<!--================ Start Department Area =================-->
+	<section style="padding: 80px;background-color: azure;">
+	<div class="department_area section_gap">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="dpmt_courses">
+						<div class="row">
+							<img src="<?php echo base_url();?>assets/images/visimisi.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="offset-lg-1 col-lg-5">
+					<div class="dpmt_right">
+						<h3>Visi :</h3>
+						<p style="color: black;">
+							Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.<br>
+						</p>
+						<h3>Misi :</h3>
+						<p>
+							<ol style="color: black;">
+								<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
+								<li>&#x25cf;</li>
+								<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
+								<li>&#x25cf;</li>
+								<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
+							</ol>		
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--================ End Department Area =================-->	
+	
 			
 			<!-- Start popular-course Area -->
 			<section class="popular-course-area section-gap" id="aslab_section">
