@@ -53,33 +53,36 @@ if($this->session->flashdata())
 					<?php if ($this->session->userdata('level')==2) { ?>
 						<th>Detail</td>
 					<?php } ?>
-<!--                                                                <th>Status</th>-->
+<!--																																<th>Status</th>-->
 				</tr>
 				</thead>
 				<tbody>
 					<?php 
 						foreach($rekrut as $data){
-						   
+							 
 					?>
 					<tr>
 						<td class="p-l-20">
 							<?php echo $data->nim;?>
-							<input type="text" name="nim" id="nim" value="<?php echo $data->nim;?>" hidden>
+							<input type="text" name="nim"value="<?php echo $data->nim;?>" hidden>
 						</td>
 						<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
 							foreach ($nama as $key) { ?>
 								<td class="p-l-20">
 									<?php if ($data->status==0) { ?>
+										<b ><?php echo $key->nama; ?></b>
+									<?php } else if ($data->status==1) { ?>
 										<b class="text-info"><?php echo $key->nama; ?></b>
-									<?php } ?>
-									<?php if ($data->status==1) { ?>
+									<?php }	else if ($data->status==2) { ?>
 										<b class="text-success"><?php echo $key->nama; ?></b>
-									<?php } ?>
-
-									<?php if ($data->status==2) { ?>
+									<?php }	else if ($data->status==4) { ?>
+										<b class="text-success"><?php echo $key->nama; ?></b>
+									<?php }	else if ($data->status==5 || $data->status==3) { ?>
 										<b class="text-danger"><?php echo $key->nama; ?></b>
+									<?php } else { ?>
+										<b class=""><?php echo $key->nama; ?></b>
 									<?php } ?>
-									<input type="text" name="nama_aslab" id="nama_aslab" value="<?php echo $key->nama;?>" hidden>
+									<input type="text" name="nama_aslab"  value="<?php echo $key->nama;?>" hidden>
 								</td>
 							<?php }
 						?>
@@ -106,31 +109,32 @@ if($this->session->flashdata())
 						 <td class="p-l-20">
 							 <a href="<?php echo base_url('assets/uploads/').$data->cv;?>" class="btn btn-primary btn-sm" target="_blank">CV</a>
 						</td> 								 
-														<td>                                                                         
+														<td>																																				 
 							<a href="<?php echo base_url('assets/uploads/').$data->lamaran;?>" class="btn btn-info btn-sm" target="_blank">SL</a>
 						</td>
-						<?php if ($this->session->userdata('level')==2) { ?>
+						
 							<td class="p-l-20">
 								<button type="button" onclick="detail('<?php echo $data->nim;?>')" class="btn btn-warning btn-sm">Detail</button>
 							</td>
 
-						<?php } ?>	
+						
 						<!-- Modal -->
-						<div id="modalData" class="modal fade" role="dialog">
+						<div id="modalData<?= $data->nim; ?>" class="modal fade" role="dialog">
 							<div class="modal-dialog">
 								<!-- Modal content-->
 									<div class="modal-content">
+										<form action="gantiStatus/<?= $data->nim; ?>" method="post">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
 											<h4 class="modal-title">Detail Data Mahasiswa</h4>
 										</div>
 										<div class="modal-body">
 												<div class="form-group">
-													<label for="NIM" style="width: 30%;">NIM</label>: 
+													<label for="NIM" style="width: 25%;">NIM</label>: 
 													<?php echo $data->nim; ?>
 												</div>
 												<div class="form-group">
-													<label for="Nama_lengkap" style="width: 30%;">Nama Lengkap</label>: 
+													<label for="Nama_lengkap" style="width: 25%;">Nama Lengkap</label>: 
 													<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
 													foreach ($nama as $key) { ?>
 														<?php echo $key->nama; ?>
@@ -138,7 +142,7 @@ if($this->session->flashdata())
 													?>
 												</div>
 												<div class="form-group">
-													<label style="width: 30%;">Matkul pilihan 1</label>: 
+													<label style="width: 25%;">Matkul pilihan 1</label>: 
 													<?php $matkul1 = $this->Nilai_model->get_by_id_column_general('matkul','nama_matkul', 'singkatan_matkul', $data->matkul1);
 														foreach ($matkul1 as $key) { ?>
 															<?php echo $key->nama_matkul; ?>
@@ -147,7 +151,7 @@ if($this->session->flashdata())
 													?>
 												</div>
 												<div class="form-group">
-													<label style="width: 30%;">Matkul pilihan 2</label>: 
+													<label style="width: 25%;">Matkul pilihan 2</label>: 
 													<?php $matkul2 = $this->Nilai_model->get_by_id_column_general('matkul','nama_matkul', 'singkatan_matkul', $data->matkul2);
 														foreach ($matkul2 as $key) { ?>
 															<?php echo $key->nama_matkul; ?>
@@ -156,11 +160,24 @@ if($this->session->flashdata())
 													?>
 												</div>
 												<div class="form-group">
-													<label style="width: 30%;">Alasan Mendaftar</label>: <br>
+													<label style="width: 25%;">Alasan Mendaftar</label>: <br>
 													<?php echo $data->alasan; ?>
 												</div>
-												<div class="form-group">
-													<label style="width: 30%;">Status</label>: 
+												<div class="form-group row">
+													<?php if ($this->session->userdata('level')==2) { ?>
+														<label class="col-sm-3 col-form-label text-info" >Status</label>
+														<div class="col-sm-9">
+															<select class="form-control"  name="status">
+																<option value="0" <?php echo (0==$data->status?'selected':''); ?>>Berkas belum diproses</option>
+																<option value="1" <?php echo (1==$data->status?'selected':''); ?>>Dalam proses pengolahan berkas</option>
+																<option value="2" <?php echo (2==$data->status?'selected':''); ?>>Berkas diterima</option>
+																<option value="3" <?php echo (3==$data->status?'selected':''); ?>>Berkas ditolak</option>
+																<option value="4" <?php echo (4==$data->status?'selected':''); ?>>Terima sebagai aslab</option>
+																<option value="5" <?php echo (5==$data->status?'selected':''); ?>>Tolak sebagai aslab</option>
+															</select>
+														</div>
+													<?php } else { ?>	
+													<label style="width: 25%;">Status</label>: 
 													<?php 
 														if ($data->status==0) {
 															echo "<b class='text-info'>Belum diterima sebagai Asisten Lab</b>";
@@ -170,18 +187,18 @@ if($this->session->flashdata())
 														else
 															echo "<b class='text-danger'>Ditolak sebagai Asisten Lab</b>";
 													?>
+												<?php } ?>
 												</div>
-												
 											</div>
-									<div class="modal-footer">
-										<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
-										foreach ($nama as $key) { ?>
-											<a class="btn btn-success" href="<?php echo base_url('Rekrut/konfirmasi/').$data->nim;?>" onClick="return confirm('Anda yakin ingin menerima <?php echo $key->nama; ?> sebagai Asisten lab?');"><span class="fa fa-check"></span>&nbsp;Terima</a>
-										<a class="btn btn-danger" href="<?php echo base_url('Rekrut/batalkonfirmasi/').$data->nim;?>" onClick="return confirm('Anda yakin ingin menolak <?php echo $key->nama; ?> sebagai Asisten lab?');"><span class="fa fa-times"></span>&nbsp;Tolak</a>
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>			
-										<?php } ?>
-										
-									</div>
+										<div class="modal-footer">
+											<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 
+											foreach ($nama as $key) { ?>
+												<button class="btn btn-success" type="submit" onClick="return confirm('Anda yakin ingin menyimpan perubahan status yang dilakukan terhadap <?php echo $key->nama; ?> ?');"><span class="fa fa-check"></span>&nbsp;Simpan</button>
+												<!-- <a class="btn btn-success" href="<?php echo base_url('Rekrut/konfirmasi/').$data->nim;?>" onClick="return confirm('Anda yakin ingin menyimpan perubahan status yang dilakukan terhadap <?php echo $key->nama; ?> ?');"><span class="fa fa-check"></span>&nbsp;Simpan</a> -->
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>			
+											<?php } ?>
+										</div>
+									</form>
 								</div>
 
 							</div>
@@ -193,7 +210,7 @@ if($this->session->flashdata())
 						</td>
 -->
 					</tr>
-					<?php }  ?>
+					<?php }	?>
 				</tbody>
 			</table>
 		</div>
@@ -219,9 +236,8 @@ $(document).ready(function() {
 		$.ajax({
 			url:"<?php echo base_url('rekrut/detail/')?>"+nim,
 			success:function(data){
-				console.log(data);
 				var data = JSON.parse(data);
-				$('#modalData').modal('show');
+				$('#modalData'+nim).modal('show');
 				$.each(data,function(key,val){
 					$('#nim').val(val.nim);
 					$('#nama').val(val.nama_aslab);
@@ -236,15 +252,15 @@ $(document).ready(function() {
 </script>
 
 <script>
-	  $('input[name=toggle]').change(function(){
+		$('input[name=toggle]').change(function(){
 		var nim = $('#nim').val();
 		var nama_aslab = $('#nama_aslab').val();
 		
 		$.ajax({
-		  type:'get',
-		  data:'nim='+nim+'&nama_aslab='+nama_aslab,
-		  url:'<?php echo base_url(); ?>Rekrut/status_aktif';
-		  });
+			type:'get',
+			data:'nim='+nim+'&nama_aslab='+nama_aslab,
+			url:'<?php echo base_url(); ?>Rekrut/status_aktif'
+			});
 		});
 </script>
 

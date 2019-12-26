@@ -11,6 +11,7 @@ class lab extends CI_Controller
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->model('lab_model');
+		$this->data['users'] = $this->lab_model->getAllUsers();
 	}
 
 	public function index()
@@ -95,29 +96,110 @@ class lab extends CI_Controller
 
 		if ($this->form_validation->run()==FALSE)
 		{
-			$this->load->view('register1');
+			$this->load->view('register1', $this->data);
 		}
 		else
 		{
+			$set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$code = substr(str_shuffle($set), 0, 12);
+
 			$data = array(
 				'nim' => $this->input->post('nim'),
 				'nama' => $this->input->post('nama'),
 				'email' => $this->input-> post('email'),
 				'pass' => $this->input->post('pass'),
-				'level' => '0'
+				'level' => '0',
+				'code' => $code,
+				'active' => false
 			);
+
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
-				$this->lab_model->create_user($data);
-				$this->session->set_flashdata('berhasil_regis','<b class="text-success">Registrasi Berhasil, Silakan Login.</b>');
-				redirect('', $data);
+				$config = array(
+		  		'protocol' => 'smtp',
+		  		'smtp_host' => 'ssl://smtp.googlemail.com',
+		  		'smtp_port' => 465,
+		  		'smtp_user' => 'flameboyz2100@gmail.com', // change it to yours
+		  		'smtp_pass' => 'hanyaapi', // change it to yours
+		  		'smtp_username' => 'armg3295',
+		  		'mailtype' => 'html',
+		  		'charset' => 'iso-8859-1',
+		  		'wordwrap' => TRUE
+				);
+
+				$message = 	"
+						<html>
+						<head>
+							<title>Verification Code</title>
+						</head>
+						<body>
+							<h2>Thank you for Registering.</h2>
+							<p>Your Account:</p>
+							<p>Email: ".$data['email']."</p>
+							<p>Password: ".$data['pass']."</p>
+							<p>Please click the link below to activate your account.</p>
+							<h4><a href='".base_url()."lab/activate/".$data['nim']."/".$code."'>Activate My Account</a></h4>
+						</body>
+						</html>
+						";
+	 		
+		    	$this->load->library('email', $config);
+		    	$this->email->set_newline("\r\n");
+		    	$this->email->from($config['smtp_user']);
+		    	$this->email->to($data['email']);
+		    	$this->email->subject('Signup Verification Email');
+		    	$this->email->message($message);
+
+		    	//sending email
+		    	if($this->email->send()){
+		    		$this->session->set_flashdata('message','Activation code sent to email');
+		    	}
+		    	else{
+		    		$this->session->set_flashdata('message', $this->email->print_debugger());
+		    	}
+		    	$this->lab_model->create_user($data);
+        		redirect('lab/register', $data);
 			}
+
+
+			// 	$this->lab_model->create_user($data);
+			// 	$this->session->set_flashdata('berhasil_regis','<b class="text-success">Registrasi Berhasil, Silakan Login.</b>');
+			// 	redirect('', $data);
+			// }
 			else
 			{
 				$this->session->set_flashdata('sudah_ada', '<b class="text-danger">NIM sudah ada.</b>');
 				redirect('lab/register');
 			}
 		}
+	}
+
+	public function activate(){
+		$nim =  $this->uri->segment(3);
+		$code = $this->uri->segment(4);
+
+		//fetch user details
+		$data = $this->lab_model->getUser($nim);
+
+		//if code matches
+		if($data['code'] == $code){
+			//update user active status
+			$data['active'] = true;
+			$query = $this->lab_model->activate($data, $nim);
+
+			if($query){
+				$this->session->set_flashdata('message', 'User activated successfully');
+			}
+			else{
+				$this->session->set_flashdata('message', 'Something went wrong in activating account');
+			}
+		}
+		else{
+			$this->session->set_flashdata('message', 'Cannot activate account. Code didnt match');
+		}
+
+		redirect('lab/index');
+
 	}
 
 	public function logout()

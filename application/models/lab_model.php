@@ -114,4 +114,24 @@ class lab_model extends CI_Model{
                         $ta = (date("Y")-1)."/".date("Y");
                 return $ta;
         }
+
+        public function getAllUsers(){
+                $query = $this->db->get('user');
+                return $query->result(); 
+        }
+
+        public function insert($user){
+                $this->db->insert('user', $user);
+                return $this->db->insert_id(); 
+        }
+
+        public function getUser($nim){
+                $query = $this->db->get_where('user',array('nim'=>$nim));
+                return $query->row_array();
+        }
+
+        public function activate($data, $nim){
+                $this->db->where('user.nim', $nim);
+                return $this->db->update('user', $data);
+        }
 }

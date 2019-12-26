@@ -12,6 +12,8 @@ class Dashboard extends CI_Controller
         {
                 $data['title'] = 'Dashboard';
                 $data['subtitle'] = 'Dashboard';
+                $nim=$this->session->userdata('nim');
+                $data['ada']=$this->Rekrut_model->ada($nim);
                 $this->load->view('dashboard/index', $data);
         }
         

@@ -12,4 +12,13 @@ class Rekrut_model extends CI_Model{
 		$this->db->where('nim', $nim);
 		$this->db->update('user', $data);
 	}
+	public function ada($nim)
+	{
+		$result = $this->db->query('SELECT * FROM aslab WHERE nim="'.$nim.'"');
+        if($result->num_rows()>=1)
+	        $ada = 1;
+        else
+            $ada = 0;
+        return $ada;
+	}
 }

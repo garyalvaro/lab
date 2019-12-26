@@ -61,6 +61,8 @@ elseif($this->session->userdata('level') == 2)
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/css/main.css">
 			<link rel="stylesheet" href="<?php echo base_url();?>assets/luis/Education-Doc/css/style.css">
                         <link rel="manifest" href="<?php echo base_url();?>manifest.json">
+
+           
 		</head>
 		<body id="top">	
                                 
@@ -73,6 +75,11 @@ elseif($this->session->userdata('level') == 2)
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
+                                          <?php if($this->session->userdata('logged_in')): ?>
+                                          <li><a href="<?php echo base_url(); ?>Jadwal">Jadwal</a></li>
+                                          <li><a href="<?php echo base_url();?>Kelas">Kelas</a></li>
+                                          <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
+                                          <?php endif; ?>
 			          <li><a href="<?php echo base_url();?>lab/faq">Faq</a></li>
 
 			        
@@ -144,6 +151,7 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>					
 			</section>
+<<<<<<< HEAD
 			<!-- End banner Area -->
 
 			<!-- Start feature Area -->
@@ -186,20 +194,25 @@ elseif($this->session->userdata('level') == 2)
 				</div>	
 			</section>
 			<!-- End feature Area -->
+                        
+                        <div class="col-12"><br><br><br></div>
+                        
+=======
+			<!-- End banner Area -->	
 
+>>>>>>> da948e09ac4f85174e1f9de302886b502d27e360
 			<!-- Start cta-two Area -->
-			<section class="cta-two-area">
+			<section class="cta-two-area" style="background-color: linen;">
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<center>
-								<h1>Tentang TI USU</h1>
+					<div class="row" style="color: whitesmoke;">
+						<div class="col-lg-12 text-center">
+                                                        <h1 style="color: white;">Tentang TI USU</h1>
 						</div>
 						<div class="col-sm-12">
 							&nbsp;
 						</div>
 						<div class="col-sm-12">
-							<p style="text-align: justify;color: black;">Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
+							<p style="text-align: justify;">Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
 								<br><br>
 								Pada akhir tahun 2007 , tepatnya pada tanggal 27 November 2007, Ditjen Dikti mengeluarkan surat keputusan tentang Penataan dan Kodifikasi Program Tinggi Nomor 163/KEP/DIKTI/2007 untuk mengatur penamaan progam studi (S-1) bidang komputer dan kemudian mengalami penyempurnaan dengan keluarnya Surat Edaran Ditjen Dikti Nomor 1030/D/T/2010. Dengan keluarnya Surat Edaran Ditjen Dikti tersebut, perguruan tinggi diberi kesempatan untuk menata ulang penamaan program studi yang dikelolanya. Universitas Sumatera Utara dengan demikian menetapkan kembali nama untuk kedua program studi nya menjadi Program Studi (S-1) Ilmu Komputer dan Program Studi (S-1) Teknologi Informasi.
 								<br><br>
@@ -211,7 +224,43 @@ elseif($this->session->userdata('level') == 2)
 			</section>
 			<!-- End cta-two Area -->
 
-		
+			<!--================ Start Department Area =================-->
+	<section style="padding: 80px;background-color: azure;">
+	<div class="department_area section_gap">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="dpmt_courses">
+						<div class="row">
+							<img src="<?php echo base_url();?>assets/images/visimisi.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="offset-lg-1 col-lg-5">
+					<div class="dpmt_right">
+						<h3>Visi :</h3>
+						<p style="color: black;">
+							Menjadi laboratorium komputer yang mendukung pengembangan ilmu pengetahuan dan teknologi informasi serta praktek dalam bidang pendidikan.<br>
+						</p>
+						<h3>Misi :</h3>
+						<p>
+							<ol style="color: black;">
+								<li>Menyelenggarakan kegiatan praktikum komputer secara reguler maupun non reguler.</li>
+								<li>&#x25cf;</li>
+								<li>Menyelenggarakan pendidikan dan pelatihan untuk meningkatkan kompetensi di bidang aplikasi komputer.</li>
+								<li>&#x25cf;</li>
+								<li>Mengembangkan keahlian dan keterampilan di bidang komputer bagi personalia yang terlibat di Laboratorium TI USU.</li>
+							</ol>		
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!--================ End Department Area =================-->	
+	
 			
 			<!-- Start popular-course Area -->
 			<section class="popular-course-area section-gap" id="aslab_section">

@@ -40,7 +40,15 @@
 		</head>
 		<body>
 			
-        </div>
+        <?php 
+		if($this->session->flashdata('message')){
+					?>
+					<div class="alert alert-info text-center">
+						<?php echo $this->session->flashdata('message'); ?>
+					</div>
+					<?php
+			}
+		?>
                 <header id="header" id="home">
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
