@@ -166,19 +166,29 @@ if($this->session->flashdata())
                     </a>
             </div>
         </div>  
-        
-        <div class="col-sm-12">
-                <div class="white-box row">
-                    <h3 class="box-title m-b-0">PENDAFTARAN ASLAB</h3>
-                <br>
-                    <a href="<?php echo base_url();?>Rekrut">
-                            <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
-                                    <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-plus"></i> </button> <br><br>
-                                    <b class="text-dark">Daftar Aslab</b>
-                            </div>
-                    </a>
+
+            <div class="col-sm-12">
+                    <div class="white-box row">
+                        <h3 class="box-title m-b-0">PENDAFTARAN ASLAB</h3>
+                    <br>
+                    <?php if ($ada==1) { ?>
+                        <a href="<?php echo base_url();?>Rekrut/view_rekrut">
+                                <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
+                                        <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-plus"></i> </button> <br><br>
+                                        <b class="text-dark">Daftar Aslab</b>
+                                </div>
+                        </a>
+                    <?php } else{ ?>
+                        <a href="<?php echo base_url();?>Rekrut">
+                                <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
+                                        <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-plus"></i> </button> <br><br>
+                                        <b class="text-dark">Daftar Aslab</b>
+                                </div>
+                        </a>
+                    <?php } ?>
+                </div>
             </div>
-        </div>
+       
 
 <?php endif; ?>
 <!---------------------------------->
