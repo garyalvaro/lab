@@ -18,6 +18,7 @@ if(!$this->session->userdata('logged_in')){
     <title><?php echo $title; ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/ample/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!--
      <link href="<?php echo base_url(); ?>assets/ample/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" /> 
@@ -34,6 +35,7 @@ if(!$this->session->userdata('logged_in')){
     <link href="<?php echo base_url(); ?>assets/ample/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/custom_gary.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/colors/megna-dark.css" id="theme" rel="stylesheet">
         
