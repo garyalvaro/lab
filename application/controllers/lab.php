@@ -112,54 +112,29 @@ class lab extends CI_Controller
 				'code' => $code,
 				'active' => false
 			);
-
+                        
 			if (!$this->lab_model->cekNim($data['nim']))
 			{
-				$config = array(
-		  		'protocol' => 'smtp',
-		  		'smtp_host' => 'ssl://smtp.googlemail.com',
-		  		'smtp_port' => 465,
-		  		'smtp_user' => 'flameboyz2100@gmail.com', // change it to yours
-		  		'smtp_pass' => 'hanyaapi', // change it to yours
-		  		'smtp_username' => 'armg3295',
-		  		'mailtype' => 'html',
-		  		'charset' => 'iso-8859-1',
-		  		'wordwrap' => TRUE
-				);
+                                $subject = "Verifikasi Akun";
+                                $mailContent = $this->load->view('template/email_verifikasi', $data, TRUE);
+                                $headers = "MIME-Version: 1.0" . "\r\n";
+                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                                $mailTo = $data['email'];
+                                $mailFromId = "LaboratoriumTI";
+                                $mailFromName = "LaboratoriumTI";
+                                sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName);
 
-				$message = 	"
-						<html>
-						<head>
-							<title>Verification Code</title>
-						</head>
-						<body>
-							<h2>Thank you for Registering.</h2>
-							<p>Your Account:</p>
-							<p>Email: ".$data['email']."</p>
-							<p>Password: ".$data['pass']."</p>
-							<p>Please click the link below to activate your account.</p>
-							<h4><a href='".base_url()."lab/activate/".$data['nim']."/".$code."'>Activate My Account</a></h4>
-						</body>
-						</html>
-						";
-	 		
-		    	$this->load->library('email', $config);
-		    	$this->email->set_newline("\r\n");
-		    	$this->email->from($config['smtp_user']);
-		    	$this->email->to($data['email']);
-		    	$this->email->subject('Signup Verification Email');
-		    	$this->email->message($message);
 
-		    	//sending email
-		    	if($this->email->send()){
-		    		$this->session->set_flashdata('message','Activation code sent to email');
-		    	}
-		    	else{
-		    		$this->session->set_flashdata('message', $this->email->print_debugger());
-		    	}
-		    	$this->lab_model->create_user($data);
-        		redirect('lab/register', $data);
-			}
+                                //sending email
+                                if(sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName)){
+                                        $this->session->set_flashdata('message','Activation code sent to email');
+                                }
+                                else{
+                                        $this->session->set_flashdata('message', $this->email->print_debugger());
+                                }
+                                $this->lab_model->create_user($data);
+                                redirect('lab/register', $data);
+                        }
 
 
 			// 	$this->lab_model->create_user($data);

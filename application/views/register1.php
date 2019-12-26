@@ -40,6 +40,7 @@
 		</head>
 		<body>
 			
+<!--
         <?php 
 		if($this->session->flashdata('message')){
 					?>
@@ -49,6 +50,7 @@
 					<?php
 			}
 		?>
+-->
                 <header id="header" id="home">
 		    <div class="container main-menu">
 		    	<div class="row align-items-center justify-content-between d-flex">
@@ -105,8 +107,9 @@
 <?php if(validation_errors() || $this->session->flashdata()):?>
         <div class="popup-alert">
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <?php echo validation_errors(); ?>
-          <?php echo $this->session->flashdata('sudah_ada'); ?>
+          <?php if(validation_errors()) echo validation_errors(); ?>
+          <?php if($this->session->flashdata('sudah_ada')) echo $this->session->flashdata('sudah_ada'); ?>
+          <?php if($this->session->flashdata('message')) echo $this->session->flashdata('message'); ?>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

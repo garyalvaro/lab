@@ -7,6 +7,7 @@ class lab_model extends CI_Model{
         {
                 $this->db->where('nim', $nim);
                 $this->db->where('pass', $pass);
+                $this->db->where('active', 1);
                 $result=$this->db->get('user');
                 if($result->num_rows()==1)
                         return $result->row(0)->nim;
