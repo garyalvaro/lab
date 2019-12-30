@@ -164,11 +164,10 @@ elseif($this->session->userdata('level') == 2)
 							&nbsp;
 						</div>
 						<div class="col-sm-12">
-							<p style="text-align: justify;">Program studi yang pertama kali terbentuk pada Fasilkom-TI adalah Program Studi S-1 Ilmu Komputer di bawah naungan FMIPA-USU pada tanggal 22 November 2001. Kemudian seiring berkembangnya keilmuan di bidang komputasi, maka dibentuklah Program Studi baru yaitu Program Studi S-1 Teknologi Informasi yang juga dibawah naungan FMIPA-USU pada awal tahun 2007. Namun karena pada masa itu program studi Teknologi Informasi belum dikenal dalam nomenklatur Indonesia, pendirian program studi ini disetujui dengan nama program studi Teknik Perangkat Lunak melalui Surat Keputusan Ditjen Dikti Nomor 1629/D/T/2007 tanggal 6 Juli 2007. 
+							<p style="text-align: justify;">
+								ITLG (Information Technology Laboratory Group) merupakan salah satu wadah yang menaungi sistem laboratorium di program studi Teknologi Informasi Universitas Sumatera Utara. ITLG muncul untuk membantu kepala laboratorium dan dosen dalam hal pengembangan hard skill mahasiswa pada kegiatan praktikum. ITLG bertanggung jawab dalam mempersiapkan mahasiswa yang berkualifikasi spesialis teknologi informasi dan keahlian terpakai dalam mengelola infrastruktur teknologi informasi di masyarkat sesuai dengan visi misi utama program studi Teknologi Informasi. 
 								<br><br>
-								Pada akhir tahun 2007 , tepatnya pada tanggal 27 November 2007, Ditjen Dikti mengeluarkan surat keputusan tentang Penataan dan Kodifikasi Program Tinggi Nomor 163/KEP/DIKTI/2007 untuk mengatur penamaan progam studi (S-1) bidang komputer dan kemudian mengalami penyempurnaan dengan keluarnya Surat Edaran Ditjen Dikti Nomor 1030/D/T/2010. Dengan keluarnya Surat Edaran Ditjen Dikti tersebut, perguruan tinggi diberi kesempatan untuk menata ulang penamaan program studi yang dikelolanya. Universitas Sumatera Utara dengan demikian menetapkan kembali nama untuk kedua program studi nya menjadi Program Studi (S-1) Ilmu Komputer dan Program Studi (S-1) Teknologi Informasi.
-								<br><br>
-								Perkembangan IPTEK di USU terus berlanjut, terbentuklah jenjang pendidikan lanjut dari program S-1 pada tahun 2009 yaitu Program Studi Magister (S-2) Teknik Informatika, dengan dikeluarkannya SK Ditjen Dikti Nomor 935/H5.1.R/SK/PRS/2009.
+								ITLG mulai dibentuk pada tahun 2013, dimana pada saat itu belum ada wadah yang menaungi seluruh asisten laboratorium di Tenologi Informasi. Berdasarkan saran dan instruksi dari Ketua Program Studi, Muhammad Anggia Muchtar dan Sejretaris Program Studi sekaligus Kepala Laboratorium Jaringan, Muhammad Fadly Syahputra, maka dibentuklah sebuah grup yang diberi nama Information Technology Laboratory Group atau disingkat ITLG yang diketuai oleh Sintong Siregar.
 							</p>			
 						</div>
 					</div>
