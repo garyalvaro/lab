@@ -9,32 +9,26 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/ray/font-awesome/css/font-awesome.min.css" />
     <script src="<?php echo base_url();?>assets/ray/js/jquery-1.10.2.min.js"></script>
     <script src="<?php echo base_url();?>assets/ray/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/ray/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/ray/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
 
 <div class="page-header">
-    <h1>FAQ <small> [Frequently Asked Questions]</small></h1>
+        <a href="<?php echo base_url();?>"><img src="<?php echo base_url('assets/luis/img/logo_LabTI_black.png');?>" style="width: 200px;"></a>
 </div>
 
 <!-- Bootstrap FAQ - START -->
 <div class="container">
     <br />
     <br />
+<h1>FAQ <small> [Frequently Asked Questions]</small></h1>
     <br />
-
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        This section contains a wealth of information, related to <strong>LaboratoriumTI</strong>. If you cannot find an answer to your question, 
-        make sure to contact us. 
-    </div>
-
     <br />
 
     <div class="panel-group" id="accordion">
-        <div class="faqHeader">General questions</div>
+        <div class="faqHeader">Pertanyaan umum :</div>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -215,20 +209,11 @@
 
 </div>
 <HR>
-<footer >
-                <div class="container">
-                    <div class="footer-bottom row align-items-center justify-content-between">
-                        <p class="footer-text m-0 col-lg-6 col-md-12">
-                                                        Copyright &copy; 2019 - Kelompok 10 IMK
-                                                </p>
-                        <div>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                        </div>
-                    </div>                      
-                </div>
-            </footer>   
+<footer class="mb-5">
+    <div class="text-center">
+                <p> Copyright &copy; 2019 - Kelompok 10 IMK</p>
+                <br><br><br>
+    </div>                      
+</footer>   
 </body>
 </html>

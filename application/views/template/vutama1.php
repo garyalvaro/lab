@@ -16,6 +16,11 @@
         if($this->session->flashdata('berhasil_regis')):
                 $pesan = $this->session->flashdata('berhasil_regis');
         endif;
+        
+        //Kalau ada message activate
+        if($this->session->flashdata('message')):
+                $pesan = $this->session->flashdata('message');
+        endif;
 ?>
 
 <?php //SESSION LEVEL
@@ -28,12 +33,12 @@ elseif($this->session->userdata('level') == 2)
 ?>
 
 <!DOCTYPE html>
-	<html lang="zxx" class="no-js">
+	<html lang="zxx" class="no-js" style="scroll-behavior: smooth;">
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="icon" type="image/png" sizes="17x13" href="<?php echo base_url(); ?>assets/ample/plugins/images/favvicon.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -117,7 +122,7 @@ elseif($this->session->userdata('level') == 2)
 		    </div>
 		  </header><!-- #header -->
 
-			<!-- start banner Area -->
+			<!-- Start JUDUL -->
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>	
 				<div class="container">
@@ -136,12 +141,15 @@ elseif($this->session->userdata('level') == 2)
 <?php endif; ?>
 </div>
 
-                                
-					<div class="row fullscreen d-flex align-items-center justify-content-between">
-						<div class="banner-content col-lg-9 col-md-12">
-							<h1 class="text-uppercase">
-								SELAMAT DATANG	
-							</h1>
+					<div class="row fullscreen d-flex align-items-center text-center">
+						<div class="banner-content col-lg-12 col-md-12 text-center">
+                                                        <?php if($this->session->userdata('logged_in')): ?>
+                                                                <h1 class="text-uppercase"> Hai, <?php echo $this->session->userdata('nama'); ?></h1>
+                                                                <h3 class="text-secondary">Selamat Datang di LaboratoriumTI</h3>
+                                                        <?php else:?>
+                                                                <h1 class="text-uppercase"><img src="<?php echo base_url('assets/luis/img/logo_LabTI.png');?>" style="width: 50%;"></h1>
+                                                        <?php endif;?>
+							
 							<br><br>
 							<a href="#tentang_section" class="primary-btn text-uppercase">Lebih Lanjut</a>
                                                         <?php if($this->session->userdata('logged_in')): ?>
@@ -151,21 +159,21 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>				
  			</section>
-			<!-- End banner Area -->
+			<!-- End JUDUL -->
                         
-			<!-- Start cta-two Area -->
+			<!-- Start SEKILAS LAB TI -->
 			<section class="cta-two-area" style="background-color: linen;"id="tentang_section">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 text-center">
-                                                        <h1>Tentang TI USU</h1>
+                                                        <h1>Sekilas tentang LaboratoriumTI</h1>
 						</div>
 						<div class="col-sm-12">
 							&nbsp;
 						</div>
 						<div class="col-sm-12">
 							<p style="text-align: justify;">
-								ITLG (Information Technology Laboratory Group) merupakan salah satu wadah yang menaungi sistem laboratorium di program studi Teknologi Informasi Universitas Sumatera Utara. ITLG muncul untuk membantu kepala laboratorium dan dosen dalam hal pengembangan hard skill mahasiswa pada kegiatan praktikum. ITLG bertanggung jawab dalam mempersiapkan mahasiswa yang berkualifikasi spesialis teknologi informasi dan keahlian terpakai dalam mengelola infrastruktur teknologi informasi di masyarkat sesuai dengan visi misi utama program studi Teknologi Informasi. 
+                                                                LaboratoriumTI merupakan sistem lab yang berjalan di bawah ITLG, dimana 	ITLG (Information Technology Laboratory Group) merupakan salah satu wadah yang menaungi sistem laboratorium di program studi Teknologi Informasi Universitas Sumatera Utara. ITLG muncul untuk membantu kepala laboratorium dan dosen dalam hal pengembangan hard skill mahasiswa pada kegiatan praktikum. ITLG bertanggung jawab dalam mempersiapkan mahasiswa yang berkualifikasi spesialis teknologi informasi dan keahlian terpakai dalam mengelola infrastruktur teknologi informasi di masyarkat sesuai dengan visi misi utama program studi Teknologi Informasi. 
 								<br><br>
 								ITLG mulai dibentuk pada tahun 2013, dimana pada saat itu belum ada wadah yang menaungi seluruh asisten laboratorium di Tenologi Informasi. Berdasarkan saran dan instruksi dari Ketua Program Studi, Muhammad Anggia Muchtar dan Sejretaris Program Studi sekaligus Kepala Laboratorium Jaringan, Muhammad Fadly Syahputra, maka dibentuklah sebuah grup yang diberi nama Information Technology Laboratory Group atau disingkat ITLG yang diketuai oleh Sintong Siregar.
 							</p>			
@@ -173,18 +181,19 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>	
 			</section>
-			<!-- End cta-two Area -->
+			<!-- End SEKILAS LAB TI -->
 
-			<!--================ Start Department Area =================-->
-	<section style="padding: 80px;background-color: azure;">
+			<!--================ Start VISI MISI =================-->
+	<section style="padding: 80px;background-color: #CFD1FF;">
 	<div class="department_area section_gap">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<div class="dpmt_courses">
 						<div class="row">
-							<img src="<?php echo base_url();?>assets/images/visimisi.png">
+							<img src="<?php echo base_url();?>assets/images/visimisi.png" width="100%">
 						</div>
+                                                <br>
 					</div>
 				</div>
 
@@ -207,10 +216,10 @@ elseif($this->session->userdata('level') == 2)
 		</div>
 	</div>
 </section>
-	<!--================ End Department Area =================-->	
+	<!--================ End VISI MISI =================-->	
 	
 			
-			<!-- Start popular-course Area -->
+			<!-- Start ASLAB -->
 			<section class="popular-course-area section-gap" id="aslab_section">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -243,12 +252,12 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>	
 			</section>
-			<!-- End popular-course Area -->
+			<!-- End ASLAB -->
 			
 
 				
 			
-			<!-- Start cta-one Area -->
+			<!-- Start PEREKRUTAN -->
 			<section class="cta-one-area relative section-gap" id="rekrut_section">
 				<div class="container">
 					<div class="overlay overlay-bg"></div>
@@ -263,7 +272,7 @@ elseif($this->session->userdata('level') == 2)
 					</div>
 				</div>	
 			</section>
-			<!-- End cta-one Area -->
+			<!-- End PEREKRUTAN -->
 
 			
 			
@@ -273,6 +282,7 @@ elseif($this->session->userdata('level') == 2)
 				<div class="container">
 					<div class="footer-bottom row align-items-center justify-content-between">
 						<p class="footer-text m-0 col-lg-6 col-md-12">
+                                                        <a href="#top"><i class="fa fa-arrow-up"></i></a><br>
                                                         Copyright &copy; 2019 - Kelompok 10 IMK
                                                 </p>
 						<div class="col-lg-6 col-sm-12 footer-social">

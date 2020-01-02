@@ -15,19 +15,20 @@ $id_kelas = $this->uri->segment(3);
 
 <!-- TITLE -->
 <div class="row bg-title">
-        <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <h4 class="page-title"><?php echo $subtitle;  ?></h4>
         </div>
-        <div class="col-lg-3 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                 <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                 <a href="<?php echo base_url().'Nilai/add/'.$id_kelas;?>" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-pencil"></span> Edit Nilai</a>
+                <a href="<?php echo base_url().'Kelas/absensi/'.$id_kelas;?>" class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" target="_blank"> <span class="glyphicon glyphicon-print"></span> Cetak Absensi</a>
         </div>
 </div>
 
 <!-- CONTENT -->
 <div class="col-sm-12">
         <div class="white-box">
-            <h3 class="box-title m-b-0">KELAS</h3>
+            <h3 class="box-title m-b-0">KELAS <?php foreach($detail as $data){ echo $data->nama_kelas; break; } ?> </h3>
             <p class="text-muted m-b-30"> </p>
             
             <div class="table-responsive">
@@ -65,7 +66,7 @@ $this->load->view('dashboard/rightside');
 <?php
 function nilaiHuruf($nilai)
 {
-        if($nilai >= 80)
+        if($nilai >= 80 && $nilai <= 100)
                 $huruf = "A";
         elseif($nilai >= 75 && $nilai < 80)
                 $huruf = "B+";
@@ -75,8 +76,10 @@ function nilaiHuruf($nilai)
                 $huruf = "C+";
         elseif($nilai >= 45 && $nilai < 55)
                 $huruf = "C";
-        else
+        elseif($nilai >= 0 && $nilai < 45)
                 $huruf = "E";
+        else
+                $huruf = "-";
         return $huruf;
 }
 ?>

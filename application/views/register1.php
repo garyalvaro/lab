@@ -9,7 +9,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="icon" type="image/png" sizes="17x13" href="<?php echo base_url(); ?>assets/ample/plugins/images/favvicon.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -60,6 +60,7 @@
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">
 			          <li><a href="<?php echo base_url();?>">Beranda</a></li>
+                                  <li><a href="<?php echo base_url();?>lab/faq">Faq</a></li>
 
 			          <?php if($this->session->userdata('logged_in')): 
                                         redirect('');
@@ -104,12 +105,20 @@
                                 
 <!-- POPUP ALERT -->               
 <div class="float-left mt-5 p-5">
-<?php if(validation_errors() || $this->session->flashdata()):?>
+<?php if(validation_errors() || $this->session->flashdata('sudah_ada')):?>
         <div class="popup-alert">
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <?php if(validation_errors()) echo validation_errors(); ?>
           <?php if($this->session->flashdata('sudah_ada')) echo $this->session->flashdata('sudah_ada'); ?>
-          <?php if($this->session->flashdata('message')) echo $this->session->flashdata('message'); ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        </div>
+<?php elseif($this->session->flashdata('message')): ?>
+        <div class="popup-alert">
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <?php echo $this->session->flashdata('message'); ?>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -150,7 +159,7 @@
 <!--JS untuk Alert TimeOut-->
 <script>
 window.setTimeout(function () {
-    $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
+    $(".alert-danger, .alert-info").fadeTo(500, 0).slideUp(500, function () {
         $(this).remove();
     });
 }, 4000);
