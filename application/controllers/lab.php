@@ -25,9 +25,9 @@ class lab extends CI_Controller
 		$this->load->view('bph');
 	}
 
-		public function faq()
+        public function faq()
 	{
-		$this->load->view('faq/index.html');
+		$this->load->view('faq/index');
 	}
 
 	public function aslab()
@@ -57,6 +57,7 @@ class lab extends CI_Controller
                                 $user_data=array(
                                         'user_id'=>$user_id,
                                         'level' => $level,
+                                        'level_asli' => $level,
                                         'nim'=>$nim,
                                         'nama'=>$nama,
                                         'logged_in'=>true
@@ -64,7 +65,7 @@ class lab extends CI_Controller
                                 if($user_data['level']=='1'){
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login </b>');
-                                	redirect('');
+                                	redirect('Dashboard');
                                 }
                                 elseif($user_data['level']=='2'){
                                 	$this->session->set_userdata($user_data);
@@ -74,7 +75,7 @@ class lab extends CI_Controller
                                 else {
                                 	$this->session->set_userdata($user_data);
                                 	$this->session->set_flashdata('login_success', '<b class="text-success">Anda Berhasil Login </b>');
-                                        redirect('');
+                                        redirect('Dashboard');
                                 }
 
                         }
@@ -84,6 +85,14 @@ class lab extends CI_Controller
                                 redirect('');
                         }
                 }
+        }
+        
+        public function gantilevel()
+        {
+                $level_baru = $this->input->post('level_baru');
+                $this->session->set_userdata(['level' => $level_baru]);
+                $this->session->set_flashdata('ganti_level'.$level_baru,'ganti_level'.$level_baru);
+                redirect('Dashboard');
         }
 
 	public function register()
@@ -122,8 +131,6 @@ class lab extends CI_Controller
                                 $mailTo = $data['email'];
                                 $mailFromId = "LaboratoriumTI";
                                 $mailFromName = "LaboratoriumTI";
-                                sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName);
-
 
                                 //sending email
                                 if(sendMail($subject, $mailContent, $mailTo, $mailFromId, $mailFromName)){

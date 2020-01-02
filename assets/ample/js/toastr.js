@@ -156,6 +156,42 @@ $(document).ready(function () {
             stack: 6
         });
     });
+    
+    $(".ganti_level0").show(function(){
+        $.toast({
+            heading: 'PERUBAHAN LEVEL',
+            text: 'Anda login sebagai <b><i>Mahasiswa</i></b> sekarang.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 4500,
+            stack: 6
+        });
+    });
+    
+    $(".ganti_level1").show(function(){
+        $.toast({
+            heading: 'PERUBAHAN LEVEL',
+            text: 'Anda login sebagai <b><i>Aslab</i></b> sekarang.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 4500,
+            stack: 6
+        });
+    });
+    
+    $(".ganti_level2").show(function(){
+        $.toast({
+            heading: 'PERUBAHAN LEVEL',
+            text: 'Anda login sebagai <b><i>BPH</i></b> sekarang.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 4500,
+            stack: 6
+        });
+    });
 
     $(".tst4").on("click", function () {
         $.toast({

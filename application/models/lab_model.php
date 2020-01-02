@@ -59,7 +59,7 @@ class lab_model extends CI_Model{
         
         public function view_user()
         {
-                $query = $this->db->query('SELECT * FROM user WHERE nim!="admin"');
+                $query = $this->db->query('SELECT * FROM user WHERE nim!="admin" AND active="1"');
                 return $query->result();
         }
         
@@ -103,8 +103,7 @@ class lab_model extends CI_Model{
         
         public function delete_user($nim)
         {
-                $this->db->where('nim', $nim);        
-                $this->db->delete('user');
+                $this->db->query("UPDATE user SET active=0 WHERE nim='$nim'");
         }
         
         function tahun_ajaran()

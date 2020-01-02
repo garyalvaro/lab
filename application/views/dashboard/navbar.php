@@ -10,6 +10,12 @@ if($this->session->flashdata())
 {
         if($this->session->flashdata('login_success'))
                 echo "<span class='login-success'></span>";
+        if($this->session->flashdata('ganti_level0'))
+                echo "<span class='ganti_level0'></span>";
+        if($this->session->flashdata('ganti_level1'))
+                echo "<span class='ganti_level1'></span>";
+        if($this->session->flashdata('ganti_level2'))
+                echo "<span class='ganti_level2'></span>";
 }
 
 ?>
@@ -45,6 +51,27 @@ if($this->session->flashdata())
                                         <h4><?php echo $this->session->userdata('nama'); ?></h4>
                                         <p class="text-muted">NIM : <?php echo $this->session->userdata('nim'); ?></p>
                                         <p><span class="text-muted">Login as : </span><?php echo $level; ?></p>
+                                        <p>
+                                                <?php 
+                                                  if( $this->session->userdata('level_asli')!=0 ) : 
+                                                  echo form_open('lab/gantilevel');
+                                                ?>
+                                                        <div id="ganti" class="form-inline">
+                                                                <select name="level_baru" required class="">
+                                                                        <option selected disabled>Ganti Level</option>
+                                                                        <option value="0">Mahasiswa</option>
+                                                                        <option value="1">Aslab</option>
+                                                                        <?php if( $this->session->userdata('level_asli')==2 ) : ?>
+                                                                        <option value="2">BPH</option>
+                                                                        <?php endif; ?>
+                                                                </select>
+                                                                <input type="submit" name="submit" value="OK" class="rounded-0">
+                                                        </div>
+                                                <?php 
+                                                   echo form_close(); 
+                                                   endif;
+                                                ?>
+                                        </p>
                                         <br>
                                         <a href="<?php echo base_url(); ?>lab/logout" class="btn btn-rounded btn-danger btn-sm"><i class="fa fa-power-off"></i> &nbsp; Logout</a>
                                      </div>

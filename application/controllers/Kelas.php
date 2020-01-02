@@ -89,11 +89,21 @@ class Kelas extends CI_Controller
         
         public function view($id_kelas)
         {
-                $data['title'] = 'Detail Kelas';
-                $data['subtitle'] = 'Detail Kelas';
                 $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
-                //$data['nilai'] = $this->Kelas_model->view_nilai($id_kelas);
+                foreach($data['detail'] as $key){ $nama_kelas = $key->nama_kelas; break; }
+                
+                $data['title'] = 'Nilai Kelas '.$nama_kelas;
+                $data['subtitle'] = 'Nilai Kelas '.$nama_kelas;
                 $this->load->view('Kelas/detail', $data);
+        }
+        
+        public function absensi($id_kelas)
+        {
+                $data['title'] = 'Absensi';
+                $data['subtitle'] = 'Daftar Presensi Praktikum';
+                $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
+                $data['kelas'] = $this->Kelas_model->view_data_kelas($id_kelas);
+                $this->load->view('Kelas/cetak_absensi', $data);
         }
         
         public function tambah_mhs($id_kelas)

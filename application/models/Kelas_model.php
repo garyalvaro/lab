@@ -30,11 +30,6 @@ class Kelas_model extends CI_Model
         
         public function viewww($nim)
         {
-//                $result = $this->db->query('SELECT nama_kelas, tahun_ajaran FROM kelas');
-//                $nama_kelas = $result->row(0)->nama_kelas;
-//                $ta = $result->row(1)->tahun_ajaran;
-//                $jumlahkelas = $result->num_rows();        
-//                return $query;
                 $this->db->select ( '*' ); 
                 $this->db->from ( 'nilai' );
                 $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );
@@ -52,6 +47,21 @@ class Kelas_model extends CI_Model
                 $this->db->from ( 'nilai' );
                 $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );
                 $this->db->join ( 'user', 'user.nim = nilai.nim' , 'left' );
+                $this->db->where ( 'nilai.id_kelas', $id_kelas);
+                $this->db->where ( 'nilai.nim!=', NULL);
+                $query = $this->db->get();
+                return $query->result();
+        }
+        
+        public function view_data_kelas($id_kelas)
+        {       
+                $this->db->select ( '*' ); 
+                $this->db->from ( 'nilai' );
+                $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );
+                $this->db->join ( 'user', 'user.nim = nilai.nim' , 'left' );
+                $this->db->join ( 'aslab', 'aslab.id_aslab = kelas.id_aslab' , 'left' );
+                $this->db->join ( 'waktu', 'waktu.id_waktu = kelas.id_waktu' , 'left' );
+                $this->db->join ( 'ruang', 'ruang.id_ruang = kelas.id_ruang' , 'left' );
                 $this->db->where ( 'nilai.id_kelas', $id_kelas);
                 $this->db->where ( 'nilai.nim!=', NULL);
                 $query = $this->db->get();
