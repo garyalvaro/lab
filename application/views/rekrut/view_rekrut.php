@@ -189,6 +189,11 @@ if($this->session->flashdata())
 													?>
 												<?php } ?>
 												</div>
+												<div class="form-group">
+											
+													<label for="Textarea" class="control-label">Keterangan</label>
+													<textarea class="form-control" name="komentar" id="Textarea" placeholder="Masukkan keterangan" required rows="2" style="resize: vertical;"><?php if ($data->komentar!='-'): ?><?= $data->komentar;?><?php endif ?></textarea>
+												</div>
 											</div>
 										<div class="modal-footer">
 											<?php $nama = $this->Nilai_model->get_by_id_column_general('user','nama', 'nim', $data->nim); 

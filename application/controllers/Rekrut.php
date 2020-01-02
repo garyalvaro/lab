@@ -32,6 +32,7 @@ class Rekrut extends CI_Controller
 	function gantiStatus($id)
 	{
 		$data['status']=$this->input->post('status');
+		$data['komentar']=$this->input->post('komentar');
 
 		if ($data['status']==4) {
 			$data1['level']=1;
