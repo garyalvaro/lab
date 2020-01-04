@@ -80,8 +80,15 @@
                             <li><a href="<?php echo base_url();?>Kelas"><i class="mdi mdi-view-list fa-fw"></i><span class="hide-menu">Daftar Kelas</span></a></li>
                         </ul>
                     </li>
-                    <li class="devider"></li>    
-                    <li><a href="<?php echo base_url();?>Rekrut"><i class="mdi mdi-account-plus fa-fw"></i><span class="hide-menu">Pendaftaran Aslab</span></a></li>
+                    <li class="devider"></li>
+                    <?php $nim=$this->session->userdata('nim');
+                    $ada=$this->Rekrut_model->ada($nim); ?>
+                    <?php if ($ada==1) { ?>
+                        <li><a href="<?php echo base_url();?>Rekrut/histori"><i class="mdi mdi-account-plus fa-fw"></i><span class="hide-menu">Berkas Pendaftaran</span></a></li>
+                    <?php } else{ ?>
+                        <li><a href="<?php echo base_url();?>Rekrut"><i class="mdi mdi-account-plus fa-fw"></i><span class="hide-menu">Pendaftaran Aslab</span></a></li>
+                    <?php } ?>
+
                     <li class="devider"></li>
                 
                 <!--MHS--------------------------->

@@ -14,7 +14,7 @@ class Rekrut_model extends CI_Model{
 	}
 	public function ada($nim)
 	{
-		$result = $this->db->query('SELECT * FROM aslab WHERE nim="'.$nim.'"');
+		$result = $this->db->query('SELECT * FROM rekrut_aslab WHERE nim="'.$nim.'"');
         if($result->num_rows()>=1)
 	        $ada = 1;
         else

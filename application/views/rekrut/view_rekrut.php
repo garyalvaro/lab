@@ -50,9 +50,7 @@ if($this->session->flashdata())
 					<th colspan="2">Matkul Pilihan 1</th>
 					<th colspan="2">Matkul Pilihan 2</th>
 					<th colspan="2">Berkas</th>
-					<?php if ($this->session->userdata('level')==2) { ?>
 						<th>Detail</td>
-					<?php } ?>
 <!--																																<th>Status</th>-->
 				</tr>
 				</thead>
@@ -72,9 +70,9 @@ if($this->session->flashdata())
 									<?php if ($data->status==0) { ?>
 										<b ><?php echo $key->nama; ?></b>
 									<?php } else if ($data->status==1) { ?>
-										<b class="text-info"><?php echo $key->nama; ?></b>
+										<b class="text-warning"><?php echo $key->nama; ?></b>
 									<?php }	else if ($data->status==2) { ?>
-										<b class="text-success"><?php echo $key->nama; ?></b>
+										<b class="text-info"><?php echo $key->nama; ?></b>
 									<?php }	else if ($data->status==4) { ?>
 										<b class="text-success"><?php echo $key->nama; ?></b>
 									<?php }	else if ($data->status==5 || $data->status==3) { ?>
@@ -165,7 +163,7 @@ if($this->session->flashdata())
 												</div>
 												<div class="form-group row">
 													<?php if ($this->session->userdata('level')==2) { ?>
-														<label class="col-sm-3 col-form-label text-info" >Status</label>
+														<label class="col-sm-3 col-form-label" >Status</label>
 														<div class="col-sm-9">
 															<select class="form-control"  name="status">
 																<option value="0" <?php echo (0==$data->status?'selected':''); ?>>Berkas belum diproses</option>
@@ -192,7 +190,7 @@ if($this->session->flashdata())
 												<div class="form-group">
 											
 													<label for="Textarea" class="control-label">Keterangan</label>
-													<textarea class="form-control" name="komentar" id="Textarea" placeholder="Masukkan keterangan" required rows="2" style="resize: vertical;"><?php if ($data->komentar!='-'): ?><?= $data->komentar;?><?php endif ?></textarea>
+													<textarea class="form-control" name="komentar" id="Textarea" placeholder="Masukkan keterangan" rows="2" style="resize: vertical;"><?php if ($data->komentar!='-'): ?><?= $data->komentar;?><?php endif ?></textarea>
 												</div>
 											</div>
 										<div class="modal-footer">

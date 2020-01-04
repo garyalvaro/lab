@@ -36,12 +36,14 @@ if(!$this->session->userdata('logged_in')){
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/custom_gary.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/custom_xixil.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/colors/megna-dark.css" id="theme" rel="stylesheet">
         
     <!-- DataTables -->
     <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.css" rel="stylesheet">
+    
     <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/jquery-3.3.1.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/dataTables.bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/pluginss/dataTables/jquery.dataTables.min.js"></script>

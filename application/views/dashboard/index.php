@@ -172,10 +172,10 @@ if($this->session->flashdata())
                         <h3 class="box-title m-b-0">PENDAFTARAN ASLAB</h3>
                     <br>
                     <?php if ($ada==1) { ?>
-                        <a href="<?php echo base_url();?>Rekrut/view_rekrut">
+                        <a href="<?php echo base_url();?>Rekrut/histori">
                                 <div class="col-lg-12 col-xs-12 text-center p-t-20 p-b-20">
                                         <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fa mdi mdi-account-plus"></i> </button> <br><br>
-                                        <b class="text-dark">Daftar Aslab</b>
+                                        <b class="text-dark">Lihat Berkas Pendaftaran</b>
                                 </div>
                         </a>
                     <?php } else{ ?>

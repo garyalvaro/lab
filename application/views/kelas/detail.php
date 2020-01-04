@@ -76,8 +76,11 @@ function nilaiHuruf($nilai)
                 $huruf = "C+";
         elseif($nilai >= 45 && $nilai < 55)
                 $huruf = "C";
+        elseif ($nilai == NULL) {
+            $huruf="-";
+        }
         elseif($nilai >= 0 && $nilai < 45)
-                $huruf = "E";
+        $huruf = "E";
         else
                 $huruf = "-";
         return $huruf;

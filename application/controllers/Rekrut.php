@@ -17,6 +17,15 @@ class Rekrut extends CI_Controller
         $this->load->view('rekrut/view_rekrut', $data);
 
 	}
+	public function histori()
+	{
+		$nim=$this->session->userdata('nim');
+		$data['rekrut'] = $this->Nilai_model->get_by_id_general('rekrut_aslab', 'nim',$nim);
+		$data['title'] = 'Rekrut';
+        $data['subtitle'] = 'Rekrut';
+        $this->load->view('rekrut/histori', $data);
+
+	}
 	public function detail($nim)
 	{
 		$dataMahasiswa = $this->Nilai_model->get_by_id_general('rekrut_aslab','nim',$nim);
