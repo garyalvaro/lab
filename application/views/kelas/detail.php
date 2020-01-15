@@ -21,6 +21,7 @@ $id_kelas = $this->uri->segment(3);
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                 <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i class="ti-settings text-white"></i></button>
                 <a href="<?php echo base_url().'Nilai/add/'.$id_kelas;?>" class="btn btn-primary pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <span class="glyphicon glyphicon-pencil"></span> Edit Nilai</a>
+                <a href="<?php echo base_url().'Kelas/cetak_nilai/'.$id_kelas;?>" class="btn btn-warning pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" target="_blank"> <span class="glyphicon glyphicon-print"></span> Cetak Nilai</a>
                 <a href="<?php echo base_url().'Kelas/absensi/'.$id_kelas;?>" class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" target="_blank"> <span class="glyphicon glyphicon-print"></span> Cetak Absensi</a>
         </div>
 </div>
@@ -66,21 +67,22 @@ $this->load->view('dashboard/rightside');
 <?php
 function nilaiHuruf($nilai)
 {
-        if($nilai >= 80 && $nilai <= 100)
+        if ($nilai == NULL)
+                $huruf="-"; 
+        elseif($nilai >= 80 && $nilai <= 100)
                 $huruf = "A";
         elseif($nilai >= 75 && $nilai < 80)
                 $huruf = "B+";
-        elseif($nilai >= 65 && $nilai < 75)
+        elseif($nilai >= 70 && $nilai < 75)
                 $huruf = "B";
-        elseif($nilai >= 55 && $nilai < 65)
+        elseif($nilai >= 65 && $nilai < 70)
                 $huruf = "C+";
-        elseif($nilai >= 45 && $nilai < 55)
+        elseif($nilai >= 60 && $nilai < 65)
                 $huruf = "C";
-        elseif ($nilai == NULL) {
-            $huruf="-";
-        }
-        elseif($nilai >= 0 && $nilai < 45)
-        $huruf = "E";
+        elseif($nilai >= 50 && $nilai < 60)
+                $huruf = "D";
+        elseif($nilai >= 0 && $nilai < 50)
+                $huruf = "E";
         else
                 $huruf = "-";
         return $huruf;
@@ -91,7 +93,7 @@ function nilaiHuruf($nilai)
     $('#table_id').DataTable({
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'csv', 'excel', 'pdf'
         ]
     });
 </script>

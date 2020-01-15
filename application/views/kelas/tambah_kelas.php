@@ -50,6 +50,16 @@ $this->load->view('dashboard/leftside');
                                                 <?php endforeach;?>
                                         </select>
                                 </div>
+                                
+                                <div class="form-group">
+                                        Dosen Penanggung Jawab
+                                        <select name="nip" class="form-control" required>
+                                                <option disabled selected>--Pilih Dosen--</option>
+                                                <?php foreach($dosen as $key):?>
+                                                <option value="<?= $key->nip;?>"><?= $key->nama_dosen;?></option>
+                                                <?php endforeach;?>
+                                        </select>
+                                </div>
 
                                 
                                 <div class="form-group">

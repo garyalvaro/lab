@@ -189,5 +189,22 @@ class lab extends CI_Controller
 		$this->session->sess_destroy();
 		redirect('');
 	}
+        
+        public function bg()
+        {
+                $config['upload_path']       = './assets/luis/img/';
+                $config['allowed_types']    = 'jpg';
+                $config['file_name']            = 'banner-bg';
+                $config['overwrite']		= true;
+                $config['max_size']             = 5120; // 5MB
+                
+                $this->load->library('upload', $config);
+                if ( !$this->upload->do_upload('bg_image') )
+                {
+                        $this->session->set_flashdata('error_upload', $this->upload->display_errors());
+                        redirect('');
+                }
+                redirect('', 'refresh:5');
+        }
 
 }

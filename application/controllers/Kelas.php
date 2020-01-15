@@ -36,6 +36,7 @@ class Kelas extends CI_Controller
                 $data['subtitle'] = 'Tambah Kelas';
                 $data['aslab'] = $this->Kelas_model->get_aslab($this->tahun_ajaran());
                 $data['matkul'] = $this->Kelas_model->get_matkul();
+                $data['dosen'] = $this->Kelas_model->get_dosen();
                 $this->load->view('kelas/tambah_kelas', $data);
                 
                if($this->input->post('submit'))
@@ -44,7 +45,8 @@ class Kelas extends CI_Controller
                                 'nama_kelas'=>$this->input->post('nama_kelas'),
                                 'kom'=>$this->input->post('kom'),
                                 'tahun_ajaran'=>$this->tahun_ajaran(),
-                                'id_aslab'=>$this->input->post('id_aslab')
+                                'id_aslab'=>$this->input->post('id_aslab'),
+                                'nip'=>$this->input->post('nip')
                         );
                         
                         if($this->Kelas_model->create_kelas($data) && $this->Kelas_model->create_nilai($data))
@@ -104,6 +106,18 @@ class Kelas extends CI_Controller
                 $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
                 $data['kelas'] = $this->Kelas_model->view_data_kelas($id_kelas);
                 $this->load->view('Kelas/cetak_absensi', $data);
+        }
+        
+        public function cetak_nilai($id_kelas)
+        {
+                $data['title'] = 'Nilai';
+                $data['subtitle'] = " PROGRAM STUDI TEKNOLOGI INFORMASI <br>
+                                                FAKULTAS ILMU KOMPUTER DAN TEKNOLOGI INFORMASI <br>
+                                                UNIVERSITAS SUMATERA UTARA
+                                                ";
+                $data['detail'] = $this->Kelas_model->view_kelas($id_kelas);
+                $data['kelas'] = $this->Kelas_model->view_data_kelas($id_kelas);
+                $this->load->view('Kelas/cetak_nilai', $data);
         }
         
         public function tambah_mhs($id_kelas)

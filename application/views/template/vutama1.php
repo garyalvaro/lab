@@ -21,6 +21,11 @@
         if($this->session->flashdata('message')):
                 $pesan = $this->session->flashdata('message');
         endif;
+        
+        //Kalau error upload bg
+        if($this->session->flashdata('error_upload')):
+                $pesan = $this->session->flashdata('error_upload');
+        endif;
 ?>
 
 <?php //SESSION LEVEL
@@ -86,6 +91,20 @@ elseif($this->session->userdata('level') == 2)
                                           <li><a href="<?php echo base_url();?>Rekrut/view_rekrut">Rekrutmen</a></li>
                                           <?php endif; ?>
 			          <li><a href="<?php echo base_url();?>lab/faq">Faq</a></li>
+                                  
+                                  <?php if($this->session->userdata('level')==2): ?>
+			           
+			          <li class="menu-has-children"><a href="#">BG</a>
+			            <ul>
+			            	<b>Custom Background</b><br>                                                
+                                                <?php echo form_open_multipart('lab/bg'); ?>
+                                                <input type="file" name="bg_image" required>
+                                                <input type="submit" name="submit" value="&nbsp;OK&nbsp;" class="btn btn-dark btn-outline">
+                                                <?php echo form_close();?>
+                                      </ul>
+			          </li>
+					  
+                                <?php endif; ?>
 
 			        
 			          <?php if($this->session->userdata('logged_in')): ?>
@@ -98,7 +117,7 @@ elseif($this->session->userdata('level') == 2)
                                                 <?php echo form_open('lab/logout'); ?>
                                                 <button class="btn btn-danger btn-block btn-sm py-1 mt-2 rounded-0">Logout</button>
                                                 <?php echo form_close();?>
-						</ul>
+                                      </ul>
 			          </li>
 					  
                                 <?php else: ?>

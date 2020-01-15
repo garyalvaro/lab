@@ -43,42 +43,53 @@
                         <td><?php echo $data->nama_aslab; ?></td>
                 </tr>
                 <tr>
-                        <th>Jadwal Praktikum</th>
+                        <th>Dosen Penanggung Jawab</th>
                         <td><span class="m-l-10 m-r-10">:</span></td>
-                        <td><?php echo $data->nama_waktu; ?></td>
+                        <td><?php echo $data->nama_dosen; ?></td>
                 </tr>
                 <tr>
-                        <th>Ruangan Praktikum</th>
+                        <th>Tahun Ajaran</th>
                         <td><span class="m-l-10 m-r-10">:</span></td>
-                        <td><?php echo $data->nama_ruang; ?></td>
+                        <td><?php echo $data->tahun_ajaran; ?></td>
                 </tr>
         </table>
 <?php break; endforeach; ?>
 
 <br><br>
 
-<table class="table table-bordered" style="font-size: 11px;">
+<table class="table table-bordered">
         <tr>
-                <td rowspan="2" width="3%" class="text-center align-middle"><b>No.</b></td>
-                <td rowspan="2" width="8%" class="text-center align-middle"><b>NIM</b></td>
-                <td rowspan="2" width="25%" class="text-center align-middle"><b>Nama</b></td>
-                <td colspan="12" width="" class="text-center align-middle tdsm"><b>Tanggal</b></td>
-        </tr>
-        <tr>
-                <?php for($i=0; $i<12; $i++){ echo "<td height='8px'></td>"; } ?>
+                <td width="10%" class="text-center"><b>No.</b></td>
+                <td width="20%" class="text-center"><b>NIM</b></td>
+                <td width="40%" class="text-center"><b>Nama</b></td>
+                <td width="" class="text-center"><b>Nilai</b></td>
+                <td width="" class="text-center"><b>Huruf</b></td>
         </tr>
         <?php $no=1; foreach($detail as $data){?>
         <tr>
-                <td class='tdsm'><?php echo $no++; ?></td>
+                <td class='tdsm text-center'><?php echo $no++; ?></td>
                 <td class='tdsm'><?php echo $data->nim; ?></td>
                 <td class='tdsm' style="max-width: 0; overflow: hidden; text-overflow: clip; white-space: nowrap;"><?php echo $data->nama; ?></td>
-                <?php for($i=0; $i<12; $i++){ echo "<td class='tdsm'></td>"; } ?>
+                <td class='tdsm text-center'><?php echo $data->nilai; ?></td>
+                <td class='tdsm text-center'><?php echo nilaiHuruf($data->nilai) ?></td>
         </tr>
         <?php } ?>
 </table>
 
 <br>
 <br>
+
+<p>
+        Keterangan Nilai : <br>
+        A = 80-100 <br>
+        B+ = 75-79 <br>
+        B = 70-74 <br>
+        C+ = 65-69 <br>
+        C = 60-64 <br>
+        D = 50-59 <br>
+        E = 0-49 <br>   
+</p>
+
 <br>
 <br>
 
@@ -86,6 +97,7 @@
 <table width="100%" class="text-center">
 <tr>
         <td width="50%">
+        <br><br>
         <b>Dosen Penanggung Jawab, </b>
         <br><br><br><br><br>
         ( <span style="border-bottom: 1px dotted"><?php echo $data->nama_dosen; ?></span> )
@@ -94,6 +106,7 @@
         </td>
         
         <td width="50%">
+                <b>Medan, <?php echo date('d F Y'); ?></b><br><br>
                 <b>Asisten Lab, </b>
                 <br><br><br><br><br>
                 ( <span style="border-bottom: 1px dotted"><?php echo $data->nama_aslab; ?></span> )
@@ -105,11 +118,32 @@
 <?php break; endforeach; ?>
 
 
-<br>
-<br>
-<br>
-<br>
 
+
+<?php
+function nilaiHuruf($nilai)
+{
+        if ($nilai == NULL)
+                $huruf="-"; 
+        elseif($nilai >= 80 && $nilai <= 100)
+                $huruf = "A";
+        elseif($nilai >= 75 && $nilai < 80)
+                $huruf = "B+";
+        elseif($nilai >= 70 && $nilai < 75)
+                $huruf = "B";
+        elseif($nilai >= 65 && $nilai < 70)
+                $huruf = "C+";
+        elseif($nilai >= 60 && $nilai < 65)
+                $huruf = "C";
+        elseif($nilai >= 50 && $nilai < 60)
+                $huruf = "D";
+        elseif($nilai >= 0 && $nilai < 50)
+                $huruf = "E";
+        else
+                $huruf = "-";
+        return $huruf;
+}
+?>
 
 <!-- PRINT PAGE -->
 <script>

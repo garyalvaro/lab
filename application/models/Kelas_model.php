@@ -60,6 +60,7 @@ class Kelas_model extends CI_Model
                 $this->db->join ( 'kelas', 'kelas.id_kelas = nilai.id_kelas' , 'left' );
                 $this->db->join ( 'user', 'user.nim = nilai.nim' , 'left' );
                 $this->db->join ( 'aslab', 'aslab.id_aslab = kelas.id_aslab' , 'left' );
+                $this->db->join ( 'dosen', 'dosen.nip = kelas.nip' , 'left' );
                 $this->db->join ( 'waktu', 'waktu.id_waktu = kelas.id_waktu' , 'left' );
                 $this->db->join ( 'ruang', 'ruang.id_ruang = kelas.id_ruang' , 'left' );
                 $this->db->where ( 'nilai.id_kelas', $id_kelas);
@@ -126,6 +127,12 @@ class Kelas_model extends CI_Model
                 return $query->result();
         }
         
+        public function get_dosen()
+        {
+                $query = $this->db->query('SELECT * FROM dosen;');
+                return $query->result();
+        }
+        
         public function get_namaaslab($id_aslab)
         {
                 $query = $this->db->query('SELECT nama_aslab FROM aslab WHERE id_aslab="'.$id_aslab.'"');
@@ -176,8 +183,8 @@ class Kelas_model extends CI_Model
                         return FALSE;
                 else //if kelas tidak ada
                 {
-                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, kode_enroll, tahun_ajaran, id_aslab, id_waktu, id_ruang) VALUES ("", "'.$data['nama_kelas'].' '.$data['kom'].'1", "'.$random1.'" , "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'", "0", "-")');
-                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, kode_enroll, tahun_ajaran, id_aslab, id_waktu, id_ruang) VALUES ("", "'.$data['nama_kelas'].' '.$data['kom'].'2", "'.$random2.'" , "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'", "0", "-")');
+                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, kode_enroll, tahun_ajaran, id_aslab, nip, id_waktu, id_ruang) VALUES ("", "'.$data['nama_kelas'].' '.$data['kom'].'1", "'.$random1.'" , "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'", "'.$data['nip'].'", "0", "-")');
+                        $this->db->query('INSERT INTO kelas (id_kelas, nama_kelas, kode_enroll, tahun_ajaran, id_aslab, nip, id_waktu, id_ruang) VALUES ("", "'.$data['nama_kelas'].' '.$data['kom'].'2", "'.$random2.'" , "'.$data['tahun_ajaran'].'", "'.$data['id_aslab'].'", "'.$data['nip'].'", "0", "-")');
                         $this->db->query('INSERT INTO nilai () VALUES ()');
                         return TRUE;
                 }
