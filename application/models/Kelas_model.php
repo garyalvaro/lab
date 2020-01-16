@@ -225,6 +225,13 @@ class Kelas_model extends CI_Model
                 else
                         return FALSE;
         }
+        public function tambah_mhs($data)
+        {
+                $id_kelas=$data['id_kelas'];
+                $nim=$data['nim'];
+                $this->db->query('INSERT INTO nilai (id_nilai, id_kelas, nim) VALUES ("", "'.$id_kelas.'" , "'.$nim.'")');
+                return TRUE;
+        }
 
         public function get_id_aslab($nim)
         {

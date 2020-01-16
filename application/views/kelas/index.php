@@ -55,6 +55,7 @@ if($this->session->flashdata())
                                         <td class="p-l-20"><?php echo $data->kode_enroll; ?></td>
                                         <td class="p-l-20"><?php echo $data->tahun_ajaran; ?></td>
                                         <td class="p-l-20">
+                                                <a href="<?php echo base_url();?>Kelas/mahasiswa/<?= $data->id_kelas; ?>" class="btn btn-warning"><span class="glyphicon glyphicon-cog"></span></a>
                                                 <a href="<?php echo base_url();?>Kelas/view/<?= $data->id_kelas; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
 <!--                                                <a href="<?php echo base_url();?>Kelas/delete/<?= $data->id_kelas; ?>" onClick="return confirm('Apakah yakin ingin menghapus kelas <?php echo $data->nama_kelas; ?>?')"  class="btn btn-danger"><span class="fa fa-trash"></span></a>-->
                                                 <button type="button" onClick="deleteData(<?= $data->id_kelas; ?>,'<?= $data->nama_kelas; ?>')"  class="btn btn-danger"><span class="fa fa-trash"></span></button>

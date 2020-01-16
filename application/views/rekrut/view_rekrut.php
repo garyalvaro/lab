@@ -229,7 +229,9 @@ $this->load->view('dashboard/rightside');
 <!--JS untuk Tabel-->
 <script>
 $(document).ready(function() {
-	$('#table_id').DataTable();
+	$('#table_id').DataTable({
+        "order": [[ 0, "desc" ]]
+    });
 } );
 </script>
 

@@ -2,16 +2,17 @@
 $this->load->view('dashboard/header');
 $this->load->view('dashboard/navbar');
 $this->load->view('dashboard/leftside');
-
 if($this->session->flashdata())
 {
-        if($this->session->flashdata('login_success'))
-                echo "<span id='login-success'></span>";
+        if($this->session->flashdata('add_success'))
+                echo "<span class='add-success'></span>";
+        if($this->session->flashdata('add_failed'))
+                echo "<span class='add-failed'></span>";
 }
-
 $id_kelas = $this->uri->segment(3);
 
 ?>
+
 
 <!-- TITLE -->
 <div class="row bg-title">
@@ -92,6 +93,7 @@ function nilaiHuruf($nilai)
 <script>
     $('#table_id').DataTable({
         dom: 'Bfrtip',
+        "order": [[ 1, "asc" ]],
         buttons: [
             'copy', 'csv', 'excel', 'pdf'
         ]
