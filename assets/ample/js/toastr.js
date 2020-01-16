@@ -72,6 +72,18 @@ $(document).ready(function () {
             stack: 6
         });
     });
+
+    $(".add-successs").show(function(){
+        $.toast({
+            heading: 'Mahasiswa Berhasil Ditambahkan ke dalam Kelas.',
+            text: 'Anda berhasil menambahkan mahasiswa.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'success',
+            hideAfter: 3500,
+            stack: 6
+        });
+    });
     
     $(".add-failed").show(function(){
         $.toast({

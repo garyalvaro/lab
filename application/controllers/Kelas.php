@@ -121,7 +121,7 @@ class Kelas extends CI_Controller
                 $this->Kelas_model->tambah_mhs($data);
 
             }
-            $this->session->set_flashdata('add_success','add success');
+            $this->session->set_flashdata('add_successs','add successs');
             redirect("kelas/view/$id_kelas");
         }
         public function absensi($id_kelas)

@@ -30,7 +30,16 @@ $id_kelas = $this->uri->segment(3);
 <!-- CONTENT -->
 <div class="col-sm-12">
         <div class="white-box">
-            <h3 class="box-title m-b-0">KELAS <?php foreach($detail as $data){ echo $data->nama_kelas; break; } ?> </h3>
+            <div class="row">            
+                <div class="col-sm-10">
+                    <h3 class="box-title m-b-0">KELAS <?php foreach($detail as $data){ echo $data->nama_kelas; break; } ?> </h3>
+                </div>
+                <div class="col-sm-2">
+                    <a href="<?php echo base_url();?>Kelas/mahasiswa/<?= $data->id_kelas; ?>" class="btn btn-warning"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Mahasiswa</a>
+                </div>
+            </div>
+            
+            
             <p class="text-muted m-b-30"> </p>
             
             <div class="table-responsive">

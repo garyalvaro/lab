@@ -78,31 +78,128 @@ $id_kelas = $this->uri->segment(3);
         <div class="white-box">
             
             <h3 class="box-title m-b-0">KELAS <?php foreach($detail as $data){ echo $data->nama_kelas; break; } ?> </h3>
-            <div class="row">
+            <div class="row mb-1">
                 <div class="col-sm-10">
-            <select id="stambuk" class="selectpicker" data-style="form-control" >
-                <option value="19A">Stambuk 2019 - KOM A</option>
-                <option value="19B">Stambuk 2019 - KOM B</option>
-                <option value="19C">Stambuk 2019 - KOM C</option>
-                <option value="18A">Stambuk 2018 - KOM A</option>
-                <option value="18B">Stambuk 2018 - KOM B</option>
-                <option value="18C">Stambuk 2018 - KOM C</option>
-                <option value="17A">Stambuk 2017 - KOM A</option>
-                <option value="17B">Stambuk 2017 - KOM B</option>
-                <option value="17C">Stambuk 2017 - KOM C</option>
-                <option value="16A">Stambuk 2016 - KOM A</option>
-                <option value="16B">Stambuk 2016 - KOM B</option>
-                <option value="16C">Stambuk 2016 - KOM C</option>
-            </select> <!-- 
-            <p id="result">Total Number of Items Selected = <p>   -->
-            
-        </div>
-            <div class="col-sm-2">
-            <form action="<?= base_url(); ?>Kelas/tbhMahasiswa/<?= $id_kelas; ?>" method="post">
-            <button type="submit" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah</button></div></div>
-            <p class="text-muted m-b-30"> </p>
+                    <select id="stambuk" class="selectpicker" data-style="form-control" >
+                        <option value="19A">Stambuk 2019 - KOM A</option>
+                        <option value="19B">Stambuk 2019 - KOM B</option>
+                        <option value="19C">Stambuk 2019 - KOM C</option>
+                        <option value="18A">Stambuk 2018 - KOM A</option>
+                        <option value="18B">Stambuk 2018 - KOM B</option>
+                        <option value="18C">Stambuk 2018 - KOM C</option>
+                        <option value="17A">Stambuk 2017 - KOM A</option>
+                        <option value="17B">Stambuk 2017 - KOM B</option>
+                        <option value="17C">Stambuk 2017 - KOM C</option>
+                        <option value="16A">Stambuk 2016 - KOM A</option>
+                        <option value="16B">Stambuk 2016 - KOM B</option>
+                        <option value="16C">Stambuk 2016 - KOM C</option>
+                    </select>             
+                </div>
+                <div class="col-sm-2">
+                    <form action="<?= base_url(); ?>Kelas/tbhMahasiswa/<?= $id_kelas; ?>" method="post">
+                    <button type="submit" class="btn btn-block btn-danger "><span class="glyphicon glyphicon-plus"></span>&nbsp;Tambah</button>
+                </div>
+            </div>
             
             <div class="table-responsive" >
+                <table class="table table-striped table-bordered" style="display: none;" id="table_17A">
+                    <thead>
+                    <tr class="thead-dark">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>KOM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($user as $data){?>
+                    <?php if (intval($data->nim/10000000)==17 && ($data->nim%1000)%3==1) { ?>
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
+                                <input id="<?php echo $data->nim; ?>" type="checkbox"  name="nim[]"  value="<?php echo $data->nim; ?>">
+                                <label for="<?php echo $data->nim; ?>"><?php echo $data->nim; ?></label>
+                            </div>
+                        </td>
+                        <td><?php echo $data->nama; ?></td>
+                        <td><?php
+                            $kom = ($data->nim%1000)%3;
+                            if ($kom==1) 
+                                echo "A";
+                            else if ($kom==2)
+                                echo "B";
+                            else
+                                echo "C";
+                         ?></td>
+                    </tr>
+                    <?php } } ?>
+                    </tbody>
+                </table>
+                <div class="table-responsive" >
+                <table class="table table-striped table-bordered" style="display: none;" id="table_17B">
+                    <thead>
+                    <tr class="thead-dark">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>KOM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($user as $data){?>
+                    <?php if (intval($data->nim/10000000)==17 && ($data->nim%1000)%3==2) { ?>
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
+                                <input id="<?php echo $data->nim; ?>" type="checkbox"  name="nim[]"  value="<?php echo $data->nim; ?>">
+                                <label for="<?php echo $data->nim; ?>"><?php echo $data->nim; ?></label>
+                            </div>
+                        </td>
+                        <td><?php echo $data->nama; ?></td>
+                        <td><?php
+                            $kom = ($data->nim%1000)%3;
+                            if ($kom==1) 
+                                echo "A";
+                            else if ($kom==2)
+                                echo "B";
+                            else
+                                echo "C";
+                         ?></td>
+                    </tr>
+                    <?php } } ?>
+                    </tbody>
+                </table>
+                <div class="table-responsive" >
+                <table class="table table-striped table-bordered" style="display: none;" id="table_17C">
+                    <thead>
+                    <tr class="thead-dark">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>KOM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($user as $data){?>
+                    <?php if (intval($data->nim/10000000)==17 && ($data->nim%1000)%3==0) { ?>
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
+                                <input id="<?php echo $data->nim; ?>" type="checkbox"  name="nim[]"  value="<?php echo $data->nim; ?>">
+                                <label for="<?php echo $data->nim; ?>"><?php echo $data->nim; ?></label>
+                            </div>
+                        </td>
+                        <td><?php echo $data->nama; ?></td>
+                        <td><?php
+                            $kom = ($data->nim%1000)%3;
+                            if ($kom==1) 
+                                echo "A";
+                            else if ($kom==2)
+                                echo "B";
+                            else
+                                echo "C";
+                         ?></td>
+                    </tr>
+                    <?php } } ?>
+                    </tbody>
+                </table>
                 <table class="table table-striped table-bordered" style="" id="table_19A">
                     <thead>
                     <tr class="thead-dark">
@@ -308,6 +405,7 @@ $id_kelas = $this->uri->segment(3);
 <?php
 $this->load->view('dashboard/rightside');
 ?>
+
 <script type="text/javascript">
     $(function() {
         $('#colorselector').change(function(){
@@ -443,7 +541,102 @@ $this->load->view('dashboard/rightside');
         }
     });
 </script> 
+<!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    
+    
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- jQuery -->
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/ample/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/ample/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="<?php echo base_url(); ?>assets/ample/js/waves.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/js/toastr.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="<?php echo base_url(); ?>assets/ample/js/custom.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/ample/js/jasny-bootstrap.js"></script>
+    <!-- start - This is for export functionality only -->
+<!--
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+-->
+    <!-- end - This is for export functionality only -->
+    
+    
+    <script>
+//    $(document).ready(function() {
+//        $('#myTable').DataTable();
+//        $(document).ready(function() {
+//            var table = $('#example').DataTable({
+//                "columnDefs": [{
+//                    "visible": false,
+//                    "targets": 2
+//                }],
+//                "order": [
+//                    [2, 'asc']
+//                ],
+//                "displayLength": 25,
+//                "drawCallback": function(settings) {
+//                    var api = this.api();
+//                    var rows = api.rows({
+//                        page: 'current'
+//                    }).nodes();
+//                    var last = null;
+//                    api.column(2, {
+//                        page: 'current'
+//                    }).data().each(function(group, i) {
+//                        if (last !== group) {
+//                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+//                            last = group;
+//                        }
+//                    });
+//                }
+//            });
+//            // Order by the grouping
+//            $('#example tbody').on('click', 'tr.group', function() {
+//                var currentOrder = table.order()[0];
+//                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+//                    table.order([2, 'desc']).draw();
+//                } else {
+//                    table.order([2, 'asc']).draw();
+//                }
+//            });
+//        });
+//    });
+//    $('#example23').DataTable({
+//        dom: 'Bfrtip',
+//        buttons: [
+//            'copy', 'csv', 'excel', 'pdf', 'print'
+//        ]
+//    });
+    </script>
+    <!--Style Switcher -->
+    <script src="<?php echo base_url(); ?>assets/ample/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
 
-<?php
-$this->load->view('dashboard/footer');
-?>
+<script>
+if ('serviceWorker' in navigator) {    console.log("Will the service worker register?");    navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){        console.log("Yes, it did.");     }).catch(function(err) {        console.log("No it didn't. This happened:", err)    });
+ }
+</script>
+
+</html>
+
