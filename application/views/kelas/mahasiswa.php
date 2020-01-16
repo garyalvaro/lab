@@ -35,7 +35,8 @@ if(!$this->session->userdata('logged_in')){
     <link href="<?php echo base_url(); ?>assets/css/custom_xixil.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="<?php echo base_url(); ?>assets/ample/css/colors/megna-dark.css" id="theme" rel="stylesheet">
-        
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
 </head>
 
 <body class="fix-header">
@@ -72,10 +73,10 @@ $id_kelas = $this->uri->segment(3);
                 
         </div>
 </div>
-
 <!-- CONTENT -->
 <div class="col-sm-12">
         <div class="white-box">
+            
             <h3 class="box-title m-b-0">KELAS <?php foreach($detail as $data){ echo $data->nama_kelas; break; } ?> </h3>
             <div class="row">
                 <div class="col-sm-10">
@@ -113,6 +114,70 @@ $id_kelas = $this->uri->segment(3);
                     <tbody>
                     <?php foreach($user as $data){?>
                     <?php if (intval($data->nim/10000000)==19 && ($data->nim%1000)%3==1) { ?>
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
+                                <input id="<?php echo $data->nim; ?>" type="checkbox"  name="nim[]"  value="<?php echo $data->nim; ?>">
+                                <label for="<?php echo $data->nim; ?>"><?php echo $data->nim; ?></label>
+                            </div>
+                        </td>
+                        <td><?php echo $data->nama; ?></td>
+                        <td><?php
+                            $kom = ($data->nim%1000)%3;
+                            if ($kom==1) 
+                                echo "A";
+                            else if ($kom==2)
+                                echo "B";
+                            else
+                                echo "C";
+                         ?></td>
+                    </tr>
+                    <?php } } ?>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered"  id="table_19B" style="display: none;">
+                    <thead>
+                    <tr class="thead-dark">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>KOM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($user as $data){?>
+                    <?php if (intval($data->nim/10000000)==19 && ($data->nim%1000)%3==2) { ?>
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
+                                <input id="<?php echo $data->nim; ?>" type="checkbox"  name="nim[]"  value="<?php echo $data->nim; ?>">
+                                <label for="<?php echo $data->nim; ?>"><?php echo $data->nim; ?></label>
+                            </div>
+                        </td>
+                        <td><?php echo $data->nama; ?></td>
+                        <td><?php
+                            $kom = ($data->nim%1000)%3;
+                            if ($kom==1) 
+                                echo "A";
+                            else if ($kom==2)
+                                echo "B";
+                            else
+                                echo "C";
+                         ?></td>
+                    </tr>
+                    <?php } } ?>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered"  id="table_19C" style="display: none;">
+                    <thead>
+                    <tr class="thead-dark">
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>KOM</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($user as $data){?>
+                    <?php if (intval($data->nim/10000000)==19 && ($data->nim%1000)%3==0) { ?>
                     <tr>
                         <td>
                             <div class="checkbox checkbox-primary" style="margin-top: 0px !important;margin-bottom: 0px !important;">
@@ -235,13 +300,22 @@ $id_kelas = $this->uri->segment(3);
                 </table>
             </div>
         </form>
+
         </div>
+
 </div>
 
 <?php
 $this->load->view('dashboard/rightside');
 ?>
-
+<script type="text/javascript">
+    $(function() {
+        $('#colorselector').change(function(){
+            $('.colors').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+</script>
 <!-- <script>
             showChecked();
             function showChecked(){
@@ -257,6 +331,101 @@ $this->load->view('dashboard/rightside');
     $("#stambuk").change(function(){
         if($(this).val() == '18A'){
             $("#table_18A").show();
+            $("#table_19A").hide();
+            $("#table_19B").hide();
+            $("#table_19C").hide();
+            $("#table_18B").hide();
+            $("#table_18C").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '18B'){
+            $("#table_18B").show();
+            $("#table_18A").hide();
+            $("#table_19B").hide();
+            $("#table_19C").hide();
+            $("#table_19A").hide();
+            $("#table_18C").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '18C'){
+            $("#table_18C").show();
+            $("#table_18A").hide();
+            $("#table_19B").hide();
+            $("#table_19C").hide();
+            $("#table_19A").hide();
+            $("#table_18B").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '19A'){
+            $("#table_19A").show();
+            $("#table_18A").hide();
+            $("#table_19B").hide();
+            $("#table_19C").hide();
+            $("#table_18B").hide();
+            $("#table_18C").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '19B'){
+            $("#table_19B").show();
+            $("#table_18A").hide();
+            $("#table_19A").hide();
+            $("#table_19C").hide();
+            $("#table_18B").hide();
+            $("#table_18C").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '19C'){
+            $("#table_19C").show();
+            $("#table_18A").hide();
+            $("#table_19A").hide();
+            $("#table_19B").hide();
+            $("#table_18B").hide();
+            $("#table_18C").hide();
+            $("#table_17A").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
+        }
+        else if($(this).val() == '17A'){
+            $("#table_17A").show();
+            $("#table_18A").hide();
+            $("#table_19A").hide();
+            $("#table_19B").hide();
+            $("#table_18B").hide();
+            $("#table_18C").hide();
+            $("#table_19C").hide();
+            $("#table_17B").hide();
+            $("#table_17C").hide();
+            $("#table_16A").hide();
+            $("#table_16B").hide();
+            $("#table_16C").hide();
         }
         else{
             $("#table_19A").hide();
@@ -272,6 +441,7 @@ $this->load->view('dashboard/rightside');
             $("#table_16B").hide();
             $("#table_16C").hide();
         }
+    });
 </script> 
 
 <?php
